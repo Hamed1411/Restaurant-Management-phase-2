@@ -151,11 +151,18 @@ void Restaurant::ExecuteCurrentActions()
 {
     Action* pAct = nullptr;
 
-    while (ACTIONS_LIST.peek(pAct) && pAct->getActionTime() == currentTime)
+    while (ACTIONS_LIST.peek(pAct))
     {
-        ACTIONS_LIST.dequeue(pAct);
-        pAct->ACT();
-        delete pAct;
+
+        if (pAct->getActionTime() == currentTime) {
+            ACTIONS_LIST.dequeue(pAct);
+            pAct->ACT();
+            delete pAct;
+        }
+        else {
+            break; // No more actions for the current timestep
+        }
+
     }
 }
 
@@ -340,8 +347,6 @@ void Restaurant::MovePendingToCooking()
 
 void Restaurant::MoveCookingToReady()
 {
-    if (rand() % 100 >= 75)
-        return;
 
     PriQueueWithCancel tempQueue;
 
@@ -355,7 +360,7 @@ void Restaurant::MoveCookingToReady()
             continue;
 
         
-        if (pOrd->getTR() <= currentTime && movedCount < 15)
+        if (pOrd->getTR() <= currentTime )
         {
             chef* pChef = pOrd->getChef();
 
@@ -369,7 +374,8 @@ void Restaurant::MoveCookingToReady()
 
             if (pOrd->isTakeaway())
             {
-                RDY_OT.enqueue(pOrd);
+                pOrd->setTF(currentTime); // Finish time is exactly now
+                Finished_orders.push(pOrd); // Move directly to finished
             }
             else if (pOrd->isDineIn())
             {
@@ -403,16 +409,16 @@ void Restaurant::MoveReadyToService()
     {
         order* pOrd = nullptr;
 
-        if (RDY_OT.dequeue(pOrd))
-        {
-            if (pOrd != nullptr)
-            {
-                pOrd->setTS(currentTime);
-                pOrd->setTF(currentTime + 1);
-                Finished_orders.push(pOrd);
-            }
-            continue;
-        }
+        //if (RDY_OT.dequeue(pOrd))
+        //{
+        //    if (pOrd != nullptr)
+        //    {
+        //        pOrd->setTS(currentTime);
+        //        pOrd->setTF(currentTime + 1);
+        //        Finished_orders.push(pOrd);
+        //    }
+        //    continue;
+        //}
 
         if (RDY_OD.dequeue(pOrd))
         {
@@ -699,9 +705,9 @@ void Restaurant::OutputStatusBar()
     RDY_OD.print();
     cout << endl;
 
-    cout << RDY_OT.getCount() << " RDY_OT: ";
-    RDY_OT.print();
-    cout << endl;
+    //cout << RDY_OT.getCount() << " RDY_OT: ";
+    //RDY_OT.print();
+    //cout << endl;
 
     cout << RDY_OV_List.getCount() << " RDY_OV: ";
     RDY_OV_List.print();

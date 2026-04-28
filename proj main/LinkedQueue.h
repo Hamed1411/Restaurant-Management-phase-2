@@ -10,6 +10,33 @@ using namespace std;
 template <typename T>
 class LinkedQueue :public QueueADT<T>
 {
+private:
+	void printRec(Node<T>* curr) const
+	{
+		// Base Case
+		if (curr == nullptr) {
+			return;
+		}
+		cout << curr->getItem();
+
+		if (curr->getNext() != nullptr) {
+			cout << ", ";
+			printRec(curr->getNext());
+		}
+	}
+
+
+	void printRecursive2(Node<T>* curr) const {
+		if (curr == nullptr) return; // Base Case: End of list
+
+		// Use the wrapper to ensure only IDs print
+		cout << OrderIDOnly(curr->getItem());
+
+		if (curr->getNext() != nullptr) {
+			cout << ", ";
+			printRecursive2(curr->getNext()); // Recursive Step: Move to next
+		}
+	}
 protected:
 	Node<T>* backPtr;
 	Node<T>* frontPtr;
@@ -158,20 +185,19 @@ inline void LinkedQueue<T>::printQueue() const
 template <typename T>
 void LinkedQueue<T>::print() const
 {
-	printQueue();
+	if (isEmpty()) {
+		cout << "The list is empty.";
+	}
+	else {
+		printRec(frontPtr); 
+	}
+	cout << endl;
 }
 
 template<typename T>
 inline void LinkedQueue<T>::print2() const
 {
-	Node<order*>* current = frontPtr;
-	while (current != nullptr) {
-		// Wrap the order* in OrderIDOnly to use the ID-only version
-		cout << OrderIDOnly(current->getItem());
-
-		current = current->getNext();
-		if (current != nullptr) cout << ", ";
-	}
+	printRecursive2(frontPtr);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

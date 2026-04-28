@@ -15,6 +15,7 @@ public :
 	void setNext(Node<T>* nextNodePtr);
 	T getItem() const ;
 	Node<T>* getNext() const ;
+	Node<T>*& getNextPointerReference();
 }; 
 #endif
 
@@ -60,3 +61,10 @@ Node<T>* Node<T>::getNext() const
 {
 	return next;
 } 
+
+
+template < typename T>
+
+Node<T>*& Node<T>::getNextPointerReference() {
+	return next;
+}

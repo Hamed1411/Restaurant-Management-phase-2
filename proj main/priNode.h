@@ -31,5 +31,8 @@ public :
 	
 	int getPri() const
 	{		return pri; 	}
+
+	priNode<T>*& getNextPointerReference()
+	{		return next; 	}	
 }; 
 

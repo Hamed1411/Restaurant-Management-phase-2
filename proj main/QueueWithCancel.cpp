@@ -1,43 +1,30 @@
 #include "QueueWithCancel.h"
 
+Node<order*>* QueueWithCancel::recursiveRemove(Node<order*>*& curr, int id, order*& foundOrd)
+{
+	if (curr == nullptr) return nullptr; // Base case: ID not found
+
+	if (curr->getItem()->getID() == id) {
+		foundOrd = curr->getItem();      // Capture the order
+		Node<order*>* temp = curr;
+		curr = curr->getNext();          
+		return temp;                     // Return node to be deleted
+	}
+
+	return recursiveRemove(curr->getNextPointerReference(), id, foundOrd);
+}
+
 bool QueueWithCancel::cancelOrderByID(int id, order*& removed)
 {
 	
-	removed = nullptr;
-
-	if (this->isEmpty()) return false; 
-
-	Node<order*>* prev = nullptr;
-	Node<order*>* curr = this->frontPtr;
-
-	while (curr != nullptr) {
-		order* item = curr->getItem();
-		if (item != nullptr && item->getID() == id) { 
-			removed = item; 
-
-			if (prev == nullptr) { 
-				this->frontPtr = curr->getNext();
-
-				
-				if (this->frontPtr == nullptr) this->backPtr = nullptr;
-			}
-			else { 
-				prev->setNext(curr->getNext());
-			}
-
-			if (curr == this->backPtr) { 
-				this->backPtr = prev;
-			}
-
-			delete curr; 
-			--this->count; 
-			return true; 
-		}
-		prev = curr;
-		curr = curr->getNext();
+	Node<order*>* toDelete = recursiveRemove(frontPtr, id, removed);
+	if (toDelete) {
+		delete toDelete; 
+		return true;
 	}
-	
-	return false; 
+	return false;
 }
+
+
 
 

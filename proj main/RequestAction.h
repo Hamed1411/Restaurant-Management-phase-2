@@ -9,7 +9,8 @@ private:
     ORDER_TYPE type; 
     int ID;
     int size;      
-    int money;     
+    int money;    
+    int dist; 
 
 
 public:
@@ -20,6 +21,11 @@ public:
     virtual void ACT() override
     {
         order* pOrd = new order(ID, type, ActionTime, size, money);
+
+        // Set specific attributes based on type
+        if (pOrd->isDelivery()) pOrd->setDistance(dist); 
+        if (pOrd->isDineIn()) pOrd->setSeats(size);
+
         pRest->AddOrderToPending(pOrd);
     }
 };

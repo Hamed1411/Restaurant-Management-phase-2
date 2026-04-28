@@ -2,34 +2,37 @@
 
 
 
+priNode<order*>* PriQueueWithCancel::recursiveRemove(priNode<order*>*& curr, int id, order*& foundOrd)
+{
+	int pri;
+	// Base Case 1: ID not found/End of list
+	if (curr == nullptr) return nullptr;
+
+	// Base Case 2: ID Match
+	if (curr->getItem(pri)->getID() == id) {
+		foundOrd = curr->getItem(pri);      // Save the order pointer
+		priNode<order*>* temp = curr;    // Save the node to delete
+		curr = curr->getNext();          
+		return temp;                     
+	}
+
+	
+	return recursiveRemove(curr->getNextPointerReference(), id, foundOrd);
+}
+
 bool PriQueueWithCancel::cancelOrderByID(int id, order*& removed)
 {
-	if (this->isEmpty()) return false; 
+	removed = nullptr;
+	if (isEmpty()) return false;
 
-	priNode<order*>* prev = nullptr;
-	priNode<order*>* curr = this->head;
+	// Start recursion from the head 
+	priNode<order*>* toDelete = recursiveRemove(head, id, removed);
 
-	while (curr != nullptr) {
-		int pri;
-		order* pOrd = curr->getItem(pri);
-		if (pOrd->getID() == id) {
-			removed = pOrd; 
-			if (prev == nullptr) { 
-				this->head = curr->getNext();
-			}
-			else { 
-				prev->setNext(curr->getNext());
-			}
-			delete curr; 
-			this->count--; 
-			return true; 
-
-
-		}
-		prev = curr;
-		curr = curr->getNext();
+	if (toDelete != nullptr) {
+		delete toDelete; // Delete 
+		return true;
 	}
-	removed = nullptr; 
-	return false; 
+
+	return false; // ID was not found in the list
 }
 

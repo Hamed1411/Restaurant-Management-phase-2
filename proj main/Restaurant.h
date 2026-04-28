@@ -35,7 +35,7 @@ private:
     ArrayStack<order*>      Finished_orders;
     PriQueueWithCancel      Cooking_Orders;
 
-    LinkedQueue<order*>     RDY_OT;
+  //  LinkedQueue<order*>     RDY_OT;
     QueueWithCancel         RDY_OV_List;
     LinkedQueue<order*>     RDY_OD;
 

@@ -14,7 +14,19 @@
 template<typename T>
 class ArrayStack : public StackADT<T>
 {
+private:
 	enum { MAX_SIZE = 100 };
+
+void printRec(int index) const {
+	if (index < 0) return; // Base Case
+
+	cout << OrderIDOnly(items[index]);
+
+	if (index > 0) {
+		cout << ", ";
+		printRec(index - 1); // Recursive Step: Move to the next item down
+	}
+}
 protected:
 	T items[MAX_SIZE];		// Array of stack items
 	int top;                   // Index to top of stack
@@ -65,15 +77,7 @@ public:
 	} // end getCount
 
 	void printStack() const {
-		// Assuming top is the index of the last element
-		for (int i = top; i >= 0; i--) {
-			// Wrap the order pointer to trigger the ID-only output
-			cout << OrderIDOnly(items[i]);
-
-			if (i > 0) {
-				cout << ", ";
-			}
-		}
+		printRec(top);
 	}
 
 	
