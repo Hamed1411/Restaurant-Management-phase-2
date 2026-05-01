@@ -269,78 +269,60 @@ void Restaurant::SimulateOneTimeStep()
 
 void Restaurant::MovePendingToCooking()
 {
-    for (int i = 0; i < 30; i++)
-    {
-        int choice = rand() % 6;
-        order* pOrd = nullptr;
-        bool done = false;
+    chef* pChef = nullptr;
+    order* pOrd = nullptr;
 
-        switch (choice)
-        {
-        case 0:
-            done = PEND_ODG.dequeue(pOrd);
-            break;
+    // Assign OD orders
+   
+    // ODG -> CS only
+    while (!PEND_ODG.isEmpty() && Free_CS.peek(pChef)) {
+        Free_CS.dequeue(pChef);
+        PEND_ODG.dequeue(pOrd);
+        BindOrderToChef(pOrd, pChef);
+    }
 
-        case 1:
-            done = PEND_ODN.dequeue(pOrd);
-            break;
 
-        case 2:
-            done = PEND_OT.dequeue(pOrd);
-            break;
-
-        case 3:
-            done = PEND_OVN.dequeue(pOrd);
-            break;
-
-        case 4:
-            done = PEND_OVC.dequeue(pOrd);
-            break;
-
-        case 5:
-        {
-            int pri = 0;
-            done = PEND_OVG.dequeue(pOrd, pri);
-            break;
+    // ODN -> CN, then CS
+    while (!PEND_ODN.isEmpty()) {
+        if (Free_CN.dequeue(pChef) || Free_CS.dequeue(pChef)) {
+            PEND_ODN.dequeue(pOrd);
+            BindOrderToChef(pOrd, pChef);
         }
+        else break;
+    }
+
+    //Assign OT orders -> CN only
+
+    while (!PEND_OT.isEmpty() && Free_CN.peek(pChef)) {
+        Free_CN.dequeue(pChef);
+        PEND_OT.dequeue(pOrd);
+        BindOrderToChef(pOrd, pChef);
+    }
+
+    // Assign OV orders
+     
+    // OVG -> CS only 
+    while (!PEND_OVG.isEmpty() && Free_CS.peek(pChef)) {
+        int pri;
+        Free_CS.dequeue(pChef);
+        PEND_OVG.dequeue(pOrd, pri);
+        BindOrderToChef(pOrd, pChef);
+    }
+
+    // OVC -> CN, then CS
+    while (!PEND_OVC.isEmpty()) {
+        if (Free_CN.dequeue(pChef) || Free_CS.dequeue(pChef)) {
+            PEND_OVC.dequeue(pOrd);
+            BindOrderToChef(pOrd, pChef);
         }
+        else break;
+    }
 
-        if (!done || pOrd == nullptr)
-            continue;
-
-        chef* pChef = nullptr;
-        bool chefAssigned = false;
-
-       
-        if (pOrd->isGrilled())
-        {
-            chefAssigned = Free_CS.dequeue(pChef);
-        }
-        else
-        {
-            if (rand() % 2 == 0)
-                chefAssigned = Free_CN.dequeue(pChef);
-            else
-                chefAssigned = Free_CS.dequeue(pChef);
-
-            if (!chefAssigned)
-                chefAssigned = Free_CN.dequeue(pChef);
-
-            if (!chefAssigned)
-                chefAssigned = Free_CS.dequeue(pChef);
-        }
-
-        if (!chefAssigned || pChef == nullptr)
-        {
-            AddOrderToPending(pOrd);
-            continue;
-        }
-
-        pOrd->setChef(pChef);   
-        pOrd->setTA(currentTime);
-        pOrd->setTR(currentTime + RandomInt(1, 4));
-
-        Cooking_Orders.enqueue(pOrd, 100 - pOrd->getTR());
+    // OVN -> CN only
+    while (!PEND_OVN.isEmpty() && Free_CN.peek(pChef)) {
+        Free_CN.dequeue(pChef);
+        PEND_OVN.dequeue(pOrd);
+        BindOrderToChef(pOrd, pChef);
     }
 }
 
@@ -374,8 +356,8 @@ void Restaurant::MoveCookingToReady()
 
             if (pOrd->isTakeaway())
             {
-                pOrd->setTF(currentTime); // Finish time is exactly now
-                Finished_orders.push(pOrd); // Move directly to finished
+                pOrd->setTR(currentTime); 
+                RDY_OT.enqueue(pOrd); 
             }
             else if (pOrd->isDineIn())
             {
@@ -409,16 +391,16 @@ void Restaurant::MoveReadyToService()
     {
         order* pOrd = nullptr;
 
-        //if (RDY_OT.dequeue(pOrd))
-        //{
-        //    if (pOrd != nullptr)
-        //    {
-        //        pOrd->setTS(currentTime);
-        //        pOrd->setTF(currentTime + 1);
-        //        Finished_orders.push(pOrd);
-        //    }
-        //    continue;
-        //}
+        if (RDY_OT.dequeue(pOrd))
+        {
+            if (pOrd != nullptr)
+            {
+                pOrd->setTS(currentTime);
+                pOrd->setTF(currentTime + 1);
+                Finished_orders.push(pOrd);
+            }
+            continue;
+        }
 
         if (RDY_OD.dequeue(pOrd))
         {
@@ -618,6 +600,37 @@ bool Restaurant::AllOrdersDone() const
     return Finished_orders.getCount() + Cancelled_orders.getCount() >= totalGeneratedOrders;
 }
 
+// new //
+void Restaurant::BindOrderToChef(order* pOrd, chef* pChef)
+{
+    pChef->setBusy(true);
+    pOrd->setChef(pChef);
+
+    // Set Assigned Time (TA) and calculate Wait Time (TW)
+    pOrd->setTA(currentTime);
+    pOrd->setTW(currentTime - pOrd->getTS());
+
+    // Calculate Cook Time
+    // If a Normal chef takes a Grilled order, speed is halved
+    int speed = pChef->getSpeed();
+    if (pChef->getType() == CN && pOrd->isGrilled()) {
+        speed /= 2; 
+    }
+
+    // Ensure speed is at least 1 to avoid division by zero or negative cook times
+    if (speed < 1) speed = 1;
+
+    int cookTime = pOrd->getDuration() / speed;
+
+    // CookTime should be at least 1 timestep
+    if (cookTime < 1) cookTime = 1;
+
+    // Set Ready Time (TR) 
+    pOrd->setTR(currentTime + cookTime);
+
+   
+    Cooking_Orders.enqueue(pOrd, pOrd->getTR());
+}
 
 void Restaurant::OutputStatusBar()
 {
@@ -705,9 +718,9 @@ void Restaurant::OutputStatusBar()
     RDY_OD.print();
     cout << endl;
 
-    //cout << RDY_OT.getCount() << " RDY_OT: ";
-    //RDY_OT.print();
-    //cout << endl;
+    cout << RDY_OT.getCount() << " RDY_OT: ";
+    RDY_OT.print();
+    cout << endl;
 
     cout << RDY_OV_List.getCount() << " RDY_OV: ";
     RDY_OV_List.print();

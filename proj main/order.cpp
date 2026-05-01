@@ -91,6 +91,11 @@ int order::getTF() const
     return TF;
 }
 
+int order::getTW() const
+{
+    return TW;
+}
+
 int order::getDistance() const
 {
     return distance;
@@ -149,6 +154,11 @@ void order::setTS(int t)
 void order::setTF(int t)
 {
     TF = t;
+}
+
+void order::setTW(int t)
+{
+    TW = t;
 }
 
 void order::setDistance(int d)
@@ -255,15 +265,20 @@ void order::Print() const
     cout << "[" << getTypeAsString() << ", " << ID << "]";
 }
 
+// NEW
 double order::getPriority() const
 {
-    if (type == OVG || type == ODG)
+    if (type == OVG)
     {
         if (size <= 0 || TQ <= 0)
             return 0;
 
-        return (double)price / (size * TQ);
+        // High price and small distance = High priority
+        // Weights: Price (40%), Distance (30%), Size (30%)
+        double priority = getPrice() * 0.4 + (100.0 / getDistance()) * 0.3 + getSize() * 0.3;
+        return priority;
     }
+    
 
     return 0;
 }

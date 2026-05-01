@@ -20,7 +20,7 @@ private:
 	ORDER_TYPE type;
 	int size;
 	double price;
-	int TQ, TA, TR, TS, TF; // Requested, Assigned to chef, Ready, Service starts, Finished
+	int TQ, TA, TR, TS, TF, TW; // Requested, Assigned to chef, Ready, Service starts, Finished, Wait times
 	int distance;
 	int seats;
 	int duration;
@@ -41,6 +41,7 @@ public:
 	int getTR() const;
 	int getTS() const;
 	int getTF() const;
+	int getTW() const;
 	int getDistance() const;
 	int getSeats() const;
 	int getDuration() const;
@@ -54,6 +55,7 @@ public:
 	void setTR(int t);
 	void setTS(int t);
 	void setTF(int t);
+	void setTW(int t);
 	void setDistance(int d);
 	void setSeats(int s);
 	void setDuration(int d);

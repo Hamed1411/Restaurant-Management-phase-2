@@ -35,7 +35,7 @@ private:
     ArrayStack<order*>      Finished_orders;
     PriQueueWithCancel      Cooking_Orders;
 
-  //  LinkedQueue<order*>     RDY_OT;
+    LinkedQueue<order*>     RDY_OT;
     QueueWithCancel         RDY_OV_List;
     LinkedQueue<order*>     RDY_OD;
 
@@ -60,11 +60,13 @@ public:
 
     void ReadInputFile(string fileName);
     void ExecuteCurrentActions();
+
     void Simulate();
 
-    void InitializePhase1();
-    void GenerateRandomOrders(int count);
-    void RunPhase1Simulation();
+    void InitializePhase1(); ////////////
+    void GenerateRandomOrders(int count); //////////////
+    void RunPhase1Simulation(); ///////////
+
     void SimulateOneTimeStep();
 
     void MovePendingToCooking();
@@ -77,6 +79,9 @@ public:
     void HandleBackScooters();
     void HandleMaintenanceScooters();
     bool AllOrdersDone() const;
+
+
+    void BindOrderToChef(order* pOrd, chef* pChef); // new 
 
     void OutputStatusBar();
 }; 

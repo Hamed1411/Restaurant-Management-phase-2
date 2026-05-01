@@ -14,6 +14,7 @@ private:
     int ID;
     CHEF_TYPE type;
     int speed;
+    bool busy = false;
 
 public:
     chef();
@@ -24,6 +25,9 @@ public:
     int getSpeed() const;
 
     void setSpeed(int s);
+
+    bool isBusy() const { return busy; }
+    void setBusy(bool b) { busy = b; }
 
     void Print() const;
 
