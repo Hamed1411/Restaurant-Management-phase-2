@@ -80,9 +80,11 @@ public:
     void HandleMaintenanceScooters();
     bool AllOrdersDone() const;
     int CalculateDeliveryServiceTime(order* pOrd, scooter* pScooter);
+    bool SimulationFinished() const;
 
 
     void BindOrderToChef(order* pOrd, chef* pChef); // new 
 
     void OutputStatusBar();
+    
 }; 

@@ -123,41 +123,125 @@ void Restaurant::GenerateRandomOrders(int count)
 void Restaurant::ReadInputFile(string fileName)
 {
     ifstream inFile(fileName);
-    char actionType;
 
-    while (inFile >> actionType)
+    if (!inFile)
     {
-        if (actionType == 'R')
-        {
-            int TS, ID, size, money;
-            char typeChar;
+        cout << "Error: input file not found." << endl;
+        return;
+    }
 
-            inFile >> TS >> typeChar >> ID >> size >> money;
+    int numCN, numCS;
+    int speedCN, speedCS;
+    int scooterCount, scooterSpeed;
+    int mainOrds, mainDur;
+    int totalTables;
+    int tableCount, capacity;
+    int TH;
+    int M;
+
+    inFile >> numCN >> numCS;
+    inFile >> speedCN >> speedCS;
+    inFile >> scooterCount >> scooterSpeed;
+    inFile >> mainOrds >> mainDur;
+    inFile >> totalTables;
+
+    int tableID = 1;
+    int loadedTables = 0;
+
+    while (loadedTables < totalTables)
+    {
+        inFile >> tableCount >> capacity;
+
+        for (int i = 0; i < tableCount; i++)
+        {
+            table* t = new table(tableID, capacity);
+            Free_Tables.enqueue(t, 100 - capacity);
+            tableID++;
+            loadedTables++;
+        }
+    }
+
+    inFile >> TH;
+    inFile >> M;
+
+    for (int i = 1; i <= numCN; i++)
+    {
+        chef* c = new chef(100 + i, CN, speedCN);
+        Free_CN.enqueue(c);
+    }
+
+    for (int i = 1; i <= numCS; i++)
+    {
+        chef* c = new chef(200 + i, CS, speedCS);
+        Free_CS.enqueue(c);
+    }
+
+    for (int i = 1; i <= scooterCount; i++)
+    {
+        scooter* s = new scooter(i, scooterSpeed, mainOrds);
+        Free_Scooters.enqueue(s, 100 - i);
+    }
+
+    for (int i = 0; i < M; i++)
+    {
+        char actionType;
+        inFile >> actionType;
+
+        if (actionType == 'Q')
+        {
+            string typeText;
+            int TQ, ID, size, price;
+
+            inFile >> typeText >> TQ >> ID >> size >> price;
 
             ORDER_TYPE type = OT;
 
-            if (typeChar == 'G')
+            if (typeText == "ODG")
                 type = ODG;
-            else if (typeChar == 'D')
+            else if (typeText == "ODN")
                 type = ODN;
-            else if (typeChar == 'T')
+            else if (typeText == "OT")
                 type = OT;
-            else if (typeChar == 'V')
-                type = OVG;
-            else if (typeChar == 'N')
-                type = OVN;
-            else if (typeChar == 'C')
+            else if (typeText == "OVC")
                 type = OVC;
+            else if (typeText == "OVG")
+                type = OVG;
+            else if (typeText == "OVN")
+                type = OVN;
 
-            Action* pAct = new RequestAction(TS, type, ID, size, money, this);
+            order* pOrd = new order(ID, type, TQ, size, price);
+
+            if (pOrd->isDineIn())
+            {
+                int seats, duration;
+                char canShareChar;
+
+                inFile >> seats >> duration >> canShareChar;
+
+                pOrd->setSeats(seats);
+                pOrd->setDuration(duration);
+                pOrd->setCanShare(canShareChar == 'Y' || canShareChar == 'y');
+            }
+            else if (pOrd->isDelivery())
+            {
+                int distance;
+                inFile >> distance;
+                pOrd->setDistance(distance);
+            }
+
+            Action* pAct = new RequestAction(TQ, type, ID, size, price, this);
+
+            // Important:
+            // If your RequestAction cannot store pOrd extra fields yet,
+            // then later you need to update RequestAction to pass seats/distance.
             ACTIONS_LIST.enqueue(pAct);
         }
         else if (actionType == 'X')
         {
-            int TS, ID;
-            inFile >> TS >> ID;
+            int Tcancel, ID;
+            inFile >> Tcancel >> ID;
 
-            Action* pAct = new CancelAction(TS, ID, this);
+            Action* pAct = new CancelAction(Tcancel, ID, this);
             ACTIONS_LIST.enqueue(pAct);
         }
     }
@@ -233,21 +317,38 @@ void Restaurant::HandleCancelOrder(int id)
         cout << "Cancel Failed: Order " << id << " not found in Cancellable list." << endl;
     }
 }
+bool Restaurant::SimulationFinished() const
+{
+    return ACTIONS_LIST.isEmpty()
+        && PEND_ODG.isEmpty()
+        && PEND_ODN.isEmpty()
+        && PEND_OT.isEmpty()
+        && PEND_OVC.isEmpty()
+        && PEND_OVN.isEmpty()
+        && PEND_OVG.isEmpty()
+        && Cooking_Orders.isEmpty()
+        && RDY_OD.isEmpty()
+        && RDY_OT.isEmpty()
+        && RDY_OV_List.isEmpty()
+        && InServ_Orders.isEmpty();
+}
 
 
 void Restaurant::Simulate()
 {
-    ReadInputFile("input.txt");
-
-    while (!ACTIONS_LIST.isEmpty())
+    while (!SimulationFinished())
     {
-        cout << "\n--- Timestep " << currentTime << " ---" << endl;
-
         ExecuteCurrentActions();
-        OutputStatusBar();
 
-        cout << "Press Enter to continue...";
-        cin.get();
+        HandleBackScooters();
+        HandleMaintenanceScooters();
+
+        MoveCookingToReady();
+        MoveReadyToService();
+        MovePendingToCooking();
+        MoveInServiceToFinish();
+
+        OutputStatusBar();
 
         currentTime++;
     }
@@ -553,17 +654,18 @@ void Restaurant::TryCancelCookingOV()
 
 void Restaurant::MoveInServiceToFinish()
 {
-    if (rand() % 100 >= 25)
-        return;
+    priQueue<order*> tempQueue;
 
     order* pOrd = nullptr;
     int pri = 0;
 
-    if (InServ_Orders.dequeue(pOrd, pri))
+    while (InServ_Orders.dequeue(pOrd, pri))
     {
-        if (pOrd != nullptr)
+        if (pOrd == nullptr)
+            continue;
+
+        if (pOrd->getTF() <= currentTime)
         {
-            pOrd->setTF(currentTime);
             Finished_orders.push(pOrd);
 
             if (pOrd->isDineIn())
@@ -581,6 +683,15 @@ void Restaurant::MoveInServiceToFinish()
                 }
             }
         }
+        else
+        {
+            tempQueue.enqueue(pOrd, pri);
+        }
+    }
+
+    while (tempQueue.dequeue(pOrd, pri))
+    {
+        InServ_Orders.enqueue(pOrd, pri);
     }
 }
 
@@ -805,6 +916,7 @@ void Restaurant::OutputStatusBar()
 
     cout << "PRESS ANY KEY TO MOVE TO NEXT STEP!" << endl;
 }
+
 
 Restaurant::~Restaurant()
 {

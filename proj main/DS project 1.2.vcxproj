@@ -51,6 +51,9 @@
     <ClCompile Include="TableFitPriQueue.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="input.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
