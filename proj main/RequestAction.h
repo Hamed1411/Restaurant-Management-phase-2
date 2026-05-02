@@ -1,31 +1,26 @@
 #pragma once
 #include "Action.h"
 #include "order.h"
-#include "Restaurant.h"
 
+class Restaurant;
 
-class RequestAction : public Action {
+class RequestAction : public Action
+{
 private:
-    ORDER_TYPE type; 
-    int ID;
-    int size;      
-    int money;    
-    int dist; 
-
+    order* pOrder;
 
 public:
-    RequestAction(int TS, ORDER_TYPE t, int id, int s, int m, Restaurant* r)
-        : Action(TS, r), type(t), ID(id), size(s), money(m) {
+    RequestAction(int TS, order* ord, Restaurant* r)
+        : Action(TS, r)
+    {
+        pOrder = ord;
     }
 
     virtual void ACT() override
     {
-        order* pOrd = new order(ID, type, ActionTime, size, money);
-
-        // Set specific attributes based on type
-        if (pOrd->isDelivery()) pOrd->setDistance(dist); 
-        if (pOrd->isDineIn()) pOrd->setSeats(size);
-
-        pRest->AddOrderToPending(pOrd);
+        if (pOrder != nullptr)
+        {
+            pRest->AddOrderToPending(pOrder);
+        }
     }
 };

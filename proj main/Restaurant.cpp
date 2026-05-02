@@ -229,7 +229,7 @@ void Restaurant::ReadInputFile(string fileName)
                 pOrd->setDistance(distance);
             }
 
-            Action* pAct = new RequestAction(TQ, type, ID, size, price, this);
+            Action* pAct = new RequestAction(TQ, pOrd, this);
 
             // Important:
             // If your RequestAction cannot store pOrd extra fields yet,
@@ -344,9 +344,10 @@ void Restaurant::Simulate()
         HandleMaintenanceScooters();
 
         MoveCookingToReady();
+        MoveInServiceToFinish();
+
         MoveReadyToService();
         MovePendingToCooking();
-        MoveInServiceToFinish();
 
         OutputStatusBar();
 
@@ -547,6 +548,7 @@ void Restaurant::MoveReadyToService()
                     RDY_OV_List.enqueue(pOrd);
                 }
             }
+            continue;
         }
 
         if (RDY_OD.dequeue(pOrd))
@@ -752,7 +754,7 @@ void Restaurant::BindOrderToChef(order* pOrd, chef* pChef)
 
     // Set Assigned Time (TA) and calculate Wait Time (TW)
     pOrd->setTA(currentTime);
-    pOrd->setTW(currentTime - pOrd->getTS());
+    pOrd->setTW(currentTime - pOrd->getTQ());
 
     // Calculate Cook Time
     // If a Normal chef takes a Grilled order, speed is halved
@@ -782,7 +784,7 @@ void Restaurant::OutputStatusBar()
 
     cout << "================ Actions List ================\n";
     cout << "For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)\n";
-    cout << "Random simulator mode: no input file actions loaded\n";
+    cout << "Phase 2 input-file simulation mode\n";
     cout << "--> Print ONLY the first 10 actions currently in the actions list\n\n";
 
     cout << "------------- Pending Orders IDs -----------------\n";

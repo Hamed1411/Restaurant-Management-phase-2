@@ -28,8 +28,10 @@ bool PriQueueWithCancel::cancelOrderByID(int id, order*& removed)
 	// Start recursion from the head 
 	priNode<order*>* toDelete = recursiveRemove(head, id, removed);
 
-	if (toDelete != nullptr) {
-		delete toDelete; // Delete 
+	if (toDelete != nullptr)
+	{
+		delete toDelete;
+		count--;
 		return true;
 	}
 
