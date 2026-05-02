@@ -9,13 +9,18 @@ private:
     int speed;
     int mainDur;
     int ordersSinceMaintenance;
+    int tripsDone;
+    int maxTripsBeforeMaintenance;
 
 public:
     scooter();
     scooter(int id, int spd, int mDur);
+    int getSpeed() const;
+    void incrementTrips();
+    bool needsMaintenance() const;
+    void resetTrips();
 
     int getID() const;
-    int getSpeed() const;
     int getMainDur() const;
     int getOrdersSinceMaintenance() const;
 

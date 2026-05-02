@@ -16,7 +16,24 @@ int Restaurant::RandomInt(int minVal, int maxVal) const
 {
     return minVal + rand() % (maxVal - minVal + 1);
 }
+int Restaurant::CalculateDeliveryServiceTime(order* pOrd, scooter* pScooter)
+{
+    if (pOrd == nullptr || pScooter == nullptr)
+        return 1;
 
+    int distance = pOrd->getDistance();
+    int speed = pScooter->getSpeed();
+
+    if (speed <= 0)
+        return 1;
+
+    int time = distance / speed;
+
+    if (distance % speed != 0)
+        time++;
+
+    return time;
+}
 
 void Restaurant::InitializePhase1()
 {
@@ -401,6 +418,35 @@ void Restaurant::MoveReadyToService()
             }
             continue;
         }
+        if (RDY_OV_List.dequeue(pOrd))
+        {
+            if (pOrd != nullptr)
+            {
+                scooter* pScooter = nullptr;
+                int pri = 0;
+
+
+                if (Free_Scooters.dequeue(pScooter, pri))
+                {
+                    int serviceTime = CalculateDeliveryServiceTime(pOrd, pScooter);
+
+                    pOrd->setTS(currentTime);
+                    pOrd->setTF(currentTime + serviceTime);
+
+
+
+                    InServ_Orders.enqueue(pOrd, 100 - pOrd->getTF());
+
+
+                    Back_Scooters.enqueue(pScooter, 100 - pOrd->getTF());
+                }
+                else
+                {
+
+                    RDY_OV_List.enqueue(pOrd);
+                }
+            }
+        }
 
         if (RDY_OD.dequeue(pOrd))
         {
@@ -433,27 +479,7 @@ void Restaurant::MoveReadyToService()
             continue;
         }
 
-        if (RDY_OV_List.dequeue(pOrd))
-        {
-            if (pOrd != nullptr)
-            {
-                scooter* pScooter = nullptr;
-                int pri = 0;
-
-                if (Free_Scooters.dequeue(pScooter, pri))
-                {
-                    pOrd->setTS(currentTime);
-                    pOrd->setTF(currentTime + RandomInt(2, 6));
-
-                    Back_Scooters.enqueue(pScooter, RandomInt(1, 50));
-                    InServ_Orders.enqueue(pOrd, 100 - pOrd->getTF());
-                }
-                else
-                {
-                    RDY_OV_List.enqueue(pOrd);
-                }
-            }
-        }
+        
     }
 }
 
@@ -571,10 +597,17 @@ void Restaurant::HandleBackScooters()
     {
         if (pScooter != nullptr)
         {
-            if (rand() % 2 == 0)
-                Free_Scooters.enqueue(pScooter, 100 - pScooter->getID());
-            else
+            pScooter->incrementTrips();
+
+            if (pScooter->needsMaintenance())
+            {
+                pScooter->resetTrips();
                 Maint_Scooters.enqueue(pScooter);
+            }
+            else
+            {
+                Free_Scooters.enqueue(pScooter, 100 - pScooter->getID());
+            }
         }
     }
 }
@@ -666,8 +699,17 @@ void Restaurant::OutputStatusBar()
     cout << endl;
 
     cout << PEND_OVG.getCount() << " OVG: ";
-    PEND_OVG.print();
-    cout << endl << endl;
+
+    if (PEND_OVG.getCount() == 0)
+    {
+        cout << "The list is empty.";
+    }
+    else
+    {
+        PEND_OVG.print();
+    }
+
+    cout << endl;
 
     cout << "------------- Available chefs IDs -----------------\n";
     cout << Free_CS.getCount() << " CS: ";

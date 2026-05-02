@@ -8,6 +8,8 @@ scooter::scooter()
     speed = 0;
     mainDur = 0;
     ordersSinceMaintenance = 0;
+    tripsDone = 0;
+    maxTripsBeforeMaintenance = 3;
 }
 
 scooter::scooter(int id, int spd, int mDur)
@@ -65,4 +67,19 @@ ostream& operator<<(ostream& out, const scooter* pScooter)
         out << pScooter->getID();
     }
     return out;
+}
+
+void scooter::incrementTrips()
+{
+    tripsDone++;
+}
+
+bool scooter::needsMaintenance() const
+{
+    return tripsDone >= maxTripsBeforeMaintenance;
+}
+
+void scooter::resetTrips()
+{
+    tripsDone = 0;
 }

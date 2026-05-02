@@ -79,6 +79,7 @@ public:
     void HandleBackScooters();
     void HandleMaintenanceScooters();
     bool AllOrdersDone() const;
+    int CalculateDeliveryServiceTime(order* pOrd, scooter* pScooter);
 
 
     void BindOrderToChef(order* pOrd, chef* pChef); // new 
