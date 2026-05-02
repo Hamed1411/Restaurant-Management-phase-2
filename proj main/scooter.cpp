@@ -57,14 +57,14 @@ void scooter::resetOrders()
 
 void scooter::Print() const
 {
-    cout << ID;
+    cout << "S" << ID;
 }
 
 ostream& operator<<(ostream& out, const scooter* pScooter)
 {
     if (pScooter != nullptr)
     {
-        out << pScooter->getID();
+        out << "S" << pScooter->getID();
     }
     return out;
 }

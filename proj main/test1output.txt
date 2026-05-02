@@ -38,7 +38,7 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-4 Scooters: 1, 2, 3, 4
+4 Scooters: S1, S2, S3, S4
 
 ------------- Available tables [ID, capacity, free seats] -----------------
 5 tables: [T1, 2, 2], [T2, 2, 2], [T3, 4, 4], [T4, 4, 4], [T5, 6, 6]
@@ -49,7 +49,6 @@ List count, order type, IDs of all orders in the list
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
-
 ------------- Scooters Back to Restaurant IDs -----------------
 0 scooters: 
 
@@ -58,7 +57,9 @@ List count, order type, IDs of all orders in the list
 
 ------------- Finished orders IDs -----------------
 0 Orders: 
-PRESS ANY KEY TO MOVE TO NEXT STEP!
+
+
+
 Current Timestep:2
 ================ Actions List ================
 For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
@@ -99,17 +100,16 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-4 Scooters: 1, 2, 3, 4
+4 Scooters: S1, S2, S3, S4
 
 ------------- Available tables [ID, capacity, free seats] -----------------
 4 tables: [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 6, 6]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-1 Orders: [ODN, 2]
+1 Orders: [2, T3]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
-
 
 ------------- Scooters Back to Restaurant IDs -----------------
 0 scooters: 
@@ -119,7 +119,9 @@ List count, order type, IDs of all orders in the list
 
 ------------- Finished orders IDs -----------------
 1 Orders: 1
-PRESS ANY KEY TO MOVE TO NEXT STEP!
+
+
+
 Current Timestep:3
 ================ Actions List ================
 For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
@@ -160,27 +162,28 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-3 Scooters: 2, 3, 4
+3 Scooters: S2, S3, S4
 
 ------------- Available tables [ID, capacity, free seats] -----------------
 4 tables: [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 6, 6]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-2 Orders: [ODN, 2], [OVN, 4]
+2 Orders: [2, T3], [4, S1]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
-
 ------------- Scooters Back to Restaurant IDs -----------------
-1 scooters: 1
+1 scooters: S1
 
 ------------- Cancelled Orders IDs -----------------
 0 cancelled: 
 
 ------------- Finished orders IDs -----------------
 1 Orders: 1
-PRESS ANY KEY TO MOVE TO NEXT STEP!
+
+
+
 Current Timestep:4
 ================ Actions List ================
 For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
@@ -221,27 +224,28 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-1 Scooters: 4
+1 Scooters: S4
 
 ------------- Available tables [ID, capacity, free seats] -----------------
 3 tables: [T1, 2, 2], [T2, 2, 2], [T5, 6, 6]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-5 Orders: [ODN, 2], [OVC, 5], [ODG, 3], [OVN, 4], [OVG, 6]
+5 Orders: [2, T3], [5, S3], [3, T4], [4, S1], [6, S2]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
-
 ------------- Scooters Back to Restaurant IDs -----------------
-3 scooters: 3, 1, 2
+3 scooters: S3, S1, S2
 
 ------------- Cancelled Orders IDs -----------------
 0 cancelled: 
 
 ------------- Finished orders IDs -----------------
 1 Orders: 1
-PRESS ANY KEY TO MOVE TO NEXT STEP!
+
+
+
 Current Timestep:5
 ================ Actions List ================
 For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
@@ -282,27 +286,28 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-1 Scooters: 4
+1 Scooters: S4
 
 ------------- Available tables [ID, capacity, free seats] -----------------
 3 tables: [T1, 2, 2], [T2, 2, 2], [T5, 6, 6]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-5 Orders: [ODN, 2], [OVC, 5], [ODG, 3], [OVN, 4], [OVG, 6]
+5 Orders: [2, T3], [5, S3], [3, T4], [4, S1], [6, S2]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
-
 ------------- Scooters Back to Restaurant IDs -----------------
-3 scooters: 3, 1, 2
+3 scooters: S3, S1, S2
 
 ------------- Cancelled Orders IDs -----------------
 0 cancelled: 
 
 ------------- Finished orders IDs -----------------
 2 Orders: 7, 1
-PRESS ANY KEY TO MOVE TO NEXT STEP!
+
+
+
 Current Timestep:6
 ================ Actions List ================
 For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
@@ -343,27 +348,28 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-2 Scooters: 3, 4
+2 Scooters: S3, S4
 
 ------------- Available tables [ID, capacity, free seats] -----------------
 3 tables: [T1, 2, 2], [T2, 2, 2], [T5, 6, 6]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-5 Orders: [OVC, 5], [ODG, 3], [ODN, 8], [OVN, 4], [OVG, 6]
+5 Orders: [5, S3], [3, T4], [8, T3], [4, S1], [6, S2]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
-
 ------------- Scooters Back to Restaurant IDs -----------------
-2 scooters: 1, 2
+2 scooters: S1, S2
 
 ------------- Cancelled Orders IDs -----------------
 0 cancelled: 
 
 ------------- Finished orders IDs -----------------
 3 Orders: 2, 7, 1
-PRESS ANY KEY TO MOVE TO NEXT STEP!
+
+
+
 Current Timestep:7
 ================ Actions List ================
 For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
@@ -404,27 +410,28 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-1 Scooters: 4
+1 Scooters: S4
 
 ------------- Available tables [ID, capacity, free seats] -----------------
 3 tables: [T1, 2, 2], [T2, 2, 2], [T5, 6, 6]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-6 Orders: [OVC, 5], [ODG, 3], [ODN, 8], [OVN, 4], [OVN, 9], [OVG, 6]
+6 Orders: [5, S3], [3, T4], [8, T3], [4, S1], [9, S3], [6, S2]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
-
 ------------- Scooters Back to Restaurant IDs -----------------
-3 scooters: 1, 3, 2
+3 scooters: S1, S3, S2
 
 ------------- Cancelled Orders IDs -----------------
 0 cancelled: 
 
 ------------- Finished orders IDs -----------------
 3 Orders: 2, 7, 1
-PRESS ANY KEY TO MOVE TO NEXT STEP!
+
+
+
 Current Timestep:8
 ================ Actions List ================
 For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
@@ -465,27 +472,28 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-1 Scooters: 4
+1 Scooters: S4
 
 ------------- Available tables [ID, capacity, free seats] -----------------
 3 tables: [T1, 2, 2], [T2, 2, 2], [T5, 6, 6]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-6 Orders: [OVC, 5], [ODG, 3], [ODN, 8], [OVN, 4], [OVN, 9], [OVG, 6]
+6 Orders: [5, S3], [3, T4], [8, T3], [4, S1], [9, S3], [6, S2]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
-
 ------------- Scooters Back to Restaurant IDs -----------------
-3 scooters: 1, 3, 2
+3 scooters: S1, S3, S2
 
 ------------- Cancelled Orders IDs -----------------
 0 cancelled: 
 
 ------------- Finished orders IDs -----------------
 4 Orders: 10, 2, 7, 1
-PRESS ANY KEY TO MOVE TO NEXT STEP!
+
+
+
 Current Timestep:9
 ================ Actions List ================
 For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
@@ -526,27 +534,28 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-1 Scooters: 4
+1 Scooters: S4
 
 ------------- Available tables [ID, capacity, free seats] -----------------
 5 tables: [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T3, 4, 4], [T5, 6, 6]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-3 Orders: [OVN, 4], [OVN, 9], [OVG, 6]
+3 Orders: [4, S1], [9, S3], [6, S2]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
-
 ------------- Scooters Back to Restaurant IDs -----------------
-3 scooters: 1, 3, 2
+3 scooters: S1, S3, S2
 
 ------------- Cancelled Orders IDs -----------------
 0 cancelled: 
 
 ------------- Finished orders IDs -----------------
 7 Orders: 8, 3, 5, 10, 2, 7, 1
-PRESS ANY KEY TO MOVE TO NEXT STEP!
+
+
+
 Current Timestep:10
 ================ Actions List ================
 For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
@@ -587,27 +596,28 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-2 Scooters: 1, 4
+2 Scooters: S1, S4
 
 ------------- Available tables [ID, capacity, free seats] -----------------
 5 tables: [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T3, 4, 4], [T5, 6, 6]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-2 Orders: [OVN, 9], [OVG, 6]
+2 Orders: [9, S3], [6, S2]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
-
 ------------- Scooters Back to Restaurant IDs -----------------
-2 scooters: 3, 2
+2 scooters: S3, S2
 
 ------------- Cancelled Orders IDs -----------------
 0 cancelled: 
 
 ------------- Finished orders IDs -----------------
 8 Orders: 4, 8, 3, 5, 10, 2, 7, 1
-PRESS ANY KEY TO MOVE TO NEXT STEP!
+
+
+
 Current Timestep:11
 ================ Actions List ================
 For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
@@ -648,27 +658,28 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-2 Scooters: 1, 4
+2 Scooters: S1, S4
 
 ------------- Available tables [ID, capacity, free seats] -----------------
 5 tables: [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T3, 4, 4], [T5, 6, 6]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-1 Orders: [OVG, 6]
+1 Orders: [6, S2]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
-
 ------------- Scooters Back to Restaurant IDs -----------------
-2 scooters: 3, 2
+2 scooters: S3, S2
 
 ------------- Cancelled Orders IDs -----------------
 0 cancelled: 
 
 ------------- Finished orders IDs -----------------
 9 Orders: 9, 4, 8, 3, 5, 10, 2, 7, 1
-PRESS ANY KEY TO MOVE TO NEXT STEP!
+
+
+
 Current Timestep:12
 ================ Actions List ================
 For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
@@ -709,27 +720,28 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-2 Scooters: 1, 4
+2 Scooters: S1, S4
 
 ------------- Available tables [ID, capacity, free seats] -----------------
 5 tables: [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T3, 4, 4], [T5, 6, 6]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-1 Orders: [OVG, 6]
+1 Orders: [6, S2]
 
 ------------- In-maintainance scooters IDs -----------------
-1 scooters: 3
-
+1 scooters: S3
 
 ------------- Scooters Back to Restaurant IDs -----------------
-1 scooters: 2
+1 scooters: S2
 
 ------------- Cancelled Orders IDs -----------------
 0 cancelled: 
 
 ------------- Finished orders IDs -----------------
 9 Orders: 9, 4, 8, 3, 5, 10, 2, 7, 1
-PRESS ANY KEY TO MOVE TO NEXT STEP!
+
+
+
 Current Timestep:13
 ================ Actions List ================
 For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
@@ -770,7 +782,7 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-2 Scooters: 1, 4
+2 Scooters: S1, S4
 
 ------------- Available tables [ID, capacity, free seats] -----------------
 5 tables: [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T3, 4, 4], [T5, 6, 6]
@@ -779,16 +791,17 @@ List count, order type, IDs of all orders in the list
 0 Orders: 
 
 ------------- In-maintainance scooters IDs -----------------
-1 scooters: 3
-
+1 scooters: S3
 
 ------------- Scooters Back to Restaurant IDs -----------------
-1 scooters: 2
+1 scooters: S2
 
 ------------- Cancelled Orders IDs -----------------
 0 cancelled: 
 
 ------------- Finished orders IDs -----------------
 10 Orders: 6, 9, 4, 8, 3, 5, 10, 2, 7, 1
-PRESS ANY KEY TO MOVE TO NEXT STEP!
+
+
+
 Simulation Finished.

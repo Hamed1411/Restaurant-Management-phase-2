@@ -3,6 +3,8 @@
 using namespace std;
 
 class chef;
+class scooter;
+class table;
 
 enum ORDER_TYPE {
 	ODG,
@@ -26,10 +28,17 @@ private:
 	int duration;
 	bool canShare;
 	chef* assignedChef;
+	scooter* assignedScooter;
+	table* assignedTable;
 
 public:
 	order();
 	order(int id, ORDER_TYPE t, int tq, int Size, double P);
+	void setScooter(scooter* s);
+	scooter* getScooter() const;
+
+	void setTable(table* t);
+	table* getTable() const;
 
 	int getID() const;
 	ORDER_TYPE getType() const;

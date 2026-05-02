@@ -1,10 +1,13 @@
 #include "order.h"
 #include "chef.h"
+#include "scooter.h"
+#include "table.h"
 #include <iostream>
 using namespace std;
 
 order::order()
 {
+    
     ID = 0;
     type = ODN;
 
@@ -23,6 +26,8 @@ order::order()
     canShare = false;
 
     assignedChef = nullptr;
+    assignedScooter = nullptr;
+    assignedTable = nullptr;
 }
 
 order::order(int id, ORDER_TYPE t, int tq, int Size, double P)
@@ -44,6 +49,8 @@ order::order(int id, ORDER_TYPE t, int tq, int Size, double P)
     canShare = false;
 
     assignedChef = nullptr;
+    assignedScooter = nullptr;
+    assignedTable = nullptr;
 }
 
 int order::getID() const
@@ -190,7 +197,25 @@ chef* order::getChef() const
 {
     return assignedChef;
 }
+void order::setScooter(scooter* s)
+{
+    assignedScooter = s;
+}
 
+scooter* order::getScooter() const
+{
+    return assignedScooter;
+}
+
+void order::setTable(table* t)
+{
+    assignedTable = t;
+}
+
+table* order::getTable() const
+{
+    return assignedTable;
+}
 bool order::isDineIn() const
 {
     return (type == ODG || type == ODN);

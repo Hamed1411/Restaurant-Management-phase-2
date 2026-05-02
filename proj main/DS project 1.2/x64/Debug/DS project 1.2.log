@@ -1,6 +1,2 @@
-﻿  PriQueueWithCancel.cpp
-  Restaurant.cpp
-  main.cpp
-C:\Users\elhar\source\repos\Restaurant-Management-phas-2\proj main\main.cpp(26,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
+﻿  Restaurant.cpp
   DS project 1.2.vcxproj -> C:\Users\elhar\source\repos\Restaurant-Management-phas-2\proj main\x64\Debug\DS project 1.2.exe

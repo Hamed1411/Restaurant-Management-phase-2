@@ -535,7 +535,7 @@ void Restaurant::MoveReadyToService()
                     pOrd->setTS(currentTime);
                     pOrd->setTF(currentTime + serviceTime);
 
-
+                    pOrd->setScooter(pScooter);
 
                     InServ_Orders.enqueue(pOrd, 100 - pOrd->getTF());
 
@@ -563,6 +563,7 @@ void Restaurant::MoveReadyToService()
 
                 if (Free_Tables.getBest(neededSeats, pTable))
                 {
+                    pOrd->setTable(pTable);
                     pOrd->setTS(currentTime);
 
                     int duration = pOrd->getDuration();
@@ -893,13 +894,43 @@ void Restaurant::OutputStatusBar()
 
     cout << "------------- In-Service orders [order ID, scooter/Table ID] -----------------\n";
     cout << InServ_Orders.getCount() << " Orders: ";
-    InServ_Orders.print();
+
+    priQueue<order*> tempInServ;
+    order* pServOrd = nullptr;
+    int servPri = 0;
+
+    bool first = true;
+
+    while (InServ_Orders.dequeue(pServOrd, servPri))
+    {
+        if (!first)
+            cout << ", ";
+
+        cout << "[" << pServOrd->getID();
+
+        if (pServOrd->isDelivery() && pServOrd->getScooter())
+            cout << ", S" << pServOrd->getScooter()->getID();
+        else if (pServOrd->isDineIn() && pServOrd->getTable())
+            cout << ", T" << pServOrd->getTable()->getID();
+
+        cout << "]";
+
+        first = false;
+
+        tempInServ.enqueue(pServOrd, servPri);
+    }
+
+    while (tempInServ.dequeue(pServOrd, servPri))
+    {
+        InServ_Orders.enqueue(pServOrd, servPri);
+    }
+
     cout << endl << endl;
 
     cout << "------------- In-maintainance scooters IDs -----------------\n";
     cout << Maint_Scooters.getCount() << " scooters: ";
     Maint_Scooters.print();
-    cout << endl << endl;
+    cout << endl;
 
     cout << "------------- Scooters Back to Restaurant IDs -----------------\n";
     cout << Back_Scooters.getCount() << " scooters: ";
@@ -914,9 +945,10 @@ void Restaurant::OutputStatusBar()
     cout << "------------- Finished orders IDs -----------------\n";
     cout << Finished_orders.getCount() << " Orders: ";
     Finished_orders.printStack();
-    cout << endl;
+    cout << endl << endl;
+    cout << endl << endl;
+    
 
-    cout << "PRESS ANY KEY TO MOVE TO NEXT STEP!" << endl;
 }
 
 
