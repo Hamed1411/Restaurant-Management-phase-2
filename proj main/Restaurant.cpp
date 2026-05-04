@@ -35,90 +35,7 @@ int Restaurant::CalculateDeliveryServiceTime(order* pOrd, scooter* pScooter)
     return time;
 }
 
-void Restaurant::InitializePhase1()
-{
-    currentTime = 1;
-    totalGeneratedOrders = 0;
 
-    // Example chefs
-    for (int i = 1; i <= 15; i++)
-    {
-        chef* c = new chef(100+i, CN, RandomInt(2, 5));
-        Free_CN.enqueue(c);
-    }
-
-    for (int i = 1; i <= 15; i++)
-    {
-        chef* c = new chef(200 + i, CS, RandomInt(2, 5));
-        Free_CS.enqueue(c);
-    }
-
-    // Example scooters
-    for (int i = 1; i <= 10; i++)
-    {
-        scooter* s = new scooter(i, RandomInt(10, 20), RandomInt(2, 4));
-        Free_Scooters.enqueue(s, 100 - i);
-    }
-
-    // Example tables
-    int tableID = 1;
-    int capacities[8] = { 2, 2, 4, 4, 6, 8, 10, 12 };
-
-    for (int i = 0; i < 8; i++)
-    {
-        table* t = new table(tableID, capacities[i]);
-        Free_Tables.enqueue(t, 100 - capacities[i]);
-        tableID++;
-    }
-}
-
-
-void Restaurant::GenerateRandomOrders(int count)
-{
-    totalGeneratedOrders = 0;
-
-    for (int i = 0; i < count; i++)
-    {
-        int randomType = rand() % 6;
-        ORDER_TYPE type = OT;
-
-        if (randomType == 0)
-            type = ODG;
-        else if (randomType == 1)
-            type = ODN;
-        else if (randomType == 2)
-            type = OT;
-        else if (randomType == 3)
-            type = OVC;
-        else if (randomType == 4)
-            type = OVN;
-        else
-            type = OVG;
-
-        order* pOrd = new order(
-            i + 1,   
-            type,
-            currentTime,
-            RandomInt(1, 8),
-            RandomInt(50, 300)
-        );
-
-        if (pOrd->isDelivery())
-        {
-            pOrd->setDistance(RandomInt(100, 2000));
-        }
-
-        if (pOrd->isDineIn())
-        {
-            pOrd->setSeats(RandomInt(1, 6));
-            pOrd->setDuration(RandomInt(2, 6));
-            pOrd->setCanShare(rand() % 2 == 0);
-        }
-
-        AddOrderToPending(pOrd);
-        totalGeneratedOrders++;
-    }
-}
 
 void Restaurant::ReadInputFile(string fileName)
 {
@@ -231,9 +148,7 @@ void Restaurant::ReadInputFile(string fileName)
 
             Action* pAct = new RequestAction(TQ, pOrd, this);
 
-            // Important:
-            // If your RequestAction cannot store pOrd extra fields yet,
-            // then later you need to update RequestAction to pass seats/distance.
+            
             ACTIONS_LIST.enqueue(pAct);
         }
         else if (actionType == 'X')
@@ -413,16 +328,7 @@ void Restaurant::Simulate()
 }
 
 
-void Restaurant::RunPhase1Simulation()
-{
-    while (!AllOrdersDone())
-    {
-        SimulateOneTimeStep();
-        OutputStatusBar();
-        cin.get();
-        currentTime++;
-    }
-}
+
 
 
 void Restaurant::SimulateOneTimeStep()

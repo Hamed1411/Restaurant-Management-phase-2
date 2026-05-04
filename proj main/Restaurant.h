@@ -63,10 +63,6 @@ public:
 
     void Simulate();
 
-    void InitializePhase1(); ////////////
-    void GenerateRandomOrders(int count); //////////////
-    void RunPhase1Simulation(); ///////////
-
     void SimulateOneTimeStep();
 
     void MovePendingToCooking();
