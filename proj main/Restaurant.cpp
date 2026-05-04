@@ -3,12 +3,14 @@
 #include "CancelAction.h"
 #include "RequestAction.h"
 #include <cstdlib>
-#include <ctime>
-
 Restaurant::Restaurant()
 {
     currentTime = 1;
     totalGeneratedOrders = 0;
+    totalCN = 0;
+    totalCS = 0;
+    totalScooters = 0;
+    overwaitThreshold = 0;
 }
 
 
@@ -37,6 +39,7 @@ int Restaurant::CalculateDeliveryServiceTime(order* pOrd, scooter* pScooter)
 
 
 
+
 void Restaurant::ReadInputFile(string fileName)
 {
     ifstream inFile(fileName);
@@ -57,8 +60,11 @@ void Restaurant::ReadInputFile(string fileName)
     int M;
 
     inFile >> numCN >> numCS;
+    totalCN = numCN;
+    totalCS = numCS;
     inFile >> speedCN >> speedCS;
     inFile >> scooterCount >> scooterSpeed;
+    totalScooters = scooterCount;
     inFile >> mainOrds >> mainDur;
     inFile >> totalTables;
 
@@ -79,6 +85,7 @@ void Restaurant::ReadInputFile(string fileName)
     }
 
     inFile >> TH;
+    overwaitThreshold = TH;
     inFile >> M;
 
     for (int i = 1; i <= numCN; i++)
@@ -160,6 +167,147 @@ void Restaurant::ReadInputFile(string fileName)
             ACTIONS_LIST.enqueue(pAct);
         }
     }
+}
+
+void Restaurant::GenerateOutputFile(string fileName)
+{
+    ofstream outFile(fileName);
+    if (!outFile)
+    {
+        cout << "Error: Cannot open output file." << endl;
+        return;
+    }
+
+    // Move Finished_orders into an array for sorting
+    int finishedCount = Finished_orders.getCount();
+    order** sortedOrders = new order * [finishedCount];
+
+    order* pOrd;
+    int idx = 0;
+    while (Finished_orders.pop(pOrd))
+    {
+        sortedOrders[idx++] = pOrd;
+    }
+
+    // Sort descending by TF
+    for (int i = 0; i < finishedCount - 1; i++)
+    {
+        for (int j = i + 1; j < finishedCount; j++)
+        {
+            if (sortedOrders[i]->getTF() < sortedOrders[j]->getTF())
+            {
+                order* temp = sortedOrders[i];
+                sortedOrders[i] = sortedOrders[j];
+                sortedOrders[j] = temp;
+            }
+        }
+    }
+
+    outFile << "TF\tID\tTQ\tTA\tTR\tTS\tTi\tTc\tTw\tTserv\n";
+
+    int countODG = 0, countODN = 0, countOT = 0, countOVC = 0, countOVG = 0, countOVN = 0;
+    double sumTi = 0, sumTc = 0, sumTw = 0, sumTserv = 0;
+    double sumCookTimeAllChefs = 0;
+    double sumScooterServiceTime = 0;
+    int overwaitCount = 0;
+
+    for (int i = 0; i < finishedCount; i++)
+    {
+        pOrd = sortedOrders[i];
+
+        int tf = pOrd->getTF();
+        int id = pOrd->getID();
+        int tq = pOrd->getTQ();
+        int ta = pOrd->getTA();
+        int tr = pOrd->getTR();
+        int ts = pOrd->getTS();
+        int ti = pOrd->getIdleTime();
+        int tc = pOrd->getCookPeriod();
+        int tw = pOrd->getWaitTime();
+        int tserv = pOrd->getServiceDuration();
+
+        outFile << tf << "\t" << id << "\t" << tq << "\t" << ta << "\t"
+            << tr << "\t" << ts << "\t" << ti << "\t" << tc << "\t"
+            << tw << "\t" << tserv << "\n";
+
+        // Aggregate statistics
+        sumTi += ti;
+        sumTc += tc;
+        sumTw += tw;
+        sumTserv += tserv;
+
+        sumCookTimeAllChefs += tc;
+        if (pOrd->isDelivery())
+        {
+            sumScooterServiceTime += tserv; // TS to TF for scooters
+        }
+
+        if (tw > overwaitThreshold)
+            overwaitCount++;
+
+        ORDER_TYPE type = pOrd->getType();
+        if (type == ODG) countODG++;
+        else if (type == ODN) countODN++;
+        else if (type == OT) countOT++;
+        else if (type == OVC) countOVC++;
+        else if (type == OVG) countOVG++;
+        else if (type == OVN) countOVN++;
+    }
+
+    // Cancelled orders breakdown
+    int cancelledCount = Cancelled_orders.getCount();
+    order* cOrd;
+    while (Cancelled_orders.dequeue(cOrd))
+    {
+        ORDER_TYPE type = cOrd->getType();
+        if (type == ODG) countODG++;
+        else if (type == ODN) countODN++;
+        else if (type == OT) countOT++;
+        else if (type == OVC) countOVC++;
+        else if (type == OVG) countOVG++;
+        else if (type == OVN) countOVN++;
+        delete cOrd;
+    }
+
+    int totalOrders = finishedCount + cancelledCount;
+
+    outFile << "\n------------------------------------------------------------\n";
+    outFile << "1- Total Orders: " << totalOrders << " [";
+    outFile << "ODG:" << countODG << ", ODN:" << countODN << ", OT:" << countOT
+        << ", OVC:" << countOVC << ", OVG:" << countOVG << ", OVN:" << countOVN << "]\n";
+
+    int totalChefs = totalCN + totalCS;
+    outFile << "2- Total Chefs: " << totalChefs << " [CN:" << totalCN << ", CS:" << totalCS << "]\n";
+    outFile << "3- Total Scooters: " << totalScooters << " (All one type)\n";
+
+    double pctFinished = totalOrders > 0 ? (double)finishedCount / totalOrders * 100.0 : 0;
+    double pctCancelled = totalOrders > 0 ? (double)cancelledCount / totalOrders * 100.0 : 0;
+    outFile << "4- Percentage of Finished orders: " << pctFinished << "%, Cancelled orders: " << pctCancelled << "%\n";
+
+    double pctOverwait = finishedCount > 0 ? (double)overwaitCount / finishedCount * 100.0 : 0;
+    outFile << "5- Percentage of overwait orders (Tw > TH): " << pctOverwait << "%\n";
+
+    double avgTi = finishedCount > 0 ? sumTi / finishedCount : 0;
+    double avgTc = finishedCount > 0 ? sumTc / finishedCount : 0;
+    double avgTw = finishedCount > 0 ? sumTw / finishedCount : 0;
+    double avgTserv = finishedCount > 0 ? sumTserv / finishedCount : 0;
+    outFile << "6- Average for finished orders -> Ti: " << avgTi << ", Tc: " << avgTc
+        << ", Tw: " << avgTw << ", Tserv: " << avgTserv << "\n";
+
+    int finalTime = currentTime;
+    if (finalTime <= 0) finalTime = 1;
+
+    double scooterUtil = totalScooters > 0 ? (sumScooterServiceTime / (finalTime * totalScooters)) * 100.0 : 0;
+    double chefUtil = totalChefs > 0 ? (sumCookTimeAllChefs / (finalTime * totalChefs)) * 100.0 : 0;
+
+    outFile << "7- Scooters utilization %: " << scooterUtil << "%\n";
+    outFile << "8- Chefs utilization %: " << chefUtil << "%\n";
+
+    outFile.close();
+
+    for (int i = 0; i < finishedCount; i++)
+        delete sortedOrders[i];
+    delete[] sortedOrders;
 }
 
 
@@ -304,7 +452,7 @@ bool Restaurant::SimulationFinished() const
 }
 
 
-void Restaurant::Simulate()
+void Restaurant::Simulate(int mode)
 {
     while (!SimulationFinished())
     {
@@ -321,10 +469,18 @@ void Restaurant::Simulate()
 
         OutputStatusBar();
 
+        if (mode == 1)
+        {
+            cout << "Press ENTER to move to next step..." << endl;
+      cin.ignore(1000, '\n');
+        }
+
         currentTime++;
     }
 
     cout << "Simulation Finished." << endl;
+    cout << "Generating Output File..." << endl;
+
 }
 
 
@@ -436,7 +592,7 @@ void Restaurant::MoveCookingToReady()
 
             if (pOrd->isTakeaway())
             {
-                pOrd->setTR(currentTime); 
+                pOrd->setTR(currentTime + 1);  // takeaway wait 1 timestep before ready
                 RDY_OT.enqueue(pOrd); 
             }
             else if (pOrd->isDineIn())
@@ -941,3 +1097,4 @@ void Restaurant::OutputStatusBar()
 Restaurant::~Restaurant()
 {
 }
+

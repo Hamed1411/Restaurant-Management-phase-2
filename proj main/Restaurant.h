@@ -19,6 +19,11 @@ class Restaurant
 private:
     int currentTime;
     int totalGeneratedOrders;
+    
+    int totalCN;
+    int totalCS;
+    int totalScooters;
+    int overwaitThreshold;
 
     LinkedQueue<Action*>    ACTIONS_LIST;
     LinkedQueue<order*>     PEND_ODG;
@@ -59,9 +64,10 @@ public:
     void HandleCancelOrder(int orderID);
 
     void ReadInputFile(string fileName);
+    void GenerateOutputFile(string fileName);
     void ExecuteCurrentActions();
 
-    void Simulate();
+    void Simulate(int mode);
 
     void SimulateOneTimeStep();
 
@@ -82,5 +88,6 @@ public:
     void BindOrderToChef(order* pOrd, chef* pChef); // new 
 
     void OutputStatusBar();
+    
     
 }; 

@@ -21,11 +21,12 @@ int main()
     cout << "1 - Interactive mode\n";
     cout << "2 - Silent mode\n";
     cin >> mode;
+    cin.ignore(1000, '\n'); // Consume newline left in buffer
 
     string outputFileName = fileName;
     int dotPos = outputFileName.find(".txt");
     outputFileName.erase(dotPos, 4);
-    outputFileName += "output.txt";
+    outputFileName += "_output.txt";
 
     r.ReadInputFile(fileName);
 
@@ -60,7 +61,7 @@ int main()
         TeeBuf tee(oldCout, outFile.rdbuf());
         cout.rdbuf(&tee);
 
-        r.Simulate();
+        r.Simulate(mode);
 
         cout.rdbuf(oldCout);
         outFile.close();
@@ -74,13 +75,16 @@ int main()
         streambuf* oldCout = cout.rdbuf();
         cout.rdbuf(outFile.rdbuf());
 
-        r.Simulate();
+        r.Simulate(mode);
 
         cout.rdbuf(oldCout);
         outFile.close();
 
         cout << "Simulation ends, Output file created\n";
     }
+
+    // Generate the Phase 2 specific output file (this will overwrite any trace written to the file)
+    r.GenerateOutputFile(outputFileName);
 
     return 0;
 }
