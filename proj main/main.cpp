@@ -53,6 +53,7 @@ int main()
                 s1->sputc(c);
                 s2->sputc(c);
                 return c;
+
             }
         };
 
