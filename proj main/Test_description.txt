@@ -1,22 +1,25 @@
 Test_description.txt
 
-File1_50_actions.txt:
-50 actions. Small mixed scenario covering takeaway, dine-in, delivery, chefs, tables, and scooters.
+test1.txt:
+50 actions. Basic mixed scenario covering takeaway, dine-in, delivery, chefs, tables, and scooters. Ideal for verifying basic simulation flow.
 
-File2_100_actions.txt:
-100 actions. Cancellation-focused file. It contains many OVC orders and X actions to clearly test cancellation scenarios.
+test2.txt:
+100 actions. Cancellation-focused file. It contains a high volume of OVC orders followed by X actions at various timesteps to thoroughly test cancellation logic in pending, cooking, and ready states.
 
-File3_150_actions.txt:
-150 actions. Delivery-heavy file testing scooter assignment, delivery timing, Back_Scooters, and Maint_Scooters.
+test3.txt:
+150 actions. Delivery-heavy file testing standard scooter assignment, delivery timing, scooter return (Back_Scooters), and maintenance cycles.
 
-File4_200_actions.txt:
-200 actions. Dine-in-heavy file testing table assignment, table capacity, busy tables, and table return after service.
+test4.txt:
+200 actions. Bonus-focused scenario introducing COMBO (OVB) orders. Specifically tests the assignment of multiple chefs (up to 4) to a single order and the requirement of at least one Special Chef (CS).
 
-File5_250_actions.txt:
-250 actions. Scooter maintenance-heavy file testing repeated scooter trips, maintenance transitions, and scooter return.
+test5.txt:
+250 actions. Advanced resource management scenario. Combines COMBO orders with heavy dine-in traffic to test table capacity management and multi-resource allocation (multiple chefs and multiple scooters).
 
-File6_300_actions.txt:
-300 actions. Large stress test with mixed order types and cancellations. This file tests the most scenarios overall.
+test6.txt:
+300 actions. Comprehensive stress test. This file covers the most scenarios, including all standard order types, complex cancellations, and all bonus features:
+- COMBO orders requiring multiple resources.
+- Rescue scooter missions triggered by delivery failures.
+- Overwait OVG order prioritization for ready delivery orders exceeding the threshold (TH).
 
 Most comprehensive input file:
-File6_300_actions.txt
+test6.txt

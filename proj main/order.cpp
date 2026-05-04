@@ -7,7 +7,6 @@ using namespace std;
 
 order::order()
 {
-    
     ID = 0;
     type = ODN;
 
@@ -25,9 +24,19 @@ order::order()
     duration = 0;
     canShare = false;
 
-    assignedChef = nullptr;
-    assignedScooter = nullptr;
+    actualChefsCount = 0;
+    numChefsRequired = 1;
+    for (int i = 0; i < 4; i++) assignedChefs[i] = nullptr;
+
+    actualScootersCount = 0;
+    numScootersRequired = 1;
+    for (int i = 0; i < 4; i++) assignedScooters[i] = nullptr;
+
     assignedTable = nullptr;
+
+    isRescue = false;
+    rescueScooter = nullptr;
+    failed = false;
 }
 
 order::order(int id, ORDER_TYPE t, int tq, int Size, double P)
@@ -48,9 +57,19 @@ order::order(int id, ORDER_TYPE t, int tq, int Size, double P)
     duration = 0;
     canShare = false;
 
-    assignedChef = nullptr;
-    assignedScooter = nullptr;
+    actualChefsCount = 0;
+    numChefsRequired = 1;
+    for (int i = 0; i < 4; i++) assignedChefs[i] = nullptr;
+
+    actualScootersCount = 0;
+    numScootersRequired = 1;
+    for (int i = 0; i < 4; i++) assignedScooters[i] = nullptr;
+
     assignedTable = nullptr;
+
+    isRescue = false;
+    rescueScooter = nullptr;
+    failed = false;
 }
 
 int order::getID() const
@@ -188,23 +207,60 @@ void order::setCanShare(bool c)
     canShare = c;
 }
 
-void order::setChef(chef* c)
+void order::addChef(chef* c)
 {
-    assignedChef = c;
+    if (actualChefsCount < 4)
+        assignedChefs[actualChefsCount++] = c;
 }
 
-chef* order::getChef() const
+chef* order::getChef(int idx) const
 {
-    return assignedChef;
-}
-void order::setScooter(scooter* s)
-{
-    assignedScooter = s;
+    if (idx >= 0 && idx < actualChefsCount)
+        return assignedChefs[idx];
+    return nullptr;
 }
 
-scooter* order::getScooter() const
+int order::getChefsCount() const
 {
-    return assignedScooter;
+    return actualChefsCount;
+}
+
+void order::setNumChefsRequired(int n)
+{
+    numChefsRequired = (n > 4) ? 4 : n;
+}
+
+int order::getNumChefsRequired() const
+{
+    return numChefsRequired;
+}
+
+void order::addScooter(scooter* s)
+{
+    if (actualScootersCount < 4)
+        assignedScooters[actualScootersCount++] = s;
+}
+
+scooter* order::getScooter(int idx) const
+{
+    if (idx >= 0 && idx < actualScootersCount)
+        return assignedScooters[idx];
+    return nullptr;
+}
+
+int order::getScootersCount() const
+{
+    return actualScootersCount;
+}
+
+void order::setNumScootersRequired(int n)
+{
+    numScootersRequired = (n > 4) ? 4 : n;
+}
+
+int order::getNumScootersRequired() const
+{
+    return numScootersRequired;
 }
 
 void order::setTable(table* t)
@@ -216,6 +272,7 @@ table* order::getTable() const
 {
     return assignedTable;
 }
+
 bool order::isDineIn() const
 {
     return (type == ODG || type == ODN);
@@ -228,12 +285,17 @@ bool order::isTakeaway() const
 
 bool order::isDelivery() const
 {
-    return (type == OVC || type == OVG || type == OVN);
+    return (type == OVC || type == OVG || type == OVN || type == OVB);
 }
 
 bool order::isGrilled() const
 {
     return (type == ODG || type == OVG);
+}
+
+bool order::isCombo() const
+{
+    return (type == OVB);
 }
 
 int order::getIdleTime() const
@@ -281,6 +343,7 @@ const char* order::getTypeAsString() const
     case OVC: return "OVC";
     case OVG: return "OVG";
     case OVN: return "OVN";
+    case OVB: return "OVB";
     default:  return "UNKNOWN";
     }
 }
@@ -290,23 +353,28 @@ void order::Print() const
     cout << "[" << getTypeAsString() << ", " << ID << "]";
 }
 
-// NEW
 double order::getPriority() const
 {
-    if (type == OVG)
+    if (type == OVG || type == OVB)
     {
         if (size <= 0 || TQ <= 0)
             return 0;
 
         // High price and small distance = High priority
         // Weights: Price (40%), Distance (30%), Size (30%)
-        double priority = getPrice() * 0.4 + (100.0 / getDistance()) * 0.3 + getSize() * 0.3;
+        double priority = getPrice() * 0.4 + (100.0 / (getDistance() + 1)) * 0.3 + getSize() * 0.3;
         return priority;
     }
-    
 
     return 0;
 }
+
+void order::setRescue(bool r) { isRescue = r; }
+bool order::isRescueMission() const { return isRescue; }
+void order::setRescueScooter(scooter* s) { rescueScooter = s; }
+scooter* order::getRescueScooter() const { return rescueScooter; }
+void order::setFailed(bool f) { failed = f; }
+bool order::isFailed() const { return failed; }
 
 ostream& operator<<(ostream& out, const order* pOrd)
 {

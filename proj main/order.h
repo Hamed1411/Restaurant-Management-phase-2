@@ -13,6 +13,7 @@ enum ORDER_TYPE {
 	OVC,
 	OVG,
 	OVN,
+	OVB, // COMBO delivery
 };
 
 class order
@@ -27,15 +28,30 @@ private:
 	int seats;
 	int duration;
 	bool canShare;
-	chef* assignedChef;
-	scooter* assignedScooter;
+	
+	chef* assignedChefs[4];
+	int actualChefsCount;
+	int numChefsRequired;
+
+	scooter* assignedScooters[4];
+	int actualScootersCount;
+	int numScootersRequired;
+
 	table* assignedTable;
+
+	bool isRescue;
+	scooter* rescueScooter;
+	bool failed;
 
 public:
 	order();
 	order(int id, ORDER_TYPE t, int tq, int Size, double P);
-	void setScooter(scooter* s);
-	scooter* getScooter() const;
+	
+	void addScooter(scooter* s);
+	scooter* getScooter(int idx = 0) const;
+	int getScootersCount() const;
+	void setNumScootersRequired(int n);
+	int getNumScootersRequired() const;
 
 	void setTable(table* t);
 	table* getTable() const;
@@ -70,13 +86,17 @@ public:
 	void setDuration(int d);
 	void setCanShare(bool c);
 
-	void setChef(chef* c);
-	chef* getChef() const;
+	void addChef(chef* c);
+	chef* getChef(int idx = 0) const;
+	int getChefsCount() const;
+	void setNumChefsRequired(int n);
+	int getNumChefsRequired() const;
 
 	bool isDineIn() const;
 	bool isTakeaway() const;
 	bool isDelivery() const;
 	bool isGrilled() const;
+	bool isCombo() const;
 
 	int getIdleTime() const;
 	int getCookPeriod() const;
@@ -88,9 +108,16 @@ public:
 	void Print() const;
 
 	double getPriority() const;
-	friend ostream& operator<<(ostream& out, const order* pOrd);
 
-	
+	// Rescue mission helpers
+	void setRescue(bool r);
+	bool isRescueMission() const;
+	void setRescueScooter(scooter* s);
+	scooter* getRescueScooter() const;
+	void setFailed(bool f);
+	bool isFailed() const;
+
+	friend ostream& operator<<(ostream& out, const order* pOrd);
 };
 struct OrderIDOnly {
 	const order* ord;

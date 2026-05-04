@@ -11,6 +11,9 @@ Restaurant::Restaurant()
     totalCS = 0;
     totalScooters = 0;
     overwaitThreshold = 0;
+    comboCount = 0;
+    rescueCount = 0;
+    totalOverwaitOVG = 0;
 }
 
 
@@ -132,10 +135,20 @@ void Restaurant::ReadInputFile(string fileName)
                 type = OVG;
             else if (typeText == "OVN")
                 type = OVN;
+            else if (typeText == "OVB")
+                type = OVB;
 
             order* pOrd = new order(ID, type, TQ, size, price);
 
-            if (pOrd->isDineIn())
+            if (pOrd->isCombo())
+            {
+                int dist, nChefs, nScooters;
+                inFile >> dist >> nChefs >> nScooters;
+                pOrd->setDistance(dist);
+                pOrd->setNumChefsRequired(nChefs);
+                pOrd->setNumScootersRequired(nScooters);
+            }
+            else if (pOrd->isDineIn())
             {
                 int seats, duration;
                 char canShareChar;
@@ -203,9 +216,9 @@ void Restaurant::GenerateOutputFile(string fileName)
         }
     }
 
-    outFile << "TF\tID\tTQ\tTA\tTR\tTS\tTi\tTc\tTw\tTserv\n";
+    outFile << "TF\tID\tTQ\tTA\tTR\tTS\tTi\tTc\tTw\tTserv\tMission_Info\n";
 
-    int countODG = 0, countODN = 0, countOT = 0, countOVC = 0, countOVG = 0, countOVN = 0;
+    int countODG = 0, countODN = 0, countOT = 0, countOVC = 0, countOVG = 0, countOVN = 0, countOVB = 0;
     double sumTi = 0, sumTc = 0, sumTw = 0, sumTserv = 0;
     double sumCookTimeAllChefs = 0;
     double sumScooterServiceTime = 0;
@@ -228,7 +241,15 @@ void Restaurant::GenerateOutputFile(string fileName)
 
         outFile << tf << "\t" << id << "\t" << tq << "\t" << ta << "\t"
             << tr << "\t" << ts << "\t" << ti << "\t" << tc << "\t"
-            << tw << "\t" << tserv << "\n";
+            << tw << "\t" << tserv << "\t";
+
+        string info = "";
+        if (pOrd->isCombo()) info += "[COMBO] ";
+        if (pOrd->getType() == OVG && (pOrd->getTS() - pOrd->getTR() > overwaitThreshold)) info += "[OVERWAIT] ";
+        if (pOrd->isRescueMission()) info += "[RESCUED by S" + to_string(pOrd->getRescueScooter()->getID()) + "] ";
+        
+        if (info == "") info = "Normal";
+        outFile << info << "\n";
 
         // Aggregate statistics
         sumTi += ti;
@@ -252,6 +273,7 @@ void Restaurant::GenerateOutputFile(string fileName)
         else if (type == OVC) countOVC++;
         else if (type == OVG) countOVG++;
         else if (type == OVN) countOVN++;
+        else if (type == OVB) countOVB++;
     }
 
     // Cancelled orders breakdown
@@ -266,6 +288,7 @@ void Restaurant::GenerateOutputFile(string fileName)
         else if (type == OVC) countOVC++;
         else if (type == OVG) countOVG++;
         else if (type == OVN) countOVN++;
+        else if (type == OVB) countOVB++;
         delete cOrd;
     }
 
@@ -274,7 +297,7 @@ void Restaurant::GenerateOutputFile(string fileName)
     outFile << "\n------------------------------------------------------------\n";
     outFile << "1- Total Orders: " << totalOrders << " [";
     outFile << "ODG:" << countODG << ", ODN:" << countODN << ", OT:" << countOT
-        << ", OVC:" << countOVC << ", OVG:" << countOVG << ", OVN:" << countOVN << "]\n";
+        << ", OVC:" << countOVC << ", OVG:" << countOVG << ", OVN:" << countOVN << ", OVB:" << countOVB << "]\n";
 
     int totalChefs = totalCN + totalCS;
     outFile << "2- Total Chefs: " << totalChefs << " [CN:" << totalCN << ", CS:" << totalCS << "]\n";
@@ -293,6 +316,10 @@ void Restaurant::GenerateOutputFile(string fileName)
     double avgTserv = finishedCount > 0 ? sumTserv / finishedCount : 0;
     outFile << "6- Average for finished orders -> Ti: " << avgTi << ", Tc: " << avgTc
         << ", Tw: " << avgTw << ", Tserv: " << avgTserv << "\n";
+
+    outFile << "7- Total COMBO orders: " << comboCount << "\n";
+    outFile << "8- Total Rescue missions: " << rescueCount << "\n";
+    outFile << "9- Total Overwait OVG (Ready-to-Service wait > TH): " << totalOverwaitOVG << "\n";
 
     int finalTime = currentTime;
     if (finalTime <= 0) finalTime = 1;
@@ -357,6 +384,11 @@ void Restaurant::AddOrderToPending(order* pOrd)
 
     case OVC:
         PEND_OVC.enqueue(pOrd);
+        break;
+
+    case OVB:
+        PEND_COMBO.enqueue(pOrd, static_cast<int>(pOrd->getPriority()));
+        comboCount++;
         break;
 
     default:
@@ -507,9 +539,57 @@ void Restaurant::MovePendingToCooking()
 {
     chef* pChef = nullptr;
     order* pOrd = nullptr;
+    int pri = 0;
+
+    // Assign COMBO orders (Highest priority in any stage)
+    while (PEND_COMBO.peek(pOrd, pri)) {
+        // COMBO needs up to 4 chefs, at least one CS
+        int needed = pOrd->getNumChefsRequired();
+        int currentlyAssigned = pOrd->getChefsCount();
+        int remaining = needed - currentlyAssigned;
+
+        
+        bool hasCS = false;
+        for (int i = 0; i < currentlyAssigned; i++) {
+            if (pOrd->getChef(i)->getType() == CS) {
+                hasCS = true;
+                break;
+            }
+        }
+
+        while (remaining > 0) {
+            if (!hasCS) {
+                if (Free_CS.dequeue(pChef)) {
+                    BindOrderToChef(pOrd, pChef);
+                    hasCS = true;
+                    remaining--;
+                } else if (remaining > 1) { 
+                    
+                    if (Free_CN.dequeue(pChef)) {
+                        BindOrderToChef(pOrd, pChef);
+                        remaining--;
+                    } else break;
+                } else break; 
+            } else {
+               
+                if (Free_CN.dequeue(pChef) || Free_CS.dequeue(pChef)) {
+                    BindOrderToChef(pOrd, pChef);
+                    remaining--;
+                } else break;
+            }
+        }
+
+        if (pOrd->getChefsCount() == needed) {
+            PEND_COMBO.dequeue(pOrd, pri);
+            cout << ">>> COMBO Order " << pOrd->getID() << " assigned to " << needed << " chefs: ";
+            for (int j = 0; j < needed; j++) cout << pOrd->getChef(j)->getID() << (j < needed - 1 ? ", " : "");
+            cout << endl;
+        } else {
+            break; // Not enough chefs for this combo order yet
+        }
+    }
 
     // Assign OD orders
-   
     // ODG -> CS only
     while (!PEND_ODG.isEmpty() && Free_CS.peek(pChef)) {
         Free_CS.dequeue(pChef);
@@ -580,17 +660,21 @@ void Restaurant::MoveCookingToReady()
         
         if (pOrd->getTR() <= currentTime )
         {
-            chef* pChef = pOrd->getChef();
-
-            if (pChef != nullptr)
-            {
-                if (pChef->getType() == CS)
-                    Free_CS.enqueue(pChef);
+            // Release all chefs assigned to this order
+            for (int i = 0; i < pOrd->getChefsCount(); i++) {
+                chef* c = pOrd->getChef(i);
+                c->setBusy(false);
+                if (c->getType() == CS)
+                    Free_CS.enqueue(c);
                 else
-                    Free_CN.enqueue(pChef);
+                    Free_CN.enqueue(c);
             }
 
-            if (pOrd->isTakeaway())
+            if (pOrd->isCombo())
+            {
+                RDY_COMBO.enqueue(pOrd);
+            }
+            else if (pOrd->isTakeaway())
             {
                 pOrd->setTR(currentTime + 1);  // takeaway wait 1 timestep before ready
                 RDY_OT.enqueue(pOrd); 
@@ -623,10 +707,79 @@ void Restaurant::MoveCookingToReady()
 
 void Restaurant::MoveReadyToService()
 {
-    for (int i = 0; i < 10; i++)
+    // Check RDY_OV_List for OVG orders that became overwait
+    order* pOvCheck = nullptr;
+    QueueWithCancel tempCheck;
+    while (RDY_OV_List.dequeue(pOvCheck)) {
+        if (pOvCheck->getType() == OVG && (currentTime - pOvCheck->getTR() > overwaitThreshold)) {
+            // It's overwait! Move to priority list
+            RDY_OVG_Overwait.enqueue(pOvCheck, 1000 - pOvCheck->getTQ());
+            totalOverwaitOVG++;
+            cout << "!!! OVG Order " << pOvCheck->getID() << " became OVERWAIT (Wait in RDY > TH)" << endl;
+        } else {
+            tempCheck.enqueue(pOvCheck);
+        }
+    }
+    while (tempCheck.dequeue(pOvCheck)) {
+        RDY_OV_List.enqueue(pOvCheck);
+    }
+
+    for (int i = 0; i < 20; i++) 
     {
         order* pOrd = nullptr;
+        int pri = 0;
 
+        // Priority 1: RDY_COMBO
+        if (RDY_COMBO.peek(pOrd)) {
+            int needed = pOrd->getNumScootersRequired();
+            int available = Free_Scooters.getCount();
+
+            if (available >= needed) {
+                RDY_COMBO.dequeue(pOrd);
+                pOrd->setTS(currentTime);
+                
+               
+                int maxServiceTime = 0;
+
+                for (int j = 0; j < needed; j++) {
+                    scooter* pScoot = nullptr;
+                    Free_Scooters.dequeue(pScoot, pri);
+                    pOrd->addScooter(pScoot);
+                    int sTime = CalculateDeliveryServiceTime(pOrd, pScoot);
+                    if (sTime > maxServiceTime) maxServiceTime = sTime;
+                }
+
+                pOrd->setTF(currentTime + maxServiceTime);
+                InServ_Orders.enqueue(pOrd, 1000 - pOrd->getTF());
+
+                cout << ">>> COMBO Order " << pOrd->getID() << " assigned to " << needed << " scooters: ";
+                for (int j = 0; j < needed; j++) cout << pOrd->getScooter(j)->getID() << (j < needed - 1 ? ", " : "");
+                cout << endl;
+
+                // Scooters go to back list
+                for (int j = 0; j < needed; j++) {
+                    Back_Scooters.enqueue(pOrd->getScooter(j), 1000 - pOrd->getTF());
+                }
+                continue;
+            }
+        }
+
+        // Priority 2: RDY_OVG_Overwait
+        if (RDY_OVG_Overwait.peek(pOrd, pri)) {
+            scooter* pScoot = nullptr;
+            if (Free_Scooters.dequeue(pScoot, pri)) {
+                RDY_OVG_Overwait.dequeue(pOrd, pri);
+                int sTime = CalculateDeliveryServiceTime(pOrd, pScoot);
+                pOrd->setTS(currentTime);
+                pOrd->setTF(currentTime + sTime);
+                pOrd->addScooter(pScoot);
+                InServ_Orders.enqueue(pOrd, 1000 - pOrd->getTF());
+                Back_Scooters.enqueue(pScoot, 1000 - pOrd->getTF());
+                continue;
+            }
+        }
+
+        // Priority 3: OT, OD, then regular OV
         if (RDY_OT.dequeue(pOrd))
         {
             if (pOrd != nullptr)
@@ -637,60 +790,24 @@ void Restaurant::MoveReadyToService()
             }
             continue;
         }
-        if (RDY_OV_List.dequeue(pOrd))
-        {
-            if (pOrd != nullptr)
-            {
-                scooter* pScooter = nullptr;
-                int pri = 0;
-
-
-                if (Free_Scooters.dequeue(pScooter, pri))
-                {
-                    int serviceTime = CalculateDeliveryServiceTime(pOrd, pScooter);
-
-                    pOrd->setTS(currentTime);
-                    pOrd->setTF(currentTime + serviceTime);
-
-                    pOrd->setScooter(pScooter);
-
-                    InServ_Orders.enqueue(pOrd, 100 - pOrd->getTF());
-
-
-                    Back_Scooters.enqueue(pScooter, 100 - pOrd->getTF());
-                }
-                else
-                {
-
-                    RDY_OV_List.enqueue(pOrd);
-                }
-            }
-            continue;
-        }
 
         if (RDY_OD.dequeue(pOrd))
         {
             if (pOrd != nullptr)
             {
                 table* pTable = nullptr;
-
                 int neededSeats = pOrd->getSeats();
-                if (neededSeats <= 0)
-                    neededSeats = 1;
+                if (neededSeats <= 0) neededSeats = 1;
 
                 if (Free_Tables.getBest(neededSeats, pTable))
                 {
                     pOrd->setTable(pTable);
                     pOrd->setTS(currentTime);
-
                     int duration = pOrd->getDuration();
-                    if (duration <= 0)
-                        duration = RandomInt(2, 5);
-
+                    if (duration <= 0) duration = RandomInt(2, 5);
                     pOrd->setTF(currentTime + duration);
-
                     Busy_No_Share.enqueue(pTable, 100 - pTable->getCapacity());
-                    InServ_Orders.enqueue(pOrd, 100 - pOrd->getTF());
+                    InServ_Orders.enqueue(pOrd, 1000 - pOrd->getTF());
                 }
                 else
                 {
@@ -700,7 +817,31 @@ void Restaurant::MoveReadyToService()
             continue;
         }
 
-        
+        if (RDY_OV_List.dequeue(pOrd))
+        {
+            if (pOrd != nullptr)
+            {
+                scooter* pScooter = nullptr;
+                pri = 0;
+
+                if (Free_Scooters.dequeue(pScooter, pri))
+                {
+                    int serviceTime = CalculateDeliveryServiceTime(pOrd, pScooter);
+                    pOrd->setTS(currentTime);
+                    pOrd->setTF(currentTime + serviceTime);
+                    pOrd->addScooter(pScooter);
+                    InServ_Orders.enqueue(pOrd, 1000 - pOrd->getTF());
+                    Back_Scooters.enqueue(pScooter, 1000 - pOrd->getTF());
+                }
+                else
+                {
+                    RDY_OV_List.enqueue(pOrd);
+                }
+            }
+            continue;
+        }
+
+        break; // No more orders can be assigned this step
     }
 }
 
@@ -775,14 +916,45 @@ void Restaurant::TryCancelCookingOV()
 void Restaurant::MoveInServiceToFinish()
 {
     priQueue<order*> tempQueue;
-
     order* pOrd = nullptr;
     int pri = 0;
 
     while (InServ_Orders.dequeue(pOrd, pri))
     {
-        if (pOrd == nullptr)
-            continue;
+        if (pOrd == nullptr) continue;
+
+        // Scooter failure logic
+        if (pOrd->isDelivery() && !pOrd->isFailed() && !pOrd->isRescueMission()) {
+            if (RandomInt(1, 100) <= 5) { // 5% probability
+                pOrd->setFailed(true);
+                rescueCount++;
+                cout << "!!! Scooter FAIL for Order " << pOrd->getID() << " at timestep " << currentTime << endl;
+                
+                // Add all currently assigned scooters to Failed_Scooters list
+                for (int j = 0; j < pOrd->getScootersCount(); j++) {
+                    Failed_Scooters.enqueue(pOrd->getScooter(j));
+                }
+
+                // Try to get a rescue scooter
+                scooter* pRescue = nullptr;
+                int rPri = 0;
+                if (Free_Scooters.dequeue(pRescue, rPri)) {
+                    pOrd->setRescue(true);
+                    pOrd->setRescueScooter(pRescue);
+                    cout << ">>> Rescue Scooter " << pRescue->getID() << " assigned to Order " << pOrd->getID() << endl;
+                    
+                    int reachTime = pOrd->getDistance() / pRescue->getSpeed();
+                    if (reachTime < 1) reachTime = 1;
+                    
+                    pOrd->setTF(currentTime + reachTime * 2);
+                    tempQueue.enqueue(pOrd, 1000 - pOrd->getTF());
+                    continue;
+                } else {
+                    tempQueue.enqueue(pOrd, pri);
+                    continue;
+                }
+            }
+        }
 
         if (pOrd->getTF() <= currentTime)
         {
@@ -792,7 +964,6 @@ void Restaurant::MoveInServiceToFinish()
             {
                 table* pTable = nullptr;
                 int tablePri = 0;
-
                 if (Busy_No_Share.dequeue(pTable, tablePri))
                 {
                     if (pTable != nullptr)
@@ -800,6 +971,21 @@ void Restaurant::MoveInServiceToFinish()
                         pTable->resetFreeSeats();
                         Free_Tables.enqueue(pTable, 100 - pTable->getCapacity());
                     }
+                }
+            }
+            else if (pOrd->isRescueMission()) {
+                scooter* pRescue = pOrd->getRescueScooter();
+                Back_Scooters.enqueue(pRescue, 1000 - currentTime);
+                
+                // Move failed scooters from Failed_Scooters to Maint_Scooters
+                for (int i = 0; i < pOrd->getScootersCount(); i++) {
+                    scooter* s = nullptr;
+               
+                    s = pOrd->getScooter(i);
+                    s->resetTrips();
+                    Maint_Scooters.enqueue(s);
+                    
+                    
                 }
             }
         }
@@ -818,27 +1004,34 @@ void Restaurant::MoveInServiceToFinish()
 
 void Restaurant::HandleBackScooters()
 {
-    if (rand() % 100 >= 50)
-        return;
-
     scooter* pScooter = nullptr;
     int pri = 0;
 
-    if (Back_Scooters.dequeue(pScooter, pri))
+    // Peek the top scooter to see if it has arrived yet
+    while (Back_Scooters.peek(pScooter, pri))
     {
-        if (pScooter != nullptr)
+        int tf = 1000 - pri; // Priority was 1000 - TF
+        if (tf <= currentTime)
         {
-            pScooter->incrementTrips();
+            Back_Scooters.dequeue(pScooter, pri);
+            if (pScooter != nullptr)
+            {
+                pScooter->incrementTrips();
 
-            if (pScooter->needsMaintenance())
-            {
-                pScooter->resetTrips();
-                Maint_Scooters.enqueue(pScooter);
+                if (pScooter->needsMaintenance())
+                {
+                    pScooter->resetTrips();
+                    Maint_Scooters.enqueue(pScooter);
+                }
+                else
+                {
+                    Free_Scooters.enqueue(pScooter, 100 - pScooter->getID());
+                }
             }
-            else
-            {
-                Free_Scooters.enqueue(pScooter, 100 - pScooter->getID());
-            }
+        }
+        else
+        {
+            break; 
         }
     }
 }
@@ -868,31 +1061,37 @@ bool Restaurant::AllOrdersDone() const
 void Restaurant::BindOrderToChef(order* pOrd, chef* pChef)
 {
     pChef->setBusy(true);
-    pOrd->setChef(pChef);
+    pOrd->addChef(pChef);
+
+    // If it's a COMBO order, we need more chefs
+    if (pOrd->isCombo() && pOrd->getChefsCount() < pOrd->getNumChefsRequired()) {
+        return; // Wait for more chefs
+    }
 
     // Set Assigned Time (TA) and calculate Wait Time (TW)
     pOrd->setTA(currentTime);
     pOrd->setTW(currentTime - pOrd->getTQ());
 
     // Calculate Cook Time
-    // If a Normal chef takes a Grilled order, speed is halved
-    int speed = pChef->getSpeed();
-    if (pChef->getType() == CN && pOrd->isGrilled()) {
-        speed /= 2; 
+    // Let's use sum of speeds as it's common for multi-chef tasks.
+    int totalSpeed = 0;
+    for (int i = 0; i < pOrd->getChefsCount(); i++) {
+        chef* c = pOrd->getChef(i);
+        int s = c->getSpeed();
+        if (c->getType() == CN && pOrd->isGrilled()) {
+            s /= 2;
+        }
+        totalSpeed += s;
     }
 
-    // Ensure speed is at least 1 to avoid division by zero or negative cook times
-    if (speed < 1) speed = 1;
+    if (totalSpeed < 1) totalSpeed = 1;
 
-    int cookTime = pOrd->getDuration() / speed;
+    int cookTime = pOrd->getDuration() / totalSpeed;
+    if (pOrd->getDuration() % totalSpeed != 0) cookTime++;
 
-    // CookTime should be at least 1 timestep
     if (cookTime < 1) cookTime = 1;
 
-    // Set Ready Time (TR) 
     pOrd->setTR(currentTime + cookTime);
-
-   
     Cooking_Orders.enqueue(pOrd, pOrd->getTR());
 }
 
@@ -931,27 +1130,34 @@ void Restaurant::OutputStatusBar()
 
     cout << PEND_OVG.getCount() << " OVG: ";
     if (PEND_OVG.isEmpty())
-        cout << "The list is empty.";
+        cout << "The list is empty." << endl;
     else
         PEND_OVG.print();
+    cout << endl;
+
+    cout << PEND_COMBO.getCount() << " COMBO (Pending Multi-Chef): ";
+    if (PEND_COMBO.isEmpty())
+        cout << "The list is empty.";
+    else
+        PEND_COMBO.print();
     cout << endl << endl;
 
     cout << "------------- Available chefs IDs -----------------\n";
 
-    cout << Free_CS.getCount() << " CS: ";
+    cout << Free_CS.getCount() << " CS (Special): ";
     Free_CS.print();
     cout << endl;
 
-    cout << Free_CN.getCount() << " CN: ";
+    cout << Free_CN.getCount() << " CN (Normal): ";
     Free_CN.print();
     cout << endl << endl;
 
-    cout << "------------- Cooking orders [Orders ID, chef ID] -----------------\n";
+    cout << "------------- Cooking orders [Orders ID, chef IDs] -----------------\n";
     cout << Cooking_Orders.getCount() << " cooking orders: ";
 
     if (Cooking_Orders.isEmpty())
     {
-        cout << "The list is empty.";
+        cout << "Empty";
     }
     else
     {
@@ -967,10 +1173,11 @@ void Restaurant::OutputStatusBar()
                 if (!firstCooking)
                     cout << ", ";
 
-                if (pOrd->getChef() != nullptr)
-                    cout << "[" << pOrd->getID() << ", " << pOrd->getChef()->getID() << "]";
-                else
-                    cout << "[" << pOrd->getID() << ", NoChef]";
+                cout << "[" << pOrd->getID() << ", Chefs: ";
+                for (int j = 0; j < pOrd->getChefsCount(); j++) {
+                    cout << pOrd->getChef(j)->getID() << (j < pOrd->getChefsCount() - 1 ? "+" : "");
+                }
+                cout << "]";
 
                 firstCooking = false;
                 tempQueue.enqueue(pOrd, pri);
@@ -986,7 +1193,6 @@ void Restaurant::OutputStatusBar()
     cout << endl << endl;
 
     cout << "------------- Ready Orders IDs -----------------\n";
-    cout << "For each Ready list print\n";
     cout << "List count, order type, IDs of all orders in the list\n";
 
     cout << RDY_OD.getCount() << " RDY_OD: ";
@@ -999,6 +1205,15 @@ void Restaurant::OutputStatusBar()
 
     cout << RDY_OV_List.getCount() << " RDY_OV: ";
     RDY_OV_List.print();
+    cout << endl;
+
+    cout << RDY_COMBO.getCount() << " RDY_COMBO (Ready Multi-Scooter): ";
+    RDY_COMBO.print();
+    cout << endl;
+
+    cout << RDY_OVG_Overwait.getCount() << " RDY_OVG_Overwait (High Priority): ";
+    if (RDY_OVG_Overwait.isEmpty()) cout << "Empty";
+    else RDY_OVG_Overwait.print();
     cout << endl << endl;
 
     cout << "------------- Available scooters IDs -----------------\n";
@@ -1022,7 +1237,7 @@ void Restaurant::OutputStatusBar()
 
     if (InServ_Orders.isEmpty())
     {
-        cout << "The list is empty.";
+        cout << "Empty";
     }
     else
     {
@@ -1041,7 +1256,14 @@ void Restaurant::OutputStatusBar()
                 cout << "[" << pServOrd->getID();
 
                 if (pServOrd->isDelivery() && pServOrd->getScooter())
-                    cout << ", S" << pServOrd->getScooter()->getID();
+                {
+                    if (pServOrd->isFailed() && !pServOrd->isRescueMission())
+                        cout << ", FAILED-Waiting Rescue";
+                    else if (pServOrd->isRescueMission())
+                        cout << ", RESCUE-S" << pServOrd->getRescueScooter()->getID();
+                    else
+                        cout << ", S" << pServOrd->getScooter()->getID();
+                }
                 else if (pServOrd->isDineIn() && pServOrd->getTable())
                     cout << ", T" << pServOrd->getTable()->getID();
 
@@ -1058,6 +1280,36 @@ void Restaurant::OutputStatusBar()
         }
     }
 
+    cout << endl << endl;
+
+    // Add a dedicated line for failed orders if any exist
+    {
+        priQueue<order*> tempInServ;
+        order* pServOrd = nullptr;
+        int servPri = 0;
+        bool firstFailed = true;
+        int failedCount = 0;
+
+        while (InServ_Orders.dequeue(pServOrd, servPri)) {
+            if (pServOrd && pServOrd->isFailed() && !pServOrd->isRescueMission()) {
+                if (firstFailed) cout << ">>> ORDERS WAITING FOR RESCUE: ";
+                else cout << ", ";
+                cout << pServOrd->getID();
+                firstFailed = false;
+                failedCount++;
+            }
+            tempInServ.enqueue(pServOrd, servPri);
+        }
+        while (tempInServ.dequeue(pServOrd, servPri)) InServ_Orders.enqueue(pServOrd, servPri);
+        if (failedCount > 0) cout << endl << endl;
+    }
+
+    cout << "------------- Failed scooters IDs -----------------\n";
+    cout << Failed_Scooters.getCount() << " scooters: ";
+    if (Failed_Scooters.isEmpty())
+        cout << "The list is empty.";
+    else
+        Failed_Scooters.print();
     cout << endl << endl;
 
     cout << "------------- In-maintainance scooters IDs -----------------\n";

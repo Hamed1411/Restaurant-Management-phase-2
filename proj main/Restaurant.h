@@ -32,6 +32,7 @@ private:
     LinkedQueue<order*>     PEND_OVN;
     QueueWithCancel         PEND_OVC;
     priQueue<order*>        PEND_OVG;
+    priQueue<order*>        PEND_COMBO;
 
     LinkedQueue<chef*>      Free_CS;
     LinkedQueue<chef*>      Free_CN;
@@ -43,16 +44,24 @@ private:
     LinkedQueue<order*>     RDY_OT;
     QueueWithCancel         RDY_OV_List;
     LinkedQueue<order*>     RDY_OD;
+    LinkedQueue<order*>     RDY_COMBO;
+    priQueue<order*>        RDY_OVG_Overwait;
 
     priQueue<order*>        InServ_Orders;
 
     priQueue<scooter*>      Free_Scooters;
     priQueue<scooter*>      Back_Scooters;
     LinkedQueue<scooter*>   Maint_Scooters;
+    LinkedQueue<scooter*>   Failed_Scooters;
 
     TableFitPriQueue        Free_Tables;
     TableFitPriQueue        Busy_Sharable;
     TableFitPriQueue        Busy_No_Share;
+
+    // Bonus Stats
+    int comboCount;
+    int rescueCount;
+    int totalOverwaitOVG;
 
     int RandomInt(int minVal, int maxVal) const;
 
