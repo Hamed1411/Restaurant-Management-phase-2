@@ -18,14 +18,15 @@ List count, order type, IDs of all orders in the list
 0 OVN: The list is empty.
 
 0 OVG: The list is empty.
-------------- Available chefs IDs -----------------
-2 CS: [201], [202]
 
-2 CN: [103], [104]
+------------- Available chefs IDs -----------------
+4 CS: [202], [203], [204], [205]
+
+5 CN: [104], [105], [106], [107], [108]
 
 
 ------------- Cooking orders [Orders ID, chef ID] -----------------
-2 cooking orders: [2, 101], [1, 102], 
+4 cooking orders: [2, 101], [4, 102], [1, 201], [3, 103]
 
 ------------- Ready Orders IDs -----------------
 For each Ready list print
@@ -38,27 +39,25 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-4 Scooters: S1, S2, S3, S4
+8 Scooters: S1, S2, S3, S4, S5, S6, S7, S8
 
 ------------- Available tables [ID, capacity, free seats] -----------------
-5 tables: [T1, 2, 2], [T2, 2, 2], [T3, 4, 4], [T4, 4, 4], [T5, 6, 6]
+10 tables: [T1, 2, 2], [T2, 2, 2], [T3, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-0 Orders: 
+0 Orders: The list is empty.
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
 ------------- Scooters Back to Restaurant IDs -----------------
-0 scooters: 
+0 scooters: The list is empty.
 
 ------------- Cancelled Orders IDs -----------------
-0 cancelled: 
+0 cancelled: The list is empty.
 
 ------------- Finished orders IDs -----------------
-0 Orders: 
-
-
+0 Orders: The list is empty.
 
 Current Timestep:2
 ================ Actions List ================
@@ -80,14 +79,15 @@ List count, order type, IDs of all orders in the list
 0 OVN: The list is empty.
 
 0 OVG: The list is empty.
-------------- Available chefs IDs -----------------
-1 CS: [202]
 
-3 CN: [104], [101], [102]
+------------- Available chefs IDs -----------------
+3 CS: [204], [205], [201]
+
+6 CN: [106], [107], [108], [101], [102], [103]
 
 
 ------------- Cooking orders [Orders ID, chef ID] -----------------
-2 cooking orders: [3, 201], [4, 103], 
+4 cooking orders: [8, 202], [6, 203], [5, 104], [7, 105]
 
 ------------- Ready Orders IDs -----------------
 For each Ready list print
@@ -100,27 +100,25 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-4 Scooters: S1, S2, S3, S4
+6 Scooters: S3, S4, S5, S6, S7, S8
 
 ------------- Available tables [ID, capacity, free seats] -----------------
-4 tables: [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 6, 6]
+9 tables: [T2, 2, 2], [T3, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-1 Orders: [2, T3]
+3 Orders: [3, S2], [2, T1], [1, S1]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
 ------------- Scooters Back to Restaurant IDs -----------------
-0 scooters: 
+2 scooters: S2, S1
 
 ------------- Cancelled Orders IDs -----------------
-0 cancelled: 
+0 cancelled: The list is empty.
 
 ------------- Finished orders IDs -----------------
-1 Orders: 1
-
-
+1 Orders: 4
 
 Current Timestep:3
 ================ Actions List ================
@@ -142,14 +140,15 @@ List count, order type, IDs of all orders in the list
 0 OVN: The list is empty.
 
 0 OVG: The list is empty.
-------------- Available chefs IDs -----------------
-0 CS: The list is empty.
 
-3 CN: [101], [102], [103]
+------------- Available chefs IDs -----------------
+5 CS: [204], [205], [201], [202], [203]
+
+5 CN: [101], [102], [103], [104], [105]
 
 
 ------------- Cooking orders [Orders ID, chef ID] -----------------
-3 cooking orders: [3, 201], [6, 202], [5, 104], 
+3 cooking orders: [9, 106], [10, 107], [11, 108]
 
 ------------- Ready Orders IDs -----------------
 For each Ready list print
@@ -162,27 +161,25 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-3 Scooters: S2, S3, S4
+2 Scooters: S7, S8
 
 ------------- Available tables [ID, capacity, free seats] -----------------
-4 tables: [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 6, 6]
+9 tables: [T2, 2, 2], [T3, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-2 Orders: [2, T3], [4, S1]
+6 Orders: [2, T1], [7, S6], [5, S5], [1, S1], [8, S3], [6, S4]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
 ------------- Scooters Back to Restaurant IDs -----------------
-1 scooters: S1
+6 scooters: S2, S6, S5, S1, S3, S4
 
 ------------- Cancelled Orders IDs -----------------
-0 cancelled: 
+1 cancelled: 3
 
 ------------- Finished orders IDs -----------------
-1 Orders: 1
-
-
+1 Orders: 4
 
 Current Timestep:4
 ================ Actions List ================
@@ -204,14 +201,15 @@ List count, order type, IDs of all orders in the list
 0 OVN: The list is empty.
 
 0 OVG: The list is empty.
-------------- Available chefs IDs -----------------
-2 CS: [201], [202]
 
-3 CN: [102], [103], [104]
+------------- Available chefs IDs -----------------
+3 CS: [201], [202], [203]
+
+6 CN: [103], [104], [105], [106], [107], [108]
 
 
 ------------- Cooking orders [Orders ID, chef ID] -----------------
-1 cooking orders: [7, 101], 
+4 cooking orders: [14, 204], [15, 205], [12, 101], [13, 102]
 
 ------------- Ready Orders IDs -----------------
 For each Ready list print
@@ -224,27 +222,25 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-1 Scooters: S4
+1 Scooters: S8
 
 ------------- Available tables [ID, capacity, free seats] -----------------
-3 tables: [T1, 2, 2], [T2, 2, 2], [T5, 6, 6]
+8 tables: [T3, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-5 Orders: [2, T3], [5, S3], [3, T4], [4, S1], [6, S2]
+8 Orders: [9, T2], [2, T1], [7, S6], [5, S5], [1, S1], [8, S3], [6, S4], [11, S7]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
 ------------- Scooters Back to Restaurant IDs -----------------
-3 scooters: S3, S1, S2
+7 scooters: S2, S6, S5, S1, S3, S4, S7
 
 ------------- Cancelled Orders IDs -----------------
-0 cancelled: 
+1 cancelled: 3
 
 ------------- Finished orders IDs -----------------
-1 Orders: 1
-
-
+2 Orders: 10, 4
 
 Current Timestep:5
 ================ Actions List ================
@@ -266,47 +262,46 @@ List count, order type, IDs of all orders in the list
 0 OVN: The list is empty.
 
 0 OVG: The list is empty.
-------------- Available chefs IDs -----------------
-2 CS: [201], [202]
 
-3 CN: [103], [104], [101]
+------------- Available chefs IDs -----------------
+3 CS: [202], [203], [205]
+
+5 CN: [106], [107], [108], [101], [102]
 
 
 ------------- Cooking orders [Orders ID, chef ID] -----------------
-1 cooking orders: [8, 102], 
+5 cooking orders: [17, 201], [14, 204], [18, 103], [16, 104], [19, 105]
 
 ------------- Ready Orders IDs -----------------
 For each Ready list print
 List count, order type, IDs of all orders in the list
-0 RDY_OD: The list is empty.
+1 RDY_OD: [ODG, 15]
 
 0 RDY_OT: The list is empty.
 
-0 RDY_OV: The list is empty.
+1 RDY_OV: [OVC, 13]
 
 
 ------------- Available scooters IDs -----------------
-1 Scooters: S4
+0 Scooters: The list is empty.
 
 ------------- Available tables [ID, capacity, free seats] -----------------
-3 tables: [T1, 2, 2], [T2, 2, 2], [T5, 6, 6]
+8 tables: [T3, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-5 Orders: [2, T3], [5, S3], [3, T4], [4, S1], [6, S2]
+9 Orders: [9, T2], [2, T1], [7, S6], [12, S8], [5, S5], [1, S1], [8, S3], [6, S4], [11, S7]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
 ------------- Scooters Back to Restaurant IDs -----------------
-3 scooters: S3, S1, S2
+8 scooters: S2, S6, S8, S5, S1, S3, S4, S7
 
 ------------- Cancelled Orders IDs -----------------
-0 cancelled: 
+1 cancelled: 3
 
 ------------- Finished orders IDs -----------------
-2 Orders: 7, 1
-
-
+2 Orders: 10, 4
 
 Current Timestep:6
 ================ Actions List ================
@@ -328,47 +323,46 @@ List count, order type, IDs of all orders in the list
 0 OVN: The list is empty.
 
 0 OVG: The list is empty.
-------------- Available chefs IDs -----------------
-2 CS: [201], [202]
 
-3 CN: [104], [101], [102]
+------------- Available chefs IDs -----------------
+2 CS: [205], [204]
+
+7 CN: [107], [108], [101], [102], [103], [104], [105]
 
 
 ------------- Cooking orders [Orders ID, chef ID] -----------------
-1 cooking orders: [9, 103], 
+4 cooking orders: [17, 201], [22, 202], [21, 106], [20, 203]
 
 ------------- Ready Orders IDs -----------------
 For each Ready list print
 List count, order type, IDs of all orders in the list
-0 RDY_OD: The list is empty.
+2 RDY_OD: [ODG, 15], [ODG, 14]
 
 0 RDY_OT: The list is empty.
 
-0 RDY_OV: The list is empty.
+3 RDY_OV: [OVC, 18], [OVN, 16], [OVN, 19]
 
 
 ------------- Available scooters IDs -----------------
-2 Scooters: S3, S4
+0 Scooters: The list is empty.
 
 ------------- Available tables [ID, capacity, free seats] -----------------
-3 tables: [T1, 2, 2], [T2, 2, 2], [T5, 6, 6]
+9 tables: [T3, 2, 2], [T1, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-5 Orders: [5, S3], [3, T4], [8, T3], [4, S1], [6, S2]
+8 Orders: [2, T1], [7, S6], [12, S8], [1, S1], [8, S3], [6, S4], [11, S7], [13, S2]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
 ------------- Scooters Back to Restaurant IDs -----------------
-2 scooters: S1, S2
+8 scooters: S6, S8, S5, S1, S3, S4, S7, S2
 
 ------------- Cancelled Orders IDs -----------------
-0 cancelled: 
+2 cancelled: 3, 5
 
 ------------- Finished orders IDs -----------------
-3 Orders: 2, 7, 1
-
-
+3 Orders: 9, 10, 4
 
 Current Timestep:7
 ================ Actions List ================
@@ -390,47 +384,46 @@ List count, order type, IDs of all orders in the list
 0 OVN: The list is empty.
 
 0 OVG: The list is empty.
-------------- Available chefs IDs -----------------
-2 CS: [201], [202]
 
-3 CN: [101], [102], [103]
+------------- Available chefs IDs -----------------
+5 CS: [205], [204], [201], [202], [203]
+
+4 CN: [103], [104], [105], [106]
 
 
 ------------- Cooking orders [Orders ID, chef ID] -----------------
-1 cooking orders: [10, 104], 
+4 cooking orders: [26, 108], [24, 107], [25, 101], [23, 102]
 
 ------------- Ready Orders IDs -----------------
 For each Ready list print
 List count, order type, IDs of all orders in the list
-0 RDY_OD: The list is empty.
+4 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22]
 
 0 RDY_OT: The list is empty.
 
-0 RDY_OV: The list is empty.
+4 RDY_OV: [OVN, 16], [OVN, 19], [OVG, 20], [OVC, 18]
 
 
 ------------- Available scooters IDs -----------------
-1 Scooters: S4
+0 Scooters: The list is empty.
 
 ------------- Available tables [ID, capacity, free seats] -----------------
-3 tables: [T1, 2, 2], [T2, 2, 2], [T5, 6, 6]
+9 tables: [T3, 2, 2], [T1, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-6 Orders: [5, S3], [3, T4], [8, T3], [4, S1], [9, S3], [6, S2]
+8 Orders: [2, T1], [7, S6], [12, S8], [1, S1], [8, S3], [6, S4], [11, S7], [13, S2]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
 ------------- Scooters Back to Restaurant IDs -----------------
-3 scooters: S1, S3, S2
+8 scooters: S6, S8, S5, S1, S3, S4, S7, S2
 
 ------------- Cancelled Orders IDs -----------------
-0 cancelled: 
+2 cancelled: 3, 5
 
 ------------- Finished orders IDs -----------------
-3 Orders: 2, 7, 1
-
-
+4 Orders: 21, 9, 10, 4
 
 Current Timestep:8
 ================ Actions List ================
@@ -452,47 +445,46 @@ List count, order type, IDs of all orders in the list
 0 OVN: The list is empty.
 
 0 OVG: The list is empty.
-------------- Available chefs IDs -----------------
-2 CS: [201], [202]
 
-4 CN: [101], [102], [103], [104]
+------------- Available chefs IDs -----------------
+5 CS: [205], [204], [201], [202], [203]
+
+3 CN: [107], [101], [102]
 
 
 ------------- Cooking orders [Orders ID, chef ID] -----------------
-0 cooking orders: 
+5 cooking orders: [26, 108], [27, 103], [28, 104], [29, 105], [30, 106]
 
 ------------- Ready Orders IDs -----------------
 For each Ready list print
 List count, order type, IDs of all orders in the list
-0 RDY_OD: The list is empty.
+5 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24]
 
 0 RDY_OT: The list is empty.
 
-0 RDY_OV: The list is empty.
+6 RDY_OV: [OVC, 25], [OVN, 23], [OVN, 16], [OVN, 19], [OVG, 20], [OVC, 18]
 
 
 ------------- Available scooters IDs -----------------
-1 Scooters: S4
+0 Scooters: The list is empty.
 
 ------------- Available tables [ID, capacity, free seats] -----------------
-3 tables: [T1, 2, 2], [T2, 2, 2], [T5, 6, 6]
+9 tables: [T3, 2, 2], [T1, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-6 Orders: [5, S3], [3, T4], [8, T3], [4, S1], [9, S3], [6, S2]
+8 Orders: [2, T1], [7, S6], [12, S8], [1, S1], [8, S3], [6, S4], [11, S7], [13, S2]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
 ------------- Scooters Back to Restaurant IDs -----------------
-3 scooters: S1, S3, S2
+8 scooters: S6, S8, S5, S1, S3, S4, S7, S2
 
 ------------- Cancelled Orders IDs -----------------
-0 cancelled: 
+2 cancelled: 3, 5
 
 ------------- Finished orders IDs -----------------
-4 Orders: 10, 2, 7, 1
-
-
+4 Orders: 21, 9, 10, 4
 
 Current Timestep:9
 ================ Actions List ================
@@ -514,47 +506,46 @@ List count, order type, IDs of all orders in the list
 0 OVN: The list is empty.
 
 0 OVG: The list is empty.
-------------- Available chefs IDs -----------------
-2 CS: [201], [202]
 
-4 CN: [101], [102], [103], [104]
+------------- Available chefs IDs -----------------
+3 CS: [201], [202], [203]
+
+7 CN: [101], [102], [108], [103], [104], [105], [106]
 
 
 ------------- Cooking orders [Orders ID, chef ID] -----------------
-0 cooking orders: 
+3 cooking orders: [31, 205], [33, 204], [32, 107]
 
 ------------- Ready Orders IDs -----------------
 For each Ready list print
 List count, order type, IDs of all orders in the list
-0 RDY_OD: The list is empty.
+7 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27]
 
 0 RDY_OT: The list is empty.
 
-0 RDY_OV: The list is empty.
+9 RDY_OV: [OVN, 23], [OVN, 16], [OVN, 19], [OVG, 20], [OVC, 18], [OVC, 28], [OVC, 29], [OVC, 30], [OVC, 25]
 
 
 ------------- Available scooters IDs -----------------
-1 Scooters: S4
+0 Scooters: The list is empty.
 
 ------------- Available tables [ID, capacity, free seats] -----------------
-5 tables: [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T3, 4, 4], [T5, 6, 6]
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-3 Orders: [4, S1], [9, S3], [6, S2]
+5 Orders: [1, S1], [8, S3], [6, S4], [11, S7], [13, S2]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
 ------------- Scooters Back to Restaurant IDs -----------------
-3 scooters: S1, S3, S2
+8 scooters: S6, S8, S5, S1, S3, S4, S7, S2
 
 ------------- Cancelled Orders IDs -----------------
-0 cancelled: 
+3 cancelled: 3, 5, 7
 
 ------------- Finished orders IDs -----------------
-7 Orders: 8, 3, 5, 10, 2, 7, 1
-
-
+6 Orders: 12, 2, 21, 9, 10, 4
 
 Current Timestep:10
 ================ Actions List ================
@@ -576,47 +567,46 @@ List count, order type, IDs of all orders in the list
 0 OVN: The list is empty.
 
 0 OVG: The list is empty.
-------------- Available chefs IDs -----------------
-2 CS: [201], [202]
 
-4 CN: [101], [102], [103], [104]
+------------- Available chefs IDs -----------------
+5 CS: [201], [202], [203], [205], [204]
+
+4 CN: [104], [105], [106], [107]
 
 
 ------------- Cooking orders [Orders ID, chef ID] -----------------
-0 cooking orders: 
+4 cooking orders: [34, 101], [37, 102], [36, 108], [35, 103]
 
 ------------- Ready Orders IDs -----------------
 For each Ready list print
 List count, order type, IDs of all orders in the list
-0 RDY_OD: The list is empty.
+8 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31]
 
 0 RDY_OT: The list is empty.
 
-0 RDY_OV: The list is empty.
+10 RDY_OV: [OVC, 32], [OVN, 16], [OVN, 19], [OVG, 20], [OVC, 18], [OVC, 28], [OVC, 29], [OVC, 30], [OVC, 25], [OVG, 33]
 
 
 ------------- Available scooters IDs -----------------
-2 Scooters: S1, S4
+0 Scooters: The list is empty.
 
 ------------- Available tables [ID, capacity, free seats] -----------------
-5 tables: [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T3, 4, 4], [T5, 6, 6]
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-2 Orders: [9, S3], [6, S2]
+6 Orders: [1, S1], [8, S3], [6, S4], [11, S7], [23, S6], [13, S2]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
 ------------- Scooters Back to Restaurant IDs -----------------
-2 scooters: S3, S2
+8 scooters: S8, S5, S1, S3, S4, S7, S6, S2
 
 ------------- Cancelled Orders IDs -----------------
-0 cancelled: 
+3 cancelled: 3, 5, 7
 
 ------------- Finished orders IDs -----------------
-8 Orders: 4, 8, 3, 5, 10, 2, 7, 1
-
-
+6 Orders: 12, 2, 21, 9, 10, 4
 
 Current Timestep:11
 ================ Actions List ================
@@ -638,47 +628,46 @@ List count, order type, IDs of all orders in the list
 0 OVN: The list is empty.
 
 0 OVG: The list is empty.
-------------- Available chefs IDs -----------------
-2 CS: [201], [202]
 
-4 CN: [101], [102], [103], [104]
+------------- Available chefs IDs -----------------
+3 CS: [203], [205], [204]
+
+6 CN: [106], [107], [101], [102], [108], [103]
 
 
 ------------- Cooking orders [Orders ID, chef ID] -----------------
-0 cooking orders: 
+4 cooking orders: [40, 201], [38, 104], [39, 202], [41, 105]
 
 ------------- Ready Orders IDs -----------------
 For each Ready list print
 List count, order type, IDs of all orders in the list
-0 RDY_OD: The list is empty.
+10 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37]
 
 0 RDY_OT: The list is empty.
 
-0 RDY_OV: The list is empty.
+11 RDY_OV: [OVG, 33], [OVC, 35], [OVC, 32], [OVN, 16], [OVN, 19], [OVG, 20], [OVC, 18], [OVC, 28], [OVC, 29], [OVC, 30], [OVC, 25]
 
 
 ------------- Available scooters IDs -----------------
-2 Scooters: S1, S4
+0 Scooters: The list is empty.
 
 ------------- Available tables [ID, capacity, free seats] -----------------
-5 tables: [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T3, 4, 4], [T5, 6, 6]
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-1 Orders: [6, S2]
+5 Orders: [8, S3], [6, S4], [11, S7], [23, S6], [13, S2]
 
 ------------- In-maintainance scooters IDs -----------------
 0 scooters: The list is empty.
 
 ------------- Scooters Back to Restaurant IDs -----------------
-2 scooters: S3, S2
+8 scooters: S8, S5, S1, S3, S4, S7, S6, S2
 
 ------------- Cancelled Orders IDs -----------------
-0 cancelled: 
+3 cancelled: 3, 5, 7
 
 ------------- Finished orders IDs -----------------
-9 Orders: 9, 4, 8, 3, 5, 10, 2, 7, 1
-
-
+8 Orders: 36, 1, 12, 2, 21, 9, 10, 4
 
 Current Timestep:12
 ================ Actions List ================
@@ -700,47 +689,47 @@ List count, order type, IDs of all orders in the list
 0 OVN: The list is empty.
 
 0 OVG: The list is empty.
-------------- Available chefs IDs -----------------
-2 CS: [201], [202]
 
-4 CN: [101], [102], [103], [104]
+------------- Available chefs IDs -----------------
+4 CS: [203], [205], [204], [202]
+
+5 CN: [102], [108], [103], [104], [105]
 
 
 ------------- Cooking orders [Orders ID, chef ID] -----------------
-0 cooking orders: 
+4 cooking orders: [40, 201], [43, 106], [44, 107], [42, 101]
 
 ------------- Ready Orders IDs -----------------
 For each Ready list print
 List count, order type, IDs of all orders in the list
-0 RDY_OD: The list is empty.
+10 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37]
 
 0 RDY_OT: The list is empty.
 
-0 RDY_OV: The list is empty.
+13 RDY_OV: [OVC, 30], [OVC, 25], [OVG, 39], [OVN, 41], [OVG, 33], [OVC, 35], [OVC, 32], [OVN, 16], [OVN, 19], [OVG, 20], [OVC, 18], [OVC, 28], [OVC, 29]
 
 
 ------------- Available scooters IDs -----------------
-2 Scooters: S1, S4
+0 Scooters: The list is empty.
 
 ------------- Available tables [ID, capacity, free seats] -----------------
-5 tables: [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T3, 4, 4], [T5, 6, 6]
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-1 Orders: [6, S2]
+3 Orders: [6, S4], [23, S6], [13, S2]
 
 ------------- In-maintainance scooters IDs -----------------
-1 scooters: S3
+1 scooters: S8
+
 
 ------------- Scooters Back to Restaurant IDs -----------------
-1 scooters: S2
+7 scooters: S5, S1, S3, S4, S7, S6, S2
 
 ------------- Cancelled Orders IDs -----------------
-0 cancelled: 
+4 cancelled: 3, 5, 7, 11
 
 ------------- Finished orders IDs -----------------
-9 Orders: 9, 4, 8, 3, 5, 10, 2, 7, 1
-
-
+10 Orders: 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
 
 Current Timestep:13
 ================ Actions List ================
@@ -762,14 +751,1743 @@ List count, order type, IDs of all orders in the list
 0 OVN: The list is empty.
 
 0 OVG: The list is empty.
-------------- Available chefs IDs -----------------
-2 CS: [201], [202]
 
-4 CN: [101], [102], [103], [104]
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+6 CN: [103], [104], [105], [106], [107], [101]
 
 
 ------------- Cooking orders [Orders ID, chef ID] -----------------
-0 cooking orders: 
+2 cooking orders: [45, 102], [46, 108]
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+15 RDY_OV: [OVG, 20], [OVC, 18], [OVC, 28], [OVC, 29], [OVC, 44], [OVN, 42], [OVC, 30], [OVC, 25], [OVG, 39], [OVN, 41], [OVG, 33], [OVC, 35], [OVC, 32], [OVN, 16], [OVN, 19]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+3 Orders: [6, S4], [23, S6], [13, S2]
+
+------------- In-maintainance scooters IDs -----------------
+1 scooters: S8
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+7 scooters: S5, S1, S3, S4, S7, S6, S2
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+11 Orders: 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:14
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+14 RDY_OV: [OVG, 39], [OVN, 41], [OVG, 33], [OVC, 35], [OVC, 32], [OVN, 16], [OVN, 19], [OVC, 18], [OVC, 28], [OVC, 29], [OVC, 44], [OVN, 42], [OVC, 30], [OVC, 25]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+4 Orders: [6, S4], [23, S6], [20, S8], [13, S2]
+
+------------- In-maintainance scooters IDs -----------------
+1 scooters: S5
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+7 scooters: S1, S3, S4, S7, S6, S8, S2
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+13 Orders: 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:15
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+14 RDY_OV: [OVC, 44], [OVN, 42], [OVC, 30], [OVC, 25], [OVG, 39], [OVN, 41], [OVG, 33], [OVC, 35], [OVC, 32], [OVN, 16], [OVN, 19], [OVC, 18], [OVC, 28], [OVC, 29]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+4 Orders: [6, S4], [23, S6], [20, S8], [13, S2]
+
+------------- In-maintainance scooters IDs -----------------
+2 scooters: S5, S1
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+6 scooters: S3, S4, S7, S6, S8, S2
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+13 Orders: 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:16
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+13 RDY_OV: [OVN, 19], [OVC, 18], [OVC, 28], [OVC, 29], [OVN, 42], [OVC, 30], [OVC, 25], [OVG, 39], [OVN, 41], [OVG, 33], [OVC, 35], [OVC, 32], [OVN, 16]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+5 Orders: [6, S4], [23, S6], [20, S8], [44, S5], [13, S2]
+
+------------- In-maintainance scooters IDs -----------------
+2 scooters: S1, S3
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+6 scooters: S4, S7, S6, S8, S5, S2
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+13 Orders: 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:17
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+12 RDY_OV: [OVC, 35], [OVC, 32], [OVN, 16], [OVC, 18], [OVC, 28], [OVC, 29], [OVN, 42], [OVC, 30], [OVC, 25], [OVG, 39], [OVN, 41], [OVG, 33]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+5 Orders: [23, S6], [20, S8], [44, S5], [13, S2], [19, S1]
+
+------------- In-maintainance scooters IDs -----------------
+1 scooters: S3
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+7 scooters: S4, S7, S6, S8, S5, S2, S1
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+14 Orders: 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:18
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+11 RDY_OV: [OVN, 41], [OVG, 33], [OVC, 32], [OVN, 16], [OVC, 18], [OVC, 28], [OVC, 29], [OVN, 42], [OVC, 30], [OVC, 25], [OVG, 39]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+6 Orders: [23, S6], [35, S3], [20, S8], [44, S5], [13, S2], [19, S1]
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+8 scooters: S4, S7, S6, S3, S8, S5, S2, S1
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+14 Orders: 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:19
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+11 RDY_OV: [OVG, 39], [OVN, 41], [OVG, 33], [OVC, 32], [OVN, 16], [OVC, 18], [OVC, 28], [OVC, 29], [OVN, 42], [OVC, 30], [OVC, 25]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+5 Orders: [35, S3], [20, S8], [44, S5], [13, S2], [19, S1]
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+8 scooters: S4, S7, S6, S3, S8, S5, S2, S1
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+15 Orders: 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:20
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+11 RDY_OV: [OVC, 25], [OVG, 39], [OVN, 41], [OVG, 33], [OVC, 32], [OVN, 16], [OVC, 18], [OVC, 28], [OVC, 29], [OVN, 42], [OVC, 30]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+4 Orders: [20, S8], [44, S5], [13, S2], [19, S1]
+
+------------- In-maintainance scooters IDs -----------------
+1 scooters: S4
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+7 scooters: S7, S6, S3, S8, S5, S2, S1
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+16 Orders: 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:21
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+10 RDY_OV: [OVC, 30], [OVG, 39], [OVN, 41], [OVG, 33], [OVC, 32], [OVN, 16], [OVC, 18], [OVC, 28], [OVC, 29], [OVN, 42]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+5 Orders: [20, S8], [44, S5], [13, S2], [19, S1], [25, S4]
+
+------------- In-maintainance scooters IDs -----------------
+1 scooters: S7
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+7 scooters: S6, S3, S8, S5, S2, S1, S4
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+16 Orders: 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:22
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+9 RDY_OV: [OVG, 39], [OVN, 41], [OVG, 33], [OVC, 32], [OVN, 16], [OVC, 18], [OVC, 28], [OVC, 29], [OVN, 42]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+5 Orders: [44, S5], [13, S2], [19, S1], [30, S7], [25, S4]
+
+------------- In-maintainance scooters IDs -----------------
+1 scooters: S6
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+7 scooters: S3, S8, S5, S2, S1, S7, S4
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+17 Orders: 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:23
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+9 RDY_OV: [OVN, 41], [OVG, 33], [OVC, 32], [OVN, 16], [OVC, 18], [OVC, 28], [OVC, 29], [OVN, 42], [OVG, 39]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+5 Orders: [44, S5], [13, S2], [19, S1], [30, S7], [25, S4]
+
+------------- In-maintainance scooters IDs -----------------
+1 scooters: S6
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+7 scooters: S3, S8, S5, S2, S1, S7, S4
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+17 Orders: 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:24
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+8 RDY_OV: [OVC, 32], [OVN, 16], [OVC, 18], [OVC, 28], [OVC, 29], [OVN, 42], [OVG, 39], [OVG, 33]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+5 Orders: [13, S2], [19, S1], [30, S7], [25, S4], [41, S6]
+
+------------- In-maintainance scooters IDs -----------------
+1 scooters: S3
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+7 scooters: S8, S5, S2, S1, S7, S4, S6
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+18 Orders: 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:25
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+8 RDY_OV: [OVC, 18], [OVC, 28], [OVC, 29], [OVN, 42], [OVG, 39], [OVG, 33], [OVC, 32], [OVN, 16]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+3 Orders: [30, S7], [25, S4], [41, S6]
+
+------------- In-maintainance scooters IDs -----------------
+1 scooters: S3
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+7 scooters: S8, S5, S2, S1, S7, S4, S6
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+20 Orders: 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:26
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+7 RDY_OV: [OVN, 42], [OVG, 39], [OVG, 33], [OVC, 32], [OVN, 16], [OVC, 28], [OVC, 29]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+4 Orders: [30, S7], [25, S4], [41, S6], [18, S3]
+
+------------- In-maintainance scooters IDs -----------------
+1 scooters: S8
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+7 scooters: S5, S2, S1, S7, S4, S6, S3
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+20 Orders: 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:27
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+7 RDY_OV: [OVC, 32], [OVN, 16], [OVC, 28], [OVC, 29], [OVN, 42], [OVG, 39], [OVG, 33]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+3 Orders: [25, S4], [41, S6], [18, S3]
+
+------------- In-maintainance scooters IDs -----------------
+1 scooters: S8
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+7 scooters: S5, S2, S1, S7, S4, S6, S3
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+21 Orders: 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:28
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+7 RDY_OV: [OVC, 29], [OVN, 42], [OVG, 39], [OVG, 33], [OVC, 32], [OVN, 16], [OVC, 28]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+3 Orders: [25, S4], [41, S6], [18, S3]
+
+------------- In-maintainance scooters IDs -----------------
+2 scooters: S8, S5
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+6 scooters: S2, S1, S7, S4, S6, S3
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+21 Orders: 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:29
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+6 RDY_OV: [OVC, 32], [OVN, 16], [OVC, 28], [OVN, 42], [OVG, 39], [OVG, 33]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+3 Orders: [41, S6], [18, S3], [29, S8]
+
+------------- In-maintainance scooters IDs -----------------
+2 scooters: S5, S2
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+6 scooters: S1, S7, S4, S6, S3, S8
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+22 Orders: 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:30
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+6 RDY_OV: [OVG, 39], [OVG, 33], [OVC, 32], [OVN, 16], [OVC, 28], [OVN, 42]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+3 Orders: [41, S6], [18, S3], [29, S8]
+
+------------- In-maintainance scooters IDs -----------------
+3 scooters: S5, S2, S1
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+5 scooters: S7, S4, S6, S3, S8
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+22 Orders: 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:31
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+5 RDY_OV: [OVN, 42], [OVG, 33], [OVC, 32], [OVN, 16], [OVC, 28]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+4 Orders: [39, S5], [41, S6], [18, S3], [29, S8]
+
+------------- In-maintainance scooters IDs -----------------
+3 scooters: S2, S1, S7
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+5 scooters: S4, S5, S6, S3, S8
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+22 Orders: 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:32
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+4 RDY_OV: [OVC, 32], [OVN, 16], [OVC, 28], [OVG, 33]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+5 Orders: [39, S5], [41, S6], [18, S3], [42, S2], [29, S8]
+
+------------- In-maintainance scooters IDs -----------------
+2 scooters: S1, S7
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+6 scooters: S4, S5, S6, S3, S2, S8
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+22 Orders: 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:33
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+3 RDY_OV: [OVN, 16], [OVC, 28], [OVG, 33]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+6 Orders: [39, S5], [32, S1], [41, S6], [18, S3], [42, S2], [29, S8]
+
+------------- In-maintainance scooters IDs -----------------
+1 scooters: S7
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+7 scooters: S4, S5, S1, S6, S3, S2, S8
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+22 Orders: 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:34
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+2 RDY_OV: [OVG, 33], [OVC, 28]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+7 Orders: [39, S5], [32, S1], [41, S6], [18, S3], [42, S2], [16, S7], [29, S8]
+
+------------- In-maintainance scooters IDs -----------------
+1 scooters: S4
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+7 scooters: S5, S1, S6, S3, S2, S7, S8
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+22 Orders: 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:35
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+11 RDY_OD: [ODG, 15], [ODG, 14], [ODG, 17], [ODG, 22], [ODN, 24], [ODN, 26], [ODN, 27], [ODG, 31], [ODN, 34], [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+1 RDY_OV: [OVC, 28]
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+8 Orders: [39, S5], [32, S1], [41, S6], [18, S3], [42, S2], [16, S7], [29, S8], [33, S4]
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+8 scooters: S5, S1, S6, S3, S2, S7, S8, S4
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+22 Orders: 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:36
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+2 RDY_OD: [ODN, 37], [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+0 RDY_OV: The list is empty.
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+1 tables: [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+18 Orders: [39, S5], [32, S1], [31, T9], [22, T7], [41, S6], [18, S3], [42, S2], [15, T3], [27, T5], [17, T2], [34, T6], [14, T1], [24, T8], [26, T4], [28, S5], [16, S7], [29, S8], [33, S4]
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+8 scooters: S1, S6, S3, S2, S5, S7, S8, S4
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+22 Orders: 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:37
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+1 RDY_OD: [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+0 RDY_OV: The list is empty.
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+0 tables: The list is empty.
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+18 Orders: [32, S1], [31, T9], [22, T7], [37, T10], [41, S6], [18, S3], [42, S2], [15, T3], [27, T5], [17, T2], [34, T6], [14, T1], [24, T8], [26, T4], [28, S5], [16, S7], [29, S8], [33, S4]
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+8 scooters: S1, S6, S3, S2, S5, S7, S8, S4
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+23 Orders: 39, 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:38
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+1 RDY_OD: [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+0 RDY_OV: The list is empty.
+
+
+------------- Available scooters IDs -----------------
+0 Scooters: The list is empty.
+
+------------- Available tables [ID, capacity, free seats] -----------------
+1 tables: [T3, 2, 2]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+16 Orders: [22, T7], [37, T10], [41, S6], [18, S3], [42, S2], [15, T3], [27, T5], [17, T2], [34, T6], [14, T1], [24, T8], [26, T4], [28, S5], [16, S7], [29, S8], [33, S4]
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+8 scooters: S1, S6, S3, S2, S5, S7, S8, S4
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+25 Orders: 31, 32, 39, 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:39
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+1 RDY_OD: [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+0 RDY_OV: The list is empty.
+
+
+------------- Available scooters IDs -----------------
+1 Scooters: S1
+
+------------- Available tables [ID, capacity, free seats] -----------------
+3 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+14 Orders: [41, S6], [18, S3], [42, S2], [15, T3], [27, T5], [17, T2], [34, T6], [14, T1], [24, T8], [26, T4], [28, S5], [16, S7], [29, S8], [33, S4]
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+7 scooters: S6, S3, S2, S5, S7, S8, S4
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+27 Orders: 37, 22, 31, 32, 39, 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:40
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+1 RDY_OD: [ODG, 40]
+
+0 RDY_OT: The list is empty.
+
+0 RDY_OV: The list is empty.
+
+
+------------- Available scooters IDs -----------------
+1 Scooters: S1
+
+------------- Available tables [ID, capacity, free seats] -----------------
+3 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+11 Orders: [15, T3], [27, T5], [17, T2], [34, T6], [14, T1], [24, T8], [26, T4], [28, S5], [16, S7], [29, S8], [33, S4]
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+7 scooters: S6, S3, S2, S5, S7, S8, S4
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+30 Orders: 42, 18, 41, 37, 22, 31, 32, 39, 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:41
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
 
 ------------- Ready Orders IDs -----------------
 For each Ready list print
@@ -782,26 +2500,758 @@ List count, order type, IDs of all orders in the list
 
 
 ------------- Available scooters IDs -----------------
-2 Scooters: S1, S4
+2 Scooters: S1, S6
 
 ------------- Available tables [ID, capacity, free seats] -----------------
-5 tables: [T1, 2, 2], [T2, 2, 2], [T4, 4, 4], [T3, 4, 4], [T5, 6, 6]
+4 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T5, 4, 4]
 
 ------------- In-Service orders [order ID, scooter/Table ID] -----------------
-0 Orders: 
+10 Orders: [17, T2], [34, T6], [14, T1], [24, T8], [26, T4], [28, S5], [16, S7], [40, T4], [29, S8], [33, S4]
 
 ------------- In-maintainance scooters IDs -----------------
-1 scooters: S3
+0 scooters: The list is empty.
 
 ------------- Scooters Back to Restaurant IDs -----------------
-1 scooters: S2
+6 scooters: S3, S2, S5, S7, S8, S4
 
 ------------- Cancelled Orders IDs -----------------
-0 cancelled: 
+4 cancelled: 3, 5, 7, 11
 
 ------------- Finished orders IDs -----------------
-10 Orders: 6, 9, 4, 8, 3, 5, 10, 2, 7, 1
+32 Orders: 27, 15, 42, 18, 41, 37, 22, 31, 32, 39, 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:42
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
 
 
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+0 RDY_OD: The list is empty.
+
+0 RDY_OT: The list is empty.
+
+0 RDY_OV: The list is empty.
+
+
+------------- Available scooters IDs -----------------
+2 Scooters: S1, S6
+
+------------- Available tables [ID, capacity, free seats] -----------------
+6 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T5, 4, 4], [T6, 4, 4], [T4, 4, 4]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+8 Orders: [14, T1], [24, T8], [26, T4], [28, S5], [16, S7], [40, T4], [29, S8], [33, S4]
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+6 scooters: S3, S2, S5, S7, S8, S4
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+34 Orders: 34, 17, 27, 15, 42, 18, 41, 37, 22, 31, 32, 39, 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:43
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+0 RDY_OD: The list is empty.
+
+0 RDY_OT: The list is empty.
+
+0 RDY_OV: The list is empty.
+
+
+------------- Available scooters IDs -----------------
+2 Scooters: S1, S6
+
+------------- Available tables [ID, capacity, free seats] -----------------
+8 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T5, 4, 4], [T6, 4, 4], [T4, 4, 4], [T7, 6, 6], [T8, 6, 6]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+6 Orders: [26, T4], [28, S5], [16, S7], [40, T4], [29, S8], [33, S4]
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+6 scooters: S3, S2, S5, S7, S8, S4
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+36 Orders: 24, 14, 34, 17, 27, 15, 42, 18, 41, 37, 22, 31, 32, 39, 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:44
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+0 RDY_OD: The list is empty.
+
+0 RDY_OT: The list is empty.
+
+0 RDY_OV: The list is empty.
+
+
+------------- Available scooters IDs -----------------
+2 Scooters: S1, S6
+
+------------- Available tables [ID, capacity, free seats] -----------------
+9 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T5, 4, 4], [T6, 4, 4], [T4, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+5 Orders: [28, S5], [16, S7], [40, T4], [29, S8], [33, S4]
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+6 scooters: S3, S2, S5, S7, S8, S4
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+37 Orders: 26, 24, 14, 34, 17, 27, 15, 42, 18, 41, 37, 22, 31, 32, 39, 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:45
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+0 RDY_OD: The list is empty.
+
+0 RDY_OT: The list is empty.
+
+0 RDY_OV: The list is empty.
+
+
+------------- Available scooters IDs -----------------
+3 Scooters: S1, S3, S6
+
+------------- Available tables [ID, capacity, free seats] -----------------
+9 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T5, 4, 4], [T6, 4, 4], [T4, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+4 Orders: [16, S7], [40, T4], [29, S8], [33, S4]
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+5 scooters: S2, S5, S7, S8, S4
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+38 Orders: 28, 26, 24, 14, 34, 17, 27, 15, 42, 18, 41, 37, 22, 31, 32, 39, 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:46
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+0 RDY_OD: The list is empty.
+
+0 RDY_OT: The list is empty.
+
+0 RDY_OV: The list is empty.
+
+
+------------- Available scooters IDs -----------------
+4 Scooters: S1, S2, S3, S6
+
+------------- Available tables [ID, capacity, free seats] -----------------
+9 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T5, 4, 4], [T6, 4, 4], [T4, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+3 Orders: [40, T4], [29, S8], [33, S4]
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+4 scooters: S5, S7, S8, S4
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+39 Orders: 16, 28, 26, 24, 14, 34, 17, 27, 15, 42, 18, 41, 37, 22, 31, 32, 39, 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:47
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+0 RDY_OD: The list is empty.
+
+0 RDY_OT: The list is empty.
+
+0 RDY_OV: The list is empty.
+
+
+------------- Available scooters IDs -----------------
+5 Scooters: S1, S2, S3, S5, S6
+
+------------- Available tables [ID, capacity, free seats] -----------------
+9 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T5, 4, 4], [T6, 4, 4], [T4, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+3 Orders: [40, T4], [29, S8], [33, S4]
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+3 scooters: S7, S8, S4
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+39 Orders: 16, 28, 26, 24, 14, 34, 17, 27, 15, 42, 18, 41, 37, 22, 31, 32, 39, 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:48
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+0 RDY_OD: The list is empty.
+
+0 RDY_OT: The list is empty.
+
+0 RDY_OV: The list is empty.
+
+
+------------- Available scooters IDs -----------------
+6 Scooters: S1, S2, S3, S5, S6, S7
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T5, 4, 4], [T6, 4, 4], [T4, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+2 Orders: [29, S8], [33, S4]
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+2 scooters: S8, S4
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+40 Orders: 40, 16, 28, 26, 24, 14, 34, 17, 27, 15, 42, 18, 41, 37, 22, 31, 32, 39, 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:49
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+0 RDY_OD: The list is empty.
+
+0 RDY_OT: The list is empty.
+
+0 RDY_OV: The list is empty.
+
+
+------------- Available scooters IDs -----------------
+6 Scooters: S1, S2, S3, S5, S6, S7
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T5, 4, 4], [T6, 4, 4], [T4, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+1 Orders: [33, S4]
+
+------------- In-maintainance scooters IDs -----------------
+1 scooters: S8
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+1 scooters: S4
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+41 Orders: 29, 40, 16, 28, 26, 24, 14, 34, 17, 27, 15, 42, 18, 41, 37, 22, 31, 32, 39, 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:50
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+0 RDY_OD: The list is empty.
+
+0 RDY_OT: The list is empty.
+
+0 RDY_OV: The list is empty.
+
+
+------------- Available scooters IDs -----------------
+7 Scooters: S1, S2, S3, S5, S6, S7, S8
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T5, 4, 4], [T6, 4, 4], [T4, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+1 Orders: [33, S4]
+
+------------- In-maintainance scooters IDs -----------------
+1 scooters: S4
+
+
+------------- Scooters Back to Restaurant IDs -----------------
+0 scooters: The list is empty.
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+41 Orders: 29, 40, 16, 28, 26, 24, 14, 34, 17, 27, 15, 42, 18, 41, 37, 22, 31, 32, 39, 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:51
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+0 RDY_OD: The list is empty.
+
+0 RDY_OT: The list is empty.
+
+0 RDY_OV: The list is empty.
+
+
+------------- Available scooters IDs -----------------
+8 Scooters: S1, S2, S3, S4, S5, S6, S7, S8
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T5, 4, 4], [T6, 4, 4], [T4, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+1 Orders: [33, S4]
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+0 scooters: The list is empty.
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+41 Orders: 29, 40, 16, 28, 26, 24, 14, 34, 17, 27, 15, 42, 18, 41, 37, 22, 31, 32, 39, 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:52
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+0 RDY_OD: The list is empty.
+
+0 RDY_OT: The list is empty.
+
+0 RDY_OV: The list is empty.
+
+
+------------- Available scooters IDs -----------------
+8 Scooters: S1, S2, S3, S4, S5, S6, S7, S8
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T5, 4, 4], [T6, 4, 4], [T4, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+1 Orders: [33, S4]
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+0 scooters: The list is empty.
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+41 Orders: 29, 40, 16, 28, 26, 24, 14, 34, 17, 27, 15, 42, 18, 41, 37, 22, 31, 32, 39, 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
+
+Current Timestep:53
+================ Actions List ================
+For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
+Phase 2 input-file simulation mode
+--> Print ONLY the first 10 actions currently in the actions list
+
+------------- Pending Orders IDs -----------------
+For each pending list print
+List count, order type, IDs of all orders in the list
+0 ODG: The list is empty.
+
+0 ODN: The list is empty.
+
+0 OT: The list is empty.
+
+0 OVC: The list is empty.
+
+0 OVN: The list is empty.
+
+0 OVG: The list is empty.
+
+------------- Available chefs IDs -----------------
+5 CS: [203], [205], [204], [202], [201]
+
+8 CN: [103], [104], [105], [106], [107], [101], [102], [108]
+
+
+------------- Cooking orders [Orders ID, chef ID] -----------------
+0 cooking orders: The list is empty.
+
+------------- Ready Orders IDs -----------------
+For each Ready list print
+List count, order type, IDs of all orders in the list
+0 RDY_OD: The list is empty.
+
+0 RDY_OT: The list is empty.
+
+0 RDY_OV: The list is empty.
+
+
+------------- Available scooters IDs -----------------
+8 Scooters: S1, S2, S3, S4, S5, S6, S7, S8
+
+------------- Available tables [ID, capacity, free seats] -----------------
+10 tables: [T3, 2, 2], [T1, 2, 2], [T2, 2, 2], [T5, 4, 4], [T6, 4, 4], [T4, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
+
+------------- In-Service orders [order ID, scooter/Table ID] -----------------
+0 Orders: The list is empty.
+
+------------- In-maintainance scooters IDs -----------------
+0 scooters: The list is empty.
+
+------------- Scooters Back to Restaurant IDs -----------------
+0 scooters: The list is empty.
+
+------------- Cancelled Orders IDs -----------------
+4 cancelled: 3, 5, 7, 11
+
+------------- Finished orders IDs -----------------
+42 Orders: 33, 29, 40, 16, 28, 26, 24, 14, 34, 17, 27, 15, 42, 18, 41, 37, 22, 31, 32, 39, 25, 30, 19, 13, 44, 20, 35, 23, 6, 46, 45, 43, 38, 8, 36, 1, 12, 2, 21, 9, 10, 4
 
 Simulation Finished.

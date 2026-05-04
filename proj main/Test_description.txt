@@ -1,22 +1,22 @@
 Test_description.txt
 
-test1_normal_mixed_input.txt:
-Tests a normal mixed flow with takeaway, dine-in, and delivery orders.
+File1_50_actions.txt:
+50 actions. Small mixed scenario covering takeaway, dine-in, delivery, chefs, tables, and scooters.
 
-test2_cancellation_input.txt:
-Tests cancellation actions for OVC orders and failed/late cancellation attempts.
+File2_100_actions.txt:
+100 actions. Cancellation-focused file. It contains many OVC orders and X actions to clearly test cancellation scenarios.
 
-test3_delivery_scooters_input.txt:
-Tests scooter assignment, delivery waiting, and delivery timing.
+File3_150_actions.txt:
+150 actions. Delivery-heavy file testing scooter assignment, delivery timing, Back_Scooters, and Maint_Scooters.
 
-test4_dinein_tables_input.txt:
-Tests table assignment and dine-in table pressure.
+File4_200_actions.txt:
+200 actions. Dine-in-heavy file testing table assignment, table capacity, busy tables, and table return after service.
 
-test5_maintenance_input.txt:
-Tests scooter back list and maintenance behavior using one scooter with many delivery orders.
+File5_250_actions.txt:
+250 actions. Scooter maintenance-heavy file testing repeated scooter trips, maintenance transitions, and scooter return.
 
-test6_stress_mixed_input.txt:
-Tests a larger mixed scenario with many actions, cancellations, delivery, dine-in, and takeaway orders.
+File6_300_actions.txt:
+300 actions. Large stress test with mixed order types and cancellations. This file tests the most scenarios overall.
 
-Most comprehensive test:
-test6_stress_mixed_input.txt
+Most comprehensive input file:
+File6_300_actions.txt

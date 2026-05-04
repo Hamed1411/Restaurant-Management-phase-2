@@ -302,7 +302,6 @@ void Restaurant::AddOrderToPending(order* pOrd)
     }
 }
 
-
 void Restaurant::HandleCancelOrder(int id)
 {
     order* pRemoved = nullptr;
@@ -310,12 +309,68 @@ void Restaurant::HandleCancelOrder(int id)
     if (PEND_OVC.cancelOrderByID(id, pRemoved))
     {
         Cancelled_orders.enqueue(pRemoved);
-        cout << "Successfully cancelled Order ID: " << id << endl;
+        return;
     }
-    else
+
+    if (RDY_OV_List.cancelOrderByID(id, pRemoved))
     {
-        cout << "Cancel Failed: Order " << id << " not found in Cancellable list." << endl;
+        if (pRemoved != nullptr && pRemoved->getType() == OVC)
+        {
+            Cancelled_orders.enqueue(pRemoved);
+            return;
+        }
+
+        if (pRemoved != nullptr)
+            RDY_OV_List.enqueue(pRemoved);
     }
+
+    if (Cooking_Orders.cancelOrderByID(id, pRemoved))
+    {
+        if (pRemoved != nullptr && pRemoved->getType() == OVC)
+        {
+            chef* pChef = pRemoved->getChef();
+
+            if (pChef != nullptr)
+            {
+                if (pChef->getType() == CS)
+                    Free_CS.enqueue(pChef);
+                else
+                    Free_CN.enqueue(pChef);
+            }
+
+            Cancelled_orders.enqueue(pRemoved);
+            return;
+        }
+
+        if (pRemoved != nullptr)
+            Cooking_Orders.enqueue(pRemoved, pRemoved->getTR());
+    }
+
+    priQueue<order*> tempInServ;
+    order* pOrd = nullptr;
+    int pri = 0;
+    bool found = false;
+
+    while (InServ_Orders.dequeue(pOrd, pri))
+    {
+        if (pOrd != nullptr && pOrd->getID() == id && pOrd->getType() == OVC)
+        {
+            Cancelled_orders.enqueue(pOrd);
+            found = true;
+        }
+        else
+        {
+            tempInServ.enqueue(pOrd, pri);
+        }
+    }
+
+    while (tempInServ.dequeue(pOrd, pri))
+    {
+        InServ_Orders.enqueue(pOrd, pri);
+    }
+
+    if (found)
+        return;
 }
 bool Restaurant::SimulationFinished() const
 {
@@ -813,19 +868,14 @@ void Restaurant::OutputStatusBar()
     cout << endl;
 
     cout << PEND_OVG.getCount() << " OVG: ";
-
-    if (PEND_OVG.getCount() == 0)
-    {
+    if (PEND_OVG.isEmpty())
         cout << "The list is empty.";
-    }
     else
-    {
         PEND_OVG.print();
-    }
-
-    cout << endl;
+    cout << endl << endl;
 
     cout << "------------- Available chefs IDs -----------------\n";
+
     cout << Free_CS.getCount() << " CS: ";
     Free_CS.print();
     cout << endl;
@@ -837,31 +887,38 @@ void Restaurant::OutputStatusBar()
     cout << "------------- Cooking orders [Orders ID, chef ID] -----------------\n";
     cout << Cooking_Orders.getCount() << " cooking orders: ";
 
-    PriQueueWithCancel tempQueue;
-    order* pOrd = nullptr;
-    int pri = 0;
-
-    while (Cooking_Orders.dequeue(pOrd, pri))
+    if (Cooking_Orders.isEmpty())
     {
-        if (pOrd != nullptr)
-        {
-            if (pOrd->getChef() != nullptr)
-            {
-                cout << "[" << pOrd->getID() << ", " << pOrd->getChef()->getID() << "]";
-            }
-            else
-            {
-                cout << "[" << pOrd->getID() << ", " << "NoChef" << "]";
-            }
-
-            cout << ", ";
-            tempQueue.enqueue(pOrd, pri);
-        }
+        cout << "The list is empty.";
     }
-
-    while (tempQueue.dequeue(pOrd, pri))
+    else
     {
-        Cooking_Orders.enqueue(pOrd, pri);
+        PriQueueWithCancel tempQueue;
+        order* pOrd = nullptr;
+        int pri = 0;
+        bool firstCooking = true;
+
+        while (Cooking_Orders.dequeue(pOrd, pri))
+        {
+            if (pOrd != nullptr)
+            {
+                if (!firstCooking)
+                    cout << ", ";
+
+                if (pOrd->getChef() != nullptr)
+                    cout << "[" << pOrd->getID() << ", " << pOrd->getChef()->getID() << "]";
+                else
+                    cout << "[" << pOrd->getID() << ", NoChef]";
+
+                firstCooking = false;
+                tempQueue.enqueue(pOrd, pri);
+            }
+        }
+
+        while (tempQueue.dequeue(pOrd, pri))
+        {
+            Cooking_Orders.enqueue(pOrd, pri);
+        }
     }
 
     cout << endl << endl;
@@ -884,71 +941,94 @@ void Restaurant::OutputStatusBar()
 
     cout << "------------- Available scooters IDs -----------------\n";
     cout << Free_Scooters.getCount() << " Scooters: ";
-    Free_Scooters.print();
+    if (Free_Scooters.isEmpty())
+        cout << "The list is empty.";
+    else
+        Free_Scooters.print();
     cout << endl << endl;
 
     cout << "------------- Available tables [ID, capacity, free seats] -----------------\n";
     cout << Free_Tables.getCount() << " tables: ";
-    Free_Tables.print();
+    if (Free_Tables.isEmpty())
+        cout << "The list is empty.";
+    else
+        Free_Tables.print();
     cout << endl << endl;
 
     cout << "------------- In-Service orders [order ID, scooter/Table ID] -----------------\n";
     cout << InServ_Orders.getCount() << " Orders: ";
 
-    priQueue<order*> tempInServ;
-    order* pServOrd = nullptr;
-    int servPri = 0;
-
-    bool first = true;
-
-    while (InServ_Orders.dequeue(pServOrd, servPri))
+    if (InServ_Orders.isEmpty())
     {
-        if (!first)
-            cout << ", ";
-
-        cout << "[" << pServOrd->getID();
-
-        if (pServOrd->isDelivery() && pServOrd->getScooter())
-            cout << ", S" << pServOrd->getScooter()->getID();
-        else if (pServOrd->isDineIn() && pServOrd->getTable())
-            cout << ", T" << pServOrd->getTable()->getID();
-
-        cout << "]";
-
-        first = false;
-
-        tempInServ.enqueue(pServOrd, servPri);
+        cout << "The list is empty.";
     }
-
-    while (tempInServ.dequeue(pServOrd, servPri))
+    else
     {
-        InServ_Orders.enqueue(pServOrd, servPri);
+        priQueue<order*> tempInServ;
+        order* pServOrd = nullptr;
+        int servPri = 0;
+        bool first = true;
+
+        while (InServ_Orders.dequeue(pServOrd, servPri))
+        {
+            if (pServOrd != nullptr)
+            {
+                if (!first)
+                    cout << ", ";
+
+                cout << "[" << pServOrd->getID();
+
+                if (pServOrd->isDelivery() && pServOrd->getScooter())
+                    cout << ", S" << pServOrd->getScooter()->getID();
+                else if (pServOrd->isDineIn() && pServOrd->getTable())
+                    cout << ", T" << pServOrd->getTable()->getID();
+
+                cout << "]";
+
+                first = false;
+                tempInServ.enqueue(pServOrd, servPri);
+            }
+        }
+
+        while (tempInServ.dequeue(pServOrd, servPri))
+        {
+            InServ_Orders.enqueue(pServOrd, servPri);
+        }
     }
 
     cout << endl << endl;
 
     cout << "------------- In-maintainance scooters IDs -----------------\n";
     cout << Maint_Scooters.getCount() << " scooters: ";
-    Maint_Scooters.print();
-    cout << endl;
+    if (Maint_Scooters.isEmpty())
+        cout << "The list is empty.";
+    else
+        Maint_Scooters.print();
+    cout << endl << endl;
 
     cout << "------------- Scooters Back to Restaurant IDs -----------------\n";
     cout << Back_Scooters.getCount() << " scooters: ";
-    Back_Scooters.print();
+    if (Back_Scooters.isEmpty())
+        cout << "The list is empty.";
+    else
+        Back_Scooters.print();
     cout << endl << endl;
 
     cout << "------------- Cancelled Orders IDs -----------------\n";
     cout << Cancelled_orders.getCount() << " cancelled: ";
-    Cancelled_orders.print2();
+    if (Cancelled_orders.isEmpty())
+        cout << "The list is empty.";
+    else
+        Cancelled_orders.print2();
     cout << endl << endl;
 
     cout << "------------- Finished orders IDs -----------------\n";
     cout << Finished_orders.getCount() << " Orders: ";
-    Finished_orders.printStack();
+    if (Finished_orders.isEmpty())
+        cout << "The list is empty.";
+    else
+        Finished_orders.printStack();
     cout << endl << endl;
-    cout << endl << endl;
-    
-
 }
 
 
