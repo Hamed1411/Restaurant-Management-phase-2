@@ -5,6 +5,8 @@
 
 Restaurant::Restaurant()
 {
+    totalCancelActions = 0;
+    totalODG = totalODN = totalOT = totalOVC = totalOVG = totalOVN = totalOVB = 0;
     currentTime = 1;
     totalGeneratedOrders = 0;
     totalCN = 0;
@@ -147,6 +149,7 @@ void Restaurant::ReadInputFile(string fileName)
                 pOrd->setDistance(dist);
                 pOrd->setNumChefsRequired(nChefs);
                 pOrd->setNumScootersRequired(nScooters);
+                pOrd->setDuration(size);
             }
             else if (pOrd->isDineIn())
             {
@@ -173,6 +176,8 @@ void Restaurant::ReadInputFile(string fileName)
         }
         else if (actionType == 'X')
         {
+            totalCancelActions++;
+
             int Tcancel, ID;
             inFile >> Tcancel >> ID;
 
@@ -292,19 +297,22 @@ void Restaurant::GenerateOutputFile(string fileName)
         delete cOrd;
     }
 
-    int totalOrders = finishedCount + cancelledCount;
+    int totalOrders = totalGeneratedOrders;
 
     outFile << "\n------------------------------------------------------------\n";
     outFile << "1- Total Orders: " << totalOrders << " [";
-    outFile << "ODG:" << countODG << ", ODN:" << countODN << ", OT:" << countOT
-        << ", OVC:" << countOVC << ", OVG:" << countOVG << ", OVN:" << countOVN << ", OVB:" << countOVB << "]\n";
+    outFile << "ODG:" << totalODG << ", ODN:" << totalODN << ", OT:" << totalOT
+        << ", OVC:" << totalOVC << ", OVG:" << totalOVG
+        << ", OVN:" << totalOVN << ", OVB:" << totalOVB << "]\n";
 
     int totalChefs = totalCN + totalCS;
     outFile << "2- Total Chefs: " << totalChefs << " [CN:" << totalCN << ", CS:" << totalCS << "]\n";
     outFile << "3- Total Scooters: " << totalScooters << " (All one type)\n";
 
-    double pctFinished = totalOrders > 0 ? (double)finishedCount / totalOrders * 100.0 : 0;
-    double pctCancelled = totalOrders > 0 ? (double)cancelledCount / totalOrders * 100.0 : 0;
+    int processedOrders = finishedCount + cancelledCount;
+
+    double pctFinished = processedOrders > 0 ? (double)finishedCount / processedOrders * 100.0 : 0;
+    double pctCancelled = processedOrders > 0 ? (double)cancelledCount / processedOrders * 100.0 : 0;
     outFile << "4- Percentage of Finished orders: " << pctFinished << "%, Cancelled orders: " << pctCancelled << "%\n";
 
     double pctOverwait = finishedCount > 0 ? (double)overwaitCount / finishedCount * 100.0 : 0;
@@ -361,38 +369,47 @@ void Restaurant::ExecuteCurrentActions()
 void Restaurant::AddOrderToPending(order* pOrd)
 {
     totalGeneratedOrders++;
+
     switch (pOrd->getType())
     {
     case ODG:
+        totalODG++;
         PEND_ODG.enqueue(pOrd);
         break;
 
     case ODN:
+        totalODN++;
         PEND_ODN.enqueue(pOrd);
         break;
 
     case OT:
+        totalOT++;
         PEND_OT.enqueue(pOrd);
         break;
 
     case OVG:
+        totalOVG++;
         PEND_OVG.enqueue(pOrd, static_cast<int>(pOrd->getPriority()));
         break;
 
     case OVN:
+        totalOVN++;
         PEND_OVN.enqueue(pOrd);
         break;
 
     case OVC:
+        totalOVC++;
         PEND_OVC.enqueue(pOrd);
         break;
 
     case OVB:
-        PEND_COMBO.enqueue(pOrd, static_cast<int>(pOrd->getPriority()));
+        totalOVB++;
         comboCount++;
+        PEND_COMBO.enqueue(pOrd, static_cast<int>(pOrd->getPriority()));
         break;
 
     default:
+        totalOT++;
         PEND_OT.enqueue(pOrd);
         break;
     }
@@ -477,11 +494,16 @@ bool Restaurant::SimulationFinished() const
         && PEND_OVC.isEmpty()
         && PEND_OVN.isEmpty()
         && PEND_OVG.isEmpty()
+        && PEND_COMBO.isEmpty()
         && Cooking_Orders.isEmpty()
         && RDY_OD.isEmpty()
         && RDY_OT.isEmpty()
         && RDY_OV_List.isEmpty()
-        && InServ_Orders.isEmpty();
+        && RDY_COMBO.isEmpty()
+        && RDY_OVG_Overwait.isEmpty()
+        && InServ_Orders.isEmpty()
+        && Back_Scooters.isEmpty()
+        && Maint_Scooters.isEmpty();
 }
 
 
@@ -525,11 +547,6 @@ void Restaurant::SimulateOneTimeStep()
      MovePendingToCooking();
     MoveCookingToReady();
     MoveReadyToService();
-
-    TryCancelPendingOVC();
-    TryCancelReadyOVC();
-    TryCancelCookingOV();
-
     MoveInServiceToFinish();
     HandleBackScooters();
     HandleMaintenanceScooters();
@@ -928,7 +945,7 @@ void Restaurant::MoveInServiceToFinish()
 
         //hazem Scooter failure logic 
         if (pOrd->isDelivery() && !pOrd->isFailed() && !pOrd->isRescueMission()) {
-            if (RandomInt(1, 100) <= 5) {
+            if (RandomInt(1, 100) <= 2) {
                 pOrd->setFailed(true);
                 rescueCount++;
                 cout << "!!! Scooter FAIL for Order " << pOrd->getID() << " at timestep " << currentTime << endl;
@@ -965,15 +982,13 @@ void Restaurant::MoveInServiceToFinish()
 
             if (pOrd->isDineIn())
             {
-                table* pTable = nullptr;
-                int tablePri = 0;
-                if (Busy_No_Share.dequeue(pTable, tablePri))
+                table* pTable = pOrd->getTable();
+
+                if (pTable != nullptr)
                 {
-                    if (pTable != nullptr)
-                    {
-                        pTable->resetFreeSeats();
-                        Free_Tables.enqueue(pTable, 100 - pTable->getCapacity());
-                    }
+                    pTable->resetFreeSeats();
+                    Free_Tables.enqueue(pTable, 100 - pTable->getCapacity());
+                    pOrd->setTable(nullptr);
                 }
             }
             else if (pOrd->isRescueMission()) {

@@ -1,86 +1,86 @@
 TF	ID	TQ	TA	TR	TS	Ti	Tc	Tw	Tserv	Mission_Info
-47	152	38	38	40	43	3	2	5	4	Normal
-47	174	44	44	46	46	0	2	2	1	Normal
-46	172	43	43	45	45	0	2	2	1	Normal
-46	171	43	43	45	45	0	2	2	1	Normal
-46	170	43	43	45	45	0	2	2	1	Normal
-45	166	42	42	44	44	0	2	2	1	Normal
-45	165	42	42	44	44	0	2	2	1	Normal
-43	142	36	36	37	40	3	1	4	3	Normal
-43	136	34	35	37	39	3	2	5	4	Normal
-43	89	23	23	25	38	13	2	15	5	Normal
-43	160	40	40	42	42	0	2	2	1	Normal
 42	132	33	33	35	37	2	2	4	5	Normal
-42	117	30	30	32	37	5	2	7	5	Normal
-42	127	32	32	34	36	2	2	4	6	Normal
 42	156	39	39	41	41	0	2	2	1	Normal
 41	130	33	33	35	37	2	2	4	4	Normal
+41	117	30	30	32	36	4	2	6	5	Normal
+41	109	28	28	30	33	3	2	5	8	Normal
 40	137	35	35	36	38	2	1	3	2	Normal
-40	88	22	22	25	33	8	3	11	7	Normal
-40	109	28	28	30	32	2	2	4	8	Normal
+40	58	15	15	16	38	22	1	23	2	Normal
 40	148	37	37	39	39	0	2	2	1	Normal
 40	145	37	37	39	39	0	2	2	1	Normal
-39	135	34	34	35	37	2	1	3	2	Normal
-38	129	33	33	34	36	2	1	3	2	Normal
+39	121	31	31	32	36	4	1	5	3	Normal
+38	123	31	31	32	34	2	1	3	4	Normal
+38	104	26	26	28	31	3	2	5	7	Normal
+38	88	22	22	25	31	6	3	9	7	Normal
 38	139	35	35	37	37	0	2	2	1	Normal
+37	102	26	26	27	34	7	1	8	3	Normal
 37	120	30	30	31	33	2	1	3	4	Normal
-37	90	23	23	25	33	8	2	10	4	Normal
-37	106	27	27	29	31	2	2	4	6	Normal
-37	105	27	27	29	31	2	2	4	6	Normal
-37	104	26	26	28	30	2	2	4	7	Normal
+37	93	24	24	26	31	5	2	7	6	Normal
 37	134	34	34	36	36	0	2	2	1	Normal
-35	92	23	23	26	27	1	3	4	8	Normal
+36	124	31	31	32	34	2	1	3	2	Normal
+36	87	22	22	24	30	6	2	8	6	Normal
+35	90	23	23	25	31	6	2	8	4	Normal
 35	128	32	32	34	34	0	2	2	1	Normal
 35	126	32	32	34	34	0	2	2	1	Normal
-33	87	22	22	24	27	3	2	5	6	Normal
+34	97	25	25	26	31	5	1	6	3	Normal
+34	73	19	19	21	29	8	2	10	5	Normal
+34	68	17	17	20	26	6	3	9	8	Normal
+33	99	25	25	26	29	3	1	4	4	Normal
+33	98	25	25	26	29	3	1	4	4	Normal
 33	119	30	30	32	32	0	2	2	1	Normal
-32	102	26	26	27	29	2	1	3	3	Normal
-32	85	22	22	23	28	5	1	6	4	Normal
-32	99	25	25	26	28	2	1	3	4	Normal
-32	98	25	25	26	28	2	1	3	4	Normal
 32	114	29	29	31	31	0	2	2	1	Normal
+31	82	21	21	22	27	5	1	6	4	Normal
+31	85	22	22	23	27	4	1	5	4	Normal
 31	83	21	21	23	24	1	2	3	7	Normal
-30	86	22	22	23	28	5	1	6	2	Normal
-30	100	25	25	26	28	2	1	3	2	Normal
+31	66	17	17	19	23	4	2	6	8	Normal
+31	65	17	17	19	23	4	2	6	8	Normal
+30	80	20	20	21	26	5	1	6	4	Normal
+29	100	25	25	26	27	1	1	2	2	Normal
 29	79	20	20	22	23	1	2	3	6	Normal
-29	68	17	17	20	21	1	3	4	8	Normal
+29	69	18	18	21	22	1	3	4	7	Normal
 29	103	26	26	28	28	0	2	2	1	Normal
-28	80	20	20	21	24	3	1	4	4	Normal
-28	66	17	17	19	20	1	2	3	8	Normal
-27	82	21	21	22	23	1	1	2	4	Normal
-27	77	20	20	22	23	1	2	3	4	Normal
+27	71	18	18	19	23	4	1	5	4	Normal
+27	49	13	13	15	23	8	2	10	4	Normal
+27	70	18	18	20	22	2	2	4	5	Normal
 27	94	24	24	26	26	0	2	2	1	Normal
-26	70	18	18	20	21	1	2	3	5	Normal
-24	71	18	18	19	20	1	1	2	4	Normal
+26	86	22	22	23	24	1	1	2	2	Normal
+26	52	13	13	15	20	5	2	7	6	Normal
 24	63	16	16	18	19	1	2	3	5	Normal
-24	61	16	16	18	19	1	2	3	5	Normal
+24	46	12	12	14	16	2	2	4	8	Normal
 24	84	21	21	23	23	0	2	2	1	Normal
 24	81	21	21	23	23	0	2	2	1	Normal
+23	67	17	17	18	20	2	1	3	3	Normal
+23	61	16	16	18	18	0	2	2	5	Normal
 23	51	13	13	16	16	0	3	3	7	Normal
-23	46	12	12	14	15	1	2	3	8	Normal
+23	39	10	10	13	16	3	3	6	7	Normal
+23	35	9	9	12	15	3	3	6	8	Normal
 22	72	18	18	19	20	1	1	2	2	Normal
-22	67	17	17	18	19	1	1	2	3	Normal
+22	15	4	4	6	16	10	2	12	6	Normal
 22	76	19	19	21	21	0	2	2	1	Normal
-21	18	5	5	6	19	13	1	14	2	Normal
 20	53	14	14	16	16	0	2	2	4	Normal
-19	48	12	12	14	14	0	2	2	5	Normal
+20	48	12	12	14	15	1	2	3	5	Normal
+20	9	3	3	5	12	7	2	9	8	Normal
 19	38	10	10	12	12	0	2	2	7	Normal
 19	64	16	16	18	18	0	2	2	1	Normal
+18	55	14	14	15	16	1	1	2	2	Normal
 18	60	15	15	17	17	0	2	2	1	Normal
-17	55	14	14	15	15	0	1	1	2	Normal
+16	41	11	11	12	13	1	1	2	3	Normal
 16	40	10	10	12	12	0	2	2	4	Normal
+16	36	9	9	11	11	0	2	2	5	Normal
+16	30	8	8	10	11	1	2	3	5	Normal
+16	28	7	7	9	11	2	2	4	5	Normal
 16	24	6	6	9	9	0	3	3	7	Normal
 16	50	13	13	15	15	0	2	2	1	Normal
-15	41	11	11	12	12	0	1	1	3	Normal
 15	32	8	8	9	11	2	1	3	4	Normal
-15	30	8	8	10	10	0	2	2	5	Normal
 15	25	7	7	9	9	0	2	2	6	Normal
 15	47	12	12	14	14	0	2	2	1	Normal
-14	28	7	7	9	9	0	2	2	5	Normal
 14	44	11	11	13	13	0	2	2	1	Normal
 14	43	11	11	13	13	0	2	2	1	Normal
+13	33	9	9	10	11	1	1	2	2	Normal
+12	5	2	2	5	5	0	3	3	7	Normal
 12	6	2	2	4	4	0	2	2	8	Normal
 12	34	9	9	11	11	0	2	2	1	Normal
+11	18	5	5	6	9	3	1	4	2	Normal
 11	26	7	7	8	8	0	1	1	3	Normal
 11	23	6	6	7	7	0	1	1	4	Normal
 11	10	3	3	5	5	0	2	2	6	Normal
@@ -101,14 +101,14 @@ TF	ID	TQ	TA	TR	TS	Ti	Tc	Tw	Tserv	Mission_Info
 4	2	1	1	2	2	0	1	1	2	Normal
 
 ------------------------------------------------------------
-1- Total Orders: 100 [ODG:30, ODN:35, OT:35, OVC:0, OVG:0, OVN:0, OVB:0]
+1- Total Orders: 200 [ODG:68, ODN:87, OT:42, OVC:0, OVG:0, OVN:0, OVB:3]
 2- Total Chefs: 13 [CN:8, CS:5]
 3- Total Scooters: 8 (All one type)
 4- Percentage of Finished orders: 100%, Cancelled orders: 0%
-5- Percentage of overwait orders (Tw > TH): 7%
-6- Average for finished orders -> Ti: 1.18, Tc: 1.8, Tw: 2.98, Tserv: 3.38
-7- Total COMBO orders: 0
+5- Percentage of overwait orders (Tw > TH): 20%
+6- Average for finished orders -> Ti: 1.9, Tc: 1.8, Tw: 3.7, Tserv: 3.74
+7- Total COMBO orders: 3
 8- Total Rescue missions: 0
 9- Total Overwait OVG (Ready-to-Service wait > TH): 0
 7- Scooters utilization %: 0%
-8- Chefs utilization %: 7.13719%
+8- Chefs utilization %: 10.989%

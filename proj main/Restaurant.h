@@ -17,9 +17,10 @@ using namespace std;
 class Restaurant
 {
 private:
+    int totalCancelActions;
     int currentTime;
     int totalGeneratedOrders;
-    
+    int totalODG, totalODN, totalOT, totalOVC, totalOVG, totalOVN, totalOVB;
     int totalCN;
     int totalCS;
     int totalScooters;
