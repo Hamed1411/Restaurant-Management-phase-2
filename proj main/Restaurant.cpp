@@ -713,7 +713,7 @@ void Restaurant::MoveReadyToService()
     QueueWithCancel tempCheck;
     while (RDY_OV_List.dequeue(pOvCheck)) {
         if (pOvCheck->getType() == OVG && (currentTime - pOvCheck->getTR() > overwaitThreshold)) {
-            // It's overwait! Move to priority list
+           
             RDY_OVG_Overwait.enqueue(pOvCheck, 1000 - pOvCheck->getTQ());
             totalOverwaitOVG++;
             cout << "!!! OVG Order " << pOvCheck->getID() << " became OVERWAIT (Wait in RDY > TH)" << endl;
@@ -721,6 +721,7 @@ void Restaurant::MoveReadyToService()
             tempCheck.enqueue(pOvCheck);
         }
     }
+    //hazem overwait
     while (tempCheck.dequeue(pOvCheck)) {
         RDY_OV_List.enqueue(pOvCheck);
     }
@@ -845,7 +846,7 @@ void Restaurant::MoveReadyToService()
 
         break; // No more orders can be assigned this step
     }
-}
+} //hazem move action
 
 
 void Restaurant::TryCancelPendingOVC()
@@ -925,9 +926,9 @@ void Restaurant::MoveInServiceToFinish()
     {
         if (pOrd == nullptr) continue;
 
-        // Scooter failure logic
+        //hazem Scooter failure logic 
         if (pOrd->isDelivery() && !pOrd->isFailed() && !pOrd->isRescueMission()) {
-            if (RandomInt(1, 100) <= 5) { // 5% probability
+            if (RandomInt(1, 100) <= 5) {
                 pOrd->setFailed(true);
                 rescueCount++;
                 cout << "!!! Scooter FAIL for Order " << pOrd->getID() << " at timestep " << currentTime << endl;
@@ -1001,7 +1002,7 @@ void Restaurant::MoveInServiceToFinish()
     {
         InServ_Orders.enqueue(pOrd, pri);
     }
-}
+} //hazem MoveInServiceToFinish
 
 
 void Restaurant::HandleBackScooters()
@@ -1037,6 +1038,7 @@ void Restaurant::HandleBackScooters()
         }
     }
 }
+//hazem scooter is returned
 
 
 void Restaurant::HandleMaintenanceScooters()
@@ -1052,6 +1054,7 @@ void Restaurant::HandleMaintenanceScooters()
             Free_Scooters.enqueue(pScooter, 100 - pScooter->getID());
     }
 }
+//hazem maintainscooter
 
 
 bool Restaurant::AllOrdersDone() const

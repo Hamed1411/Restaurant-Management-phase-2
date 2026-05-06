@@ -1,0 +1,25 @@
+Test_description.txt
+
+test1.txt:
+50 actions. Basic mixed scenario covering takeaway, dine-in, delivery, chefs, tables, and scooters. Ideal for verifying basic simulation flow.
+
+test2.txt:
+100 actions. Cancellation-focused file. It contains a high volume of OVC orders followed by X actions at various timesteps to thoroughly test cancellation logic in pending, cooking, and ready states.
+
+test3.txt:
+150 actions. Delivery-heavy file testing standard scooter assignment, delivery timing, scooter return (Back_Scooters), and maintenance cycles.
+
+test4.txt:
+200 actions. Bonus-focused scenario introducing COMBO (OVB) orders. Specifically tests the assignment of multiple chefs (up to 4) to a single order and the requirement of at least one Special Chef (CS).
+
+test5.txt:
+250 actions. Advanced resource management scenario. Combines COMBO orders with heavy dine-in traffic to test table capacity management and multi-resource allocation (multiple chefs and multiple scooters).
+
+test6.txt:
+300 actions. Comprehensive stress test. This file covers the most scenarios, including all standard order types, complex cancellations, and all bonus features:
+- COMBO orders requiring multiple resources.
+- Rescue scooter missions triggered by delivery failures.
+- Overwait OVG order prioritization for ready delivery orders exceeding the threshold (TH).
+
+Most comprehensive input file:
+test6.txt

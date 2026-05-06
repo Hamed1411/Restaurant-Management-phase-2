@@ -72,12 +72,12 @@ ostream& operator<<(ostream& out, const scooter* pScooter)
 void scooter::incrementTrips()
 {
     tripsDone++;
-}
+} //hazem increase trips maintainse
 
 bool scooter::needsMaintenance() const
 {
     return tripsDone >= maxTripsBeforeMaintenance;
-}
+} //hazem increase trips maintainse
 
 void scooter::resetTrips()
 {

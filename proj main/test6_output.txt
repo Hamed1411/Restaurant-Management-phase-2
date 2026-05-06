@@ -1,15 +1,15 @@
 TF	ID	TQ	TA	TR	TS	Ti	Tc	Tw	Tserv	Mission_Info
-57	202	55	55	57	56	-1	2	-1	1	Normal
+57	153	42	42	43	52	9	1	10	5	[OVERWAIT] 
+57	197	54	54	56	56	0	2	2	1	Normal
 56	167	46	46	48	51	3	2	5	5	Normal
 56	93	26	26	27	42	15	1	16	14	[OVERWAIT] 
-56	197	54	54	56	55	-1	2	-1	1	Normal
 55	175	48	48	50	50	0	2	2	5	Normal
 54	184	50	50	51	51	0	1	1	3	Normal
 54	120	33	33	34	45	11	1	12	9	[OVERWAIT] 
+54	185	51	51	53	53	0	2	2	1	Normal
 53	86	24	24	25	39	14	1	15	14	[OVERWAIT] 
-53	185	51	51	53	52	-1	2	-1	1	Normal
+53	182	50	50	52	52	0	2	2	1	Normal
 52	180	49	49	50	50	0	1	1	2	Normal
-52	182	50	50	52	51	-1	2	-1	1	Normal
 51	174	48	48	49	49	0	1	1	2	Normal
 51	171	47	47	48	48	0	1	1	3	Normal
 51	163	45	45	47	47	0	2	2	4	Normal
@@ -24,15 +24,15 @@ TF	ID	TQ	TA	TR	TS	Ti	Tc	Tw	Tserv	Mission_Info
 47	131	36	36	39	39	0	3	3	8	Normal
 45	138	38	38	40	40	0	2	2	5	Normal
 45	82	23	23	24	32	8	1	9	13	[OVERWAIT] 
+45	152	42	42	44	44	0	2	2	1	Normal
 44	75	21	21	22	28	6	1	7	16	[OVERWAIT] 
-44	152	42	42	44	43	-1	2	-1	1	Normal
-43	148	41	41	43	42	-1	2	-1	1	Normal
+44	148	41	41	43	43	0	2	2	1	Normal
 42	126	35	35	37	37	0	2	2	5	Normal
 41	132	36	36	37	37	0	1	1	4	Normal
-41	65	18	18	20	37	17	2	19	4	Normal
+41	37	10	10	11	37	26	1	27	4	Normal
+39	130	36	36	38	38	0	2	2	1	Normal
 38	109	30	30	31	35	4	1	5	3	Normal
 38	81	22	22	23	31	8	1	9	7	[OVERWAIT] 
-38	130	36	36	38	37	-1	2	-1	1	Normal
 37	125	34	34	35	35	0	1	1	2	Normal
 37	108	30	30	32	32	0	2	2	5	Normal
 37	101	28	28	30	30	0	2	2	7	Normal
@@ -42,73 +42,73 @@ TF	ID	TQ	TA	TR	TS	Ti	Tc	Tw	Tserv	Mission_Info
 35	102	28	28	30	30	0	2	2	5	Normal
 35	97	27	27	29	29	0	2	2	6	Normal
 34	88	24	24	26	26	0	2	2	8	Normal
-33	111	31	31	33	32	-1	2	-1	1	Normal
+34	111	31	31	33	33	0	2	2	1	Normal
 32	104	29	29	30	30	0	1	1	2	Normal
+32	107	29	29	31	31	0	2	2	1	Normal
 31	76	21	21	23	25	2	2	4	6	Normal
 31	3	1	1	2	2	0	1	1	29	[RESCUED by S2] 
-31	107	29	29	31	30	-1	2	-1	1	Normal
+31	100	28	28	30	30	0	2	2	1	Normal
 30	73	20	20	21	27	6	1	7	3	[OVERWAIT] 
 30	84	23	23	25	25	0	2	2	5	Normal
-30	66	18	18	20	22	2	2	4	8	Normal
 30	5	2	2	3	3	0	1	1	27	[RESCUED by S4] 
-30	100	28	28	30	29	-1	2	-1	1	Normal
 29	85	23	23	25	25	0	2	2	4	Normal
-28	96	26	26	28	27	-1	2	-1	1	Normal
-28	95	26	26	28	27	-1	2	-1	1	Normal
-28	94	26	26	28	27	-1	2	-1	1	Normal
-26	87	24	24	26	25	-1	2	-1	1	Normal
+29	66	18	18	20	21	1	2	3	8	Normal
+29	96	26	26	28	28	0	2	2	1	Normal
+29	95	26	26	28	28	0	2	2	1	Normal
+29	94	26	26	28	28	0	2	2	1	Normal
+27	87	24	24	26	26	0	2	2	1	Normal
 25	77	21	21	22	22	0	1	1	3	Normal
+25	53	15	15	17	20	3	2	5	5	Normal
 25	41	11	11	12	18	6	1	7	7	[OVERWAIT] 
 24	46	13	13	15	17	2	2	4	7	Normal
 24	29	8	8	9	15	6	1	7	9	[OVERWAIT] [RESCUED by S1] 
-23	53	15	15	17	18	1	2	3	5	Normal
+23	74	20	20	22	22	0	2	2	1	Normal
 22	64	18	18	19	19	0	1	1	3	Normal
-22	32	9	9	11	14	3	2	5	8	Normal
-22	74	20	20	22	21	-1	2	-1	1	Normal
+22	70	19	19	21	21	0	2	2	1	Normal
 21	24	7	7	8	14	6	1	7	7	[OVERWAIT] 
-21	70	19	19	21	20	-1	2	-1	1	Normal
+21	32	9	9	11	13	2	2	4	8	Normal
 20	62	17	17	18	18	0	1	1	2	Normal
-20	40	11	11	13	15	2	2	4	5	Normal
+20	20	6	6	9	13	4	3	7	7	Normal
 20	16	5	5	6	12	6	1	7	8	[OVERWAIT] 
-19	63	17	17	19	18	-1	2	-1	1	Normal
-18	20	6	6	9	11	2	3	5	7	Normal
-18	59	16	16	18	17	-1	2	-1	1	Normal
-18	56	16	16	18	17	-1	2	-1	1	Normal
+20	63	17	17	19	19	0	2	2	1	Normal
+19	40	11	11	13	14	1	2	3	5	Normal
+19	59	16	16	18	18	0	2	2	1	Normal
+19	56	16	16	18	18	0	2	2	1	Normal
+18	54	15	15	17	17	0	2	2	1	Normal
 17	49	14	14	15	15	0	1	1	2	Normal
-17	54	15	15	17	16	-1	2	-1	1	Normal
+17	50	14	14	16	16	0	2	2	1	Normal
 16	14	4	4	6	8	2	2	4	8	Normal
-16	50	14	14	16	15	-1	2	-1	1	Normal
-15	23	7	7	8	13	5	1	6	2	Normal
-15	48	13	13	15	14	-1	2	-1	1	Normal
-15	45	13	13	15	14	-1	2	-1	1	Normal
+16	48	13	13	15	15	0	2	2	1	Normal
+16	45	13	13	15	15	0	2	2	1	Normal
+15	44	12	12	14	14	0	2	2	1	Normal
+15	42	12	12	14	14	0	2	2	1	Normal
 14	34	10	10	11	11	0	1	1	3	Normal
-14	44	12	12	14	13	-1	2	-1	1	Normal
-14	42	12	12	14	13	-1	2	-1	1	Normal
+14	38	11	11	13	13	0	2	2	1	Normal
+13	23	7	7	8	11	3	1	4	2	Normal
 13	22	6	6	8	8	0	2	2	5	Normal
 13	9	3	3	5	5	0	2	2	8	Normal
-13	38	11	11	13	12	-1	2	-1	1	Normal
 11	12	4	4	6	6	0	2	2	5	Normal
+11	27	8	8	10	10	0	2	2	1	Normal
 10	7	2	2	4	4	0	2	2	6	Normal
-10	27	8	8	10	9	-1	2	-1	1	Normal
-9	26	7	7	9	8	-1	2	-1	1	Normal
+10	26	7	7	9	9	0	2	2	1	Normal
 8	13	4	4	5	5	0	1	1	3	Normal
+8	19	5	5	7	7	0	2	2	1	Normal
 7	6	2	2	3	3	0	1	1	4	Normal
-7	19	5	5	7	6	-1	2	-1	1	Normal
+6	11	3	3	5	5	0	2	2	1	Normal
 5	4	1	1	2	2	0	1	1	3	Normal
-5	11	3	3	5	4	-1	2	-1	1	Normal
-4	8	2	2	4	3	-1	2	-1	1	Normal
-3	2	1	1	3	2	-1	2	-1	1	Normal
-3	1	1	1	3	2	-1	2	-1	1	Normal
+5	8	2	2	4	4	0	2	2	1	Normal
+4	2	1	1	3	3	0	2	2	1	Normal
+4	1	1	1	3	3	0	2	2	1	Normal
 
 ------------------------------------------------------------
-1- Total Orders: 125 [ODG:25, ODN:25, OT:33, OVC:25, OVG:16, OVN:1, OVB:0]
+1- Total Orders: 125 [ODG:24, ODN:26, OT:32, OVC:25, OVG:17, OVN:1, OVB:0]
 2- Total Chefs: 13 [CN:8, CS:5]
 3- Total Scooters: 8 (All one type)
 4- Percentage of Finished orders: 80%, Cancelled orders: 20%
-5- Percentage of overwait orders (Tw > TH): 16%
-6- Average for finished orders -> Ti: 1.24, Tc: 1.69, Tw: 2.27, Tserv: 5
-7- Total COMBO orders: 0
-8- Total Rescue missions: 55
-9- Total Overwait OVG (Ready-to-Service wait > TH): 47
-7- Scooters utilization %: 8.71094%
-8- Chefs utilization %: 4.0625%
+5- Percentage of overwait orders (Tw > TH): 17%
+6- Average for finished orders -> Ti: 1.74, Tc: 1.67, Tw: 3.41, Tserv: 5.04
+7- Total COMBO orders: 3
+8- Total Rescue missions: 53
+9- Total Overwait OVG (Ready-to-Service wait > TH): 45
+7- Scooters utilization %: 8.90625%
+8- Chefs utilization %: 4.01442%
