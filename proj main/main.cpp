@@ -83,7 +83,7 @@ int main()
         cout << "Simulation ends, Output file created\n";
     }
 
-    // Generate the Phase 2 specific output file (this will overwrite any trace written to the file)
+    // Generate the output file 
     r.GenerateOutputFile(outputFileName);
 
     return 0;

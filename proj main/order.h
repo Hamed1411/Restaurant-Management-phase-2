@@ -109,7 +109,7 @@ public:
 
 	double getPriority() const;
 
-	// Rescue mission helpers
+	// Rescue mission helpers (bonus)
 	void setRescue(bool r);
 	bool isRescueMission() const;
 	void setRescueScooter(scooter* s);
@@ -119,6 +119,8 @@ public:
 
 	friend ostream& operator<<(ostream& out, const order* pOrd);
 };
+
+// print only the order ID
 struct OrderIDOnly {
 	const order* ord;
 	OrderIDOnly(const order* o) : ord(o) {}

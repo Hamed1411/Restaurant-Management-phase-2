@@ -2,7 +2,7 @@
 #include "Action.h"
 #include "CancelAction.h"
 #include "RequestAction.h"
-#include <cstdlib>
+
 Restaurant::Restaurant()
 {
     currentTime = 1;
@@ -1104,9 +1104,9 @@ void Restaurant::OutputStatusBar()
     cout << "Phase 2 input-file simulation mode\n";
     cout << "--> Print ONLY the first 10 actions currently in the actions list\n\n";
 
-    cout << "------------- Pending Orders IDs -----------------\n";
+    cout << "------------- Pending Orders IDs -----------------\n" << endl;
     cout << "For each pending list print\n";
-    cout << "List count, order type, IDs of all orders in the list\n";
+    cout << "List count, order type, IDs of all orders in the list\n" << endl;
 
     cout << PEND_ODG.getCount() << " ODG: ";
     PEND_ODG.print();
@@ -1142,7 +1142,7 @@ void Restaurant::OutputStatusBar()
         PEND_COMBO.print();
     cout << endl << endl;
 
-    cout << "------------- Available chefs IDs -----------------\n";
+    cout << "------------- Available chefs IDs -----------------\n" << endl;
 
     cout << Free_CS.getCount() << " CS (Special): ";
     Free_CS.print();
@@ -1152,7 +1152,7 @@ void Restaurant::OutputStatusBar()
     Free_CN.print();
     cout << endl << endl;
 
-    cout << "------------- Cooking orders [Orders ID, chef IDs] -----------------\n";
+    cout << "------------- Cooking orders [Orders ID, chef IDs] -----------------\n" << endl;
     cout << Cooking_Orders.getCount() << " cooking orders: ";
 
     if (Cooking_Orders.isEmpty())
@@ -1193,7 +1193,7 @@ void Restaurant::OutputStatusBar()
     cout << endl << endl;
 
     cout << "------------- Ready Orders IDs -----------------\n";
-    cout << "List count, order type, IDs of all orders in the list\n";
+    cout << "List count, order type, IDs of all orders in the list\n" << endl;
 
     cout << RDY_OD.getCount() << " RDY_OD: ";
     RDY_OD.print();
@@ -1216,7 +1216,7 @@ void Restaurant::OutputStatusBar()
     else RDY_OVG_Overwait.print();
     cout << endl << endl;
 
-    cout << "------------- Available scooters IDs -----------------\n";
+    cout << "------------- Available scooters IDs -----------------\n" << endl;
     cout << Free_Scooters.getCount() << " Scooters: ";
     if (Free_Scooters.isEmpty())
         cout << "The list is empty.";
@@ -1224,7 +1224,7 @@ void Restaurant::OutputStatusBar()
         Free_Scooters.print();
     cout << endl << endl;
 
-    cout << "------------- Available tables [ID, capacity, free seats] -----------------\n";
+    cout << "------------- Available tables [ID, capacity, free seats] -----------------\n" << endl;
     cout << Free_Tables.getCount() << " tables: ";
     if (Free_Tables.isEmpty())
         cout << "The list is empty.";
@@ -1232,7 +1232,7 @@ void Restaurant::OutputStatusBar()
         Free_Tables.print();
     cout << endl << endl;
 
-    cout << "------------- In-Service orders [order ID, scooter/Table ID] -----------------\n";
+    cout << "------------- In-Service orders [order ID, scooter/Table ID] -----------------\n" << endl;
     cout << InServ_Orders.getCount() << " Orders: ";
 
     if (InServ_Orders.isEmpty())
@@ -1282,29 +1282,9 @@ void Restaurant::OutputStatusBar()
 
     cout << endl << endl;
 
-    // Add a dedicated line for failed orders if any exist
-    {
-        priQueue<order*> tempInServ;
-        order* pServOrd = nullptr;
-        int servPri = 0;
-        bool firstFailed = true;
-        int failedCount = 0;
+   
 
-        while (InServ_Orders.dequeue(pServOrd, servPri)) {
-            if (pServOrd && pServOrd->isFailed() && !pServOrd->isRescueMission()) {
-                if (firstFailed) cout << ">>> ORDERS WAITING FOR RESCUE: ";
-                else cout << ", ";
-                cout << pServOrd->getID();
-                firstFailed = false;
-                failedCount++;
-            }
-            tempInServ.enqueue(pServOrd, servPri);
-        }
-        while (tempInServ.dequeue(pServOrd, servPri)) InServ_Orders.enqueue(pServOrd, servPri);
-        if (failedCount > 0) cout << endl << endl;
-    }
-
-    cout << "------------- Failed scooters IDs -----------------\n";
+    cout << "------------- Failed scooters IDs -----------------\n" <<endl;
     cout << Failed_Scooters.getCount() << " scooters: ";
     if (Failed_Scooters.isEmpty())
         cout << "The list is empty.";
@@ -1312,7 +1292,7 @@ void Restaurant::OutputStatusBar()
         Failed_Scooters.print();
     cout << endl << endl;
 
-    cout << "------------- In-maintainance scooters IDs -----------------\n";
+    cout << "------------- In-maintainance scooters IDs -----------------\n" << endl;
     cout << Maint_Scooters.getCount() << " scooters: ";
     if (Maint_Scooters.isEmpty())
         cout << "The list is empty.";
@@ -1320,7 +1300,7 @@ void Restaurant::OutputStatusBar()
         Maint_Scooters.print();
     cout << endl << endl;
 
-    cout << "------------- Scooters Back to Restaurant IDs -----------------\n";
+    cout << "------------- Scooters Back to Restaurant IDs -----------------\n" << endl;
     cout << Back_Scooters.getCount() << " scooters: ";
     if (Back_Scooters.isEmpty())
         cout << "The list is empty.";
@@ -1328,7 +1308,7 @@ void Restaurant::OutputStatusBar()
         Back_Scooters.print();
     cout << endl << endl;
 
-    cout << "------------- Cancelled Orders IDs -----------------\n";
+    cout << "------------- Cancelled Orders IDs -----------------\n" << endl;
     cout << Cancelled_orders.getCount() << " cancelled: ";
     if (Cancelled_orders.isEmpty())
         cout << "The list is empty.";
@@ -1336,7 +1316,7 @@ void Restaurant::OutputStatusBar()
         Cancelled_orders.print2();
     cout << endl << endl;
 
-    cout << "------------- Finished orders IDs -----------------\n";
+    cout << "------------- Finished orders IDs -----------------\n" << endl;
     cout << Finished_orders.getCount() << " Orders: ";
     if (Finished_orders.isEmpty())
         cout << "The list is empty.";

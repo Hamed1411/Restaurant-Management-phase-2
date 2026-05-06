@@ -1,277 +1,56 @@
-Current Timestep:1
-================ Actions List ================
-For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
-Phase 2 input-file simulation mode
---> Print ONLY the first 10 actions currently in the actions list
-
-------------- Pending Orders IDs -----------------
-For each pending list print
-List count, order type, IDs of all orders in the list
-0 ODG: The list is empty.
-
-0 ODN: The list is empty.
-
-0 OT: The list is empty.
-
-0 OVC: The list is empty.
-
-0 OVN: The list is empty.
-
-0 OVG: The list is empty.
-
-0 COMBO (Pending Multi-Chef): Empty
-
-------------- Available chefs IDs -----------------
-4 CS (Special): [202], [203], [204], [205]
-
-5 CN (Normal): [104], [105], [106], [107], [108]
-
-
-------------- Cooking orders [Orders ID, chef IDs] -----------------
-4 cooking orders: [2, Chefs: 101], [4, Chefs: 102], [1, Chefs: 201], [3, Chefs: 103]
-
-------------- Ready Orders IDs -----------------
-List count, order type, IDs of all orders in the list
-0 RDY_OD: The list is empty.
-
-0 RDY_OT: The list is empty.
-
-0 RDY_OV: The list is empty.
-
-0 RDY_COMBO (Ready Multi-Scooter): The list is empty.
-
-0 RDY_OVG_Overwait (High Priority): Empty
-
-------------- Available scooters IDs -----------------
-8 Scooters: S1, S2, S3, S4, S5, S6, S7, S8
-
-------------- Available tables [ID, capacity, free seats] -----------------
-10 tables: [T1, 2, 2], [T2, 2, 2], [T3, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
-
-------------- In-Service orders [order ID, scooter/Table ID] -----------------
-0 Orders: Empty
-
-------------- Failed scooters IDs -----------------
-0 scooters: The list is empty.
-
-------------- In-maintainance scooters IDs -----------------
-0 scooters: The list is empty.
-
-------------- Scooters Back to Restaurant IDs -----------------
-0 scooters: The list is empty.
-
-------------- Cancelled Orders IDs -----------------
-0 cancelled: The list is empty.
-
-------------- Finished orders IDs -----------------
-0 Orders: The list is empty.
-
-Press ENTER to move to next step...
-Current Timestep:2
-================ Actions List ================
-For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
-Phase 2 input-file simulation mode
---> Print ONLY the first 10 actions currently in the actions list
-
-------------- Pending Orders IDs -----------------
-For each pending list print
-List count, order type, IDs of all orders in the list
-0 ODG: The list is empty.
-
-0 ODN: The list is empty.
-
-0 OT: The list is empty.
-
-0 OVC: The list is empty.
-
-0 OVN: The list is empty.
-
-0 OVG: The list is empty.
-
-0 COMBO (Pending Multi-Chef): Empty
-
-------------- Available chefs IDs -----------------
-3 CS (Special): [204], [205], [201]
-
-5 CN (Normal): [106], [107], [108], [102], [103]
-
-
-------------- Cooking orders [Orders ID, chef IDs] -----------------
-5 cooking orders: [2, Chefs: 101], [8, Chefs: 202], [6, Chefs: 203], [5, Chefs: 104], [7, Chefs: 105]
-
-------------- Ready Orders IDs -----------------
-List count, order type, IDs of all orders in the list
-0 RDY_OD: The list is empty.
-
-0 RDY_OT: The list is empty.
-
-0 RDY_OV: The list is empty.
-
-0 RDY_COMBO (Ready Multi-Scooter): The list is empty.
-
-0 RDY_OVG_Overwait (High Priority): Empty
-
-------------- Available scooters IDs -----------------
-6 Scooters: S3, S4, S5, S6, S7, S8
-
-------------- Available tables [ID, capacity, free seats] -----------------
-10 tables: [T1, 2, 2], [T2, 2, 2], [T3, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
-
-------------- In-Service orders [order ID, scooter/Table ID] -----------------
-2 Orders: [3, S2], [1, S1]
-
-------------- Failed scooters IDs -----------------
-0 scooters: The list is empty.
-
-------------- In-maintainance scooters IDs -----------------
-0 scooters: The list is empty.
-
-------------- Scooters Back to Restaurant IDs -----------------
-2 scooters: S2, S1
-
-------------- Cancelled Orders IDs -----------------
-0 cancelled: The list is empty.
-
-------------- Finished orders IDs -----------------
-1 Orders: 4
-
-Press ENTER to move to next step...
-!!! Scooter FAIL for Order 1 at timestep 3
->>> Rescue Scooter 3 assigned to Order 1
-Current Timestep:3
-================ Actions List ================
-For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
-Phase 2 input-file simulation mode
---> Print ONLY the first 10 actions currently in the actions list
-
-------------- Pending Orders IDs -----------------
-For each pending list print
-List count, order type, IDs of all orders in the list
-0 ODG: The list is empty.
-
-0 ODN: The list is empty.
-
-0 OT: The list is empty.
-
-0 OVC: The list is empty.
-
-0 OVN: The list is empty.
-
-0 OVG: The list is empty.
-
-0 COMBO (Pending Multi-Chef): Empty
-
-------------- Available chefs IDs -----------------
-5 CS (Special): [204], [205], [201], [202], [203]
-
-5 CN (Normal): [102], [103], [101], [104], [105]
-
-
-------------- Cooking orders [Orders ID, chef IDs] -----------------
-3 cooking orders: [9, Chefs: 106], [10, Chefs: 107], [11, Chefs: 108]
-
-------------- Ready Orders IDs -----------------
-List count, order type, IDs of all orders in the list
-0 RDY_OD: The list is empty.
-
-0 RDY_OT: The list is empty.
-
-0 RDY_OV: The list is empty.
-
-0 RDY_COMBO (Ready Multi-Scooter): The list is empty.
-
-0 RDY_OVG_Overwait (High Priority): Empty
-
-------------- Available scooters IDs -----------------
-1 Scooters: S8
-
-------------- Available tables [ID, capacity, free seats] -----------------
-9 tables: [T2, 2, 2], [T3, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
-
-------------- In-Service orders [order ID, scooter/Table ID] -----------------
-6 Orders: [7, S7], [2, T1], [5, S6], [8, S4], [6, S5], [1, RESCUE-S3]
-
-------------- Failed scooters IDs -----------------
-1 scooters: S1
-
-
-------------- In-maintainance scooters IDs -----------------
-0 scooters: The list is empty.
-
-------------- Scooters Back to Restaurant IDs -----------------
-6 scooters: S2, S7, S6, S1, S4, S5
-
-------------- Cancelled Orders IDs -----------------
-1 cancelled: 3
-
-------------- Finished orders IDs -----------------
-1 Orders: 4
-
-Press ENTER to move to next step...
-Current Timestep:4
-================ Actions List ================
-For reQuest action: print [Order Type, TQ, order ID], For cancel print (X, Tcancel, order ID)
-Phase 2 input-file simulation mode
---> Print ONLY the first 10 actions currently in the actions list
-
-------------- Pending Orders IDs -----------------
-For each pending list print
-List count, order type, IDs of all orders in the list
-0 ODG: The list is empty.
-
-0 ODN: The list is empty.
-
-0 OT: The list is empty.
-
-0 OVC: The list is empty.
-
-0 OVN: The list is empty.
-
-0 OVG: The list is empty.
-
-0 COMBO (Pending Multi-Chef): Empty
-
-------------- Available chefs IDs -----------------
-3 CS (Special): [201], [202], [203]
-
-6 CN (Normal): [101], [104], [105], [106], [107], [108]
-
-
-------------- Cooking orders [Orders ID, chef IDs] -----------------
-4 cooking orders: [14, Chefs: 204], [15, Chefs: 205], [12, Chefs: 102], [13, Chefs: 103]
-
-------------- Ready Orders IDs -----------------
-List count, order type, IDs of all orders in the list
-0 RDY_OD: The list is empty.
-
-0 RDY_OT: The list is empty.
-
-0 RDY_OV: The list is empty.
-
-0 RDY_COMBO (Ready Multi-Scooter): The list is empty.
-
-0 RDY_OVG_Overwait (High Priority): Empty
-
-------------- Available scooters IDs -----------------
-0 Scooters: The list is empty.
-
-------------- Available tables [ID, capacity, free seats] -----------------
-8 tables: [T3, 2, 2], [T4, 4, 4], [T5, 4, 4], [T6, 4, 4], [T7, 6, 6], [T8, 6, 6], [T9, 8, 8], [T10, 8, 8]
-
-------------- In-Service orders [order ID, scooter/Table ID] -----------------
-8 Orders: [9, T2], [7, S7], [2, T1], [5, S6], [8, S4], [6, S5], [11, S8], [1, RESCUE-S3]
-
-------------- Failed scooters IDs -----------------
-1 scooters: S1
-
-
-------------- In-maintainance scooters IDs -----------------
-0 scooters: The list is empty.
-
-------------- Scooters Back to Restaurant IDs -----------------
-7 scooters: S2, S7, S6, S1, S4, S5, S8
-
-------------- Cancelled Orders IDs -----------------
-1 cancelled: 3
-
---
+TF	ID	TQ	TA	TR	TS	Ti	Tc	Tw	Tserv	Mission_Info
+103	29	8	8	9	46	37	1	38	57	[RESCUED by S2] 
+67	23	7	7	8	44	36	1	37	23	[RESCUED by S1] 
+67	25	7	7	8	47	39	1	40	20	[RESCUED by S1] 
+53	30	8	8	9	48	39	1	40	5	Normal
+53	13	4	4	5	9	4	1	5	44	[RESCUED by S5] 
+45	42	12	12	13	37	24	1	25	8	Normal
+42	16	5	5	6	30	24	1	25	12	Normal
+40	35	10	10	11	38	27	1	28	2	Normal
+38	33	9	9	10	20	10	1	11	18	[OVERWAIT] 
+37	19	5	5	6	29	23	1	24	8	Normal
+37	41	11	11	12	21	9	1	10	16	Normal
+35	44	12	12	13	27	14	1	15	8	Normal
+27	12	4	4	5	23	18	1	19	4	Normal
+27	32	9	9	10	22	12	1	13	5	Normal
+26	18	5	5	6	12	6	1	7	14	Normal
+21	40	11	11	14	14	0	3	3	7	Normal
+20	39	11	11	12	14	2	1	3	6	Normal
+19	20	6	6	7	11	4	1	5	8	Normal
+19	28	8	8	9	10	1	1	2	9	Normal
+19	1	1	1	2	2	0	1	1	17	[RESCUED by S3] 
+18	34	10	10	12	12	0	2	2	6	Normal
+17	26	7	7	9	9	0	2	2	8	Normal
+17	6	2	2	3	3	0	1	1	14	Normal
+16	24	7	7	9	9	0	2	2	7	Normal
+15	27	8	8	10	10	0	2	2	5	Normal
+15	46	13	13	15	14	-1	2	-1	1	Normal
+15	45	13	13	15	14	-1	2	-1	1	Normal
+14	14	4	4	7	7	0	3	3	7	Normal
+14	43	12	12	14	13	-1	2	-1	1	Normal
+13	37	10	10	11	11	0	1	1	2	Normal
+13	17	5	5	7	7	0	2	2	6	Normal
+13	38	11	11	13	12	-1	2	-1	1	Normal
+12	31	9	9	10	10	0	1	1	2	Normal
+12	8	2	2	3	3	0	1	1	9	Normal
+12	36	10	10	12	11	-1	2	-1	1	Normal
+11	15	4	4	6	6	0	2	2	5	Normal
+10	22	6	6	7	7	0	1	1	3	Normal
+10	2	1	1	3	3	0	2	2	7	Normal
+8	21	6	6	8	7	-1	2	-1	1	Normal
+6	9	3	3	4	4	0	1	1	2	Normal
+5	10	3	3	5	4	-1	2	-1	1	Normal
+3	4	1	1	3	2	-1	2	-1	1	Normal
+
+------------------------------------------------------------
+1- Total Orders: 46 [ODG:6, ODN:7, OT:8, OVC:14, OVG:6, OVN:5, OVB:0]
+2- Total Chefs: 13 [CN:8, CS:5]
+3- Total Scooters: 8 (All one type)
+4- Percentage of Finished orders: 91.3043%, Cancelled orders: 8.69565%
+5- Percentage of overwait orders (Tw > TH): 33.3333%
+6- Average for finished orders -> Ti: 7.64286, Tc: 1.45238, Tw: 8.71429, Tserv: 9.09524
+7- Total COMBO orders: 0
+8- Total Rescue missions: 11
+9- Total Overwait OVG (Ready-to-Service wait > TH): 1
+7- Scooters utilization %: 36.899%
+8- Chefs utilization %: 4.51183%
