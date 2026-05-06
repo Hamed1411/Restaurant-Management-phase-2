@@ -360,6 +360,7 @@ void Restaurant::ExecuteCurrentActions()
 
 void Restaurant::AddOrderToPending(order* pOrd)
 {
+    totalGeneratedOrders++;
     switch (pOrd->getType())
     {
     case ODG:
@@ -780,8 +781,9 @@ void Restaurant::MoveReadyToService()
         }
 
         // Priority 3: OT, OD, then regular OV
-        if (RDY_OT.dequeue(pOrd))
+        if (RDY_OT.peek(pOrd) && pOrd->getTR() <= currentTime)
         {
+            RDY_OT.dequeue(pOrd);
             if (pOrd != nullptr)
             {
                 pOrd->setTS(currentTime);
