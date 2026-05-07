@@ -866,71 +866,6 @@ void Restaurant::MoveReadyToService()
 } //hazem move action
 
 
-void Restaurant::TryCancelPendingOVC()
-{
-    if (totalGeneratedOrders <= 0)
-        return;
-
-    int id = RandomInt(1, totalGeneratedOrders);
-    order* pOrd = nullptr;
-
-    if (PEND_OVC.cancelOrderByID(id, pOrd))
-    {
-        if (pOrd != nullptr)
-            Cancelled_orders.enqueue(pOrd);
-    }
-}
-
-
-void Restaurant::TryCancelReadyOVC()
-{
-    if (totalGeneratedOrders <= 0)
-        return;
-
-    int id = RandomInt(1, totalGeneratedOrders);
-    order* pOrd = nullptr;
-
-    if (RDY_OV_List.cancelOrderByID(id, pOrd))
-    {
-        if (pOrd != nullptr)
-        {
-            if (pOrd->getType() == OVC)
-                Cancelled_orders.enqueue(pOrd);
-            else
-                RDY_OV_List.enqueue(pOrd);
-        }
-    }
-}
-
-
-void Restaurant::TryCancelCookingOV()
-{
-    if (totalGeneratedOrders <= 0)
-        return;
-
-    int id = RandomInt(1, totalGeneratedOrders);
-    order* pOrd = nullptr;
-
-    if (Cooking_Orders.cancelOrderByID(id, pOrd))
-    {
-        if (pOrd != nullptr)
-        {
-            chef* pChef = pOrd->getChef();
-            if (pChef != nullptr)
-            {
-                if (pChef->getType() == CS)
-                    Free_CS.enqueue(pChef);
-                else
-                    Free_CN.enqueue(pChef);
-            }
-
-            if (pOrd->isDelivery())
-                Cancelled_orders.enqueue(pOrd);
-            else
-                Cooking_Orders.enqueue(pOrd, 100 - pOrd->getTR());
-        }
-    }
-}
 
 
 void Restaurant::MoveInServiceToFinish()
@@ -1077,7 +1012,7 @@ bool Restaurant::AllOrdersDone() const
     return Finished_orders.getCount() + Cancelled_orders.getCount() >= totalGeneratedOrders;
 }
 
-// new //
+// new // 
 void Restaurant::BindOrderToChef(order* pOrd, chef* pChef)
 {
     pChef->setBusy(true);

@@ -4,23 +4,18 @@
 
 class Restaurant;
 
-class RequestAction : public Action
-{
+class RequestAction : public Action {
 private:
-    order* pOrder;
+  order *pOrder;
 
 public:
-    RequestAction(int TS, order* ord, Restaurant* r)
-        : Action(TS, r)
-    {
-        pOrder = ord;
-    }
+  RequestAction(int TS, order *ord, Restaurant *r) : Action(TS, r) {
+    pOrder = ord;
+  }
 
-    virtual void ACT() override
-    {
-        if (pOrder != nullptr)
-        {
-            pRest->AddOrderToPending(pOrder);
-        }
+  virtual void ACT() override {
+    if (pOrder != nullptr) {
+      pRest->AddOrderToPending(pOrder);
     }
+  }
 };

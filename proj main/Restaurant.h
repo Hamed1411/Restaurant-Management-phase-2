@@ -84,9 +84,7 @@ public:
     void MovePendingToCooking();
     void MoveCookingToReady();
     void MoveReadyToService();
-    void TryCancelPendingOVC();
-    void TryCancelReadyOVC();
-    void TryCancelCookingOV();
+    
     void MoveInServiceToFinish();
     void HandleBackScooters();
     void HandleMaintenanceScooters();

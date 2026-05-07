@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\mahse\\source\\repos\\Restaurant-Management-phase-2\\New folder\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9DA91991-859C-4EA1-A651-63DF58AF4FB5}|DS project 1.2.vcxproj|C:\\Users\\mahse\\source\\repos\\Restaurant-Management-phase-2\\New folder\\Restaurant.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9DA91991-859C-4EA1-A651-63DF58AF4FB5}|DS project 1.2.vcxproj|solutionrelative:Restaurant.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DA91991-859C-4EA1-A651-63DF58AF4FB5}|DS project 1.2.vcxproj|C:\\Users\\mahse\\source\\repos\\Restaurant-Management-phase-2\\New folder\\order.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9DA91991-859C-4EA1-A651-63DF58AF4FB5}|DS project 1.2.vcxproj|solutionrelative:order.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DA91991-859C-4EA1-A651-63DF58AF4FB5}|DS project 1.2.vcxproj|C:\\Users\\mahse\\source\\repos\\Restaurant-Management-phase-2\\New folder\\Restaurant.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9DA91991-859C-4EA1-A651-63DF58AF4FB5}|DS project 1.2.vcxproj|solutionrelative:Restaurant.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DA91991-859C-4EA1-A651-63DF58AF4FB5}|DS project 1.2.vcxproj|C:\\Users\\mahse\\source\\repos\\Restaurant-Management-phase-2\\New folder\\order.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9DA91991-859C-4EA1-A651-63DF58AF4FB5}|DS project 1.2.vcxproj|solutionrelative:order.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Restaurant.cpp",
+              "DocumentMoniker": "C:\\Users\\mahse\\source\\repos\\Restaurant-Management-phase-2\\New folder\\Restaurant.cpp",
+              "RelativeDocumentMoniker": "Restaurant.cpp",
+              "ToolTip": "C:\\Users\\mahse\\source\\repos\\Restaurant-Management-phase-2\\New folder\\Restaurant.cpp",
+              "RelativeToolTip": "Restaurant.cpp",
+              "ViewState": "AgIAANQCAAAAAAAAAAAqwBwEAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-07T00:25:35.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Restaurant.h",
+              "DocumentMoniker": "C:\\Users\\mahse\\source\\repos\\Restaurant-Management-phase-2\\New folder\\Restaurant.h",
+              "RelativeDocumentMoniker": "Restaurant.h",
+              "ToolTip": "C:\\Users\\mahse\\source\\repos\\Restaurant-Management-phase-2\\New folder\\Restaurant.h",
+              "RelativeToolTip": "Restaurant.h",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAFYAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-07T00:24:06.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "order.h",
+              "DocumentMoniker": "C:\\Users\\mahse\\source\\repos\\Restaurant-Management-phase-2\\New folder\\order.h",
+              "RelativeDocumentMoniker": "order.h",
+              "ToolTip": "C:\\Users\\mahse\\source\\repos\\Restaurant-Management-phase-2\\New folder\\order.h",
+              "RelativeToolTip": "order.h",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-07T00:22:43.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "order.cpp",
+              "DocumentMoniker": "C:\\Users\\mahse\\source\\repos\\Restaurant-Management-phase-2\\New folder\\order.cpp",
+              "RelativeDocumentMoniker": "order.cpp",
+              "ToolTip": "C:\\Users\\mahse\\source\\repos\\Restaurant-Management-phase-2\\New folder\\order.cpp",
+              "RelativeToolTip": "order.cpp",
+              "ViewState": "AgIAAGIBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-07T00:22:35.217Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

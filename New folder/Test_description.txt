@@ -1,4 +1,13 @@
-Test_description.txt
+Q <Type> <Timestep> <ID> <Size> <Price> <Distance>
+
+Q      -> Request Action
+OVC    -> Delivery order type (VIP Customer)
+1      -> Timestep
+1      -> Order ID
+2      -> Size
+75     -> Price
+1326   -> Distance
+
 
 test1.txt:
 50 actions. Basic mixed scenario covering takeaway, dine-in, delivery, chefs, tables, and scooters. Ideal for verifying basic simulation flow.

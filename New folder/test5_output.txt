@@ -104,7 +104,7 @@ TF	ID	TQ	TA	TR	TS	Ti	Tc	Tw	Tserv	Mission_Info
 1- Total Orders: 226 [ODG:26, ODN:21, OT:24, OVC:23, OVG:24, OVN:32, OVB:76]
 2- Total Chefs: 13 [CN:8, CS:5]
 3- Total Scooters: 8 (All one type)
-4- Percentage of Finished orders: 80.6452%, Cancelled orders: 19.3548%
+4- Percentage of Finished orders: 95.2381%, Cancelled orders: 4.7619%
 5- Percentage of overwait orders (Tw > TH): 23%
 6- Average for finished orders -> Ti: 2.67, Tc: 1.57, Tw: 4.24, Tserv: 5.47
 7- Total COMBO orders: 76
